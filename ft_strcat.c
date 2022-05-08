@@ -6,11 +6,11 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 15:31:24 by htsang            #+#    #+#             */
-/*   Updated: 2022/05/08 15:33:02 by htsang           ###   ########.fr       */
+/*   Updated: 2022/05/08 16:30:52 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *restrict dest, const char *restrict src)
+char	*ft_strcat(char *dest, const char *src)
 {
 	char	*dest_start;
 
