@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 15:25:57 by htsang            #+#    #+#             */
-/*   Updated: 2022/05/08 15:26:21 by htsang           ###   ########.fr       */
+/*   Updated: 2022/05/08 16:38:01 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ int	ft_strcmp(const char *s1, const char *s2)
 		s1++;
 		s2++;
 	}
-	return (*s1 - *s2);
+	return ((unsigned char) *s1 - (unsigned char) *s2);
 }
