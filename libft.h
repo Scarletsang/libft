@@ -6,14 +6,14 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 15:21:27 by htsang            #+#    #+#             */
-/*   Updated: 2022/05/08 19:32:10 by htsang           ###   ########.fr       */
+/*   Updated: 2022/05/08 22:59:21 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#include <string.h>
+# include <string.h>
 
 int		ft_isalpha(int c);
 
@@ -52,5 +52,11 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t n);
 char	*ft_strchr(const char *str, int c);
 
 char	*ft_strrchr(const char *str, int c);
+
+char	*ft_strdup(const char *str);
+
+void	ft_bzero(void *str, size_t n);
+
+int		ft_atoi(const char *str);
 
 #endif
