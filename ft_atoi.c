@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 22:42:04 by htsang            #+#    #+#             */
-/*   Updated: 2022/05/09 21:30:51 by htsang           ###   ########.fr       */
+/*   Updated: 2022/05/09 22:01:00 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,20 @@ int	ft_atoi(const char *str)
 	sign = 1;
 	while (ft_isspace(*str))
 		str++;
-	if (*str == '+')
-		str++;
 	if (*str == '-')
-	{
 		sign *= -1;
+	if (*str == '-' || *str == '+')
 		str++;
-	}
 	while (ft_isdigit(*str))
 	{
 		number = number * 10 + (*str - '0');
-		if (sign == -1 && number < 0)
-			return (0);
-		if (sign == 1 && number < 0)
-			return (-1);
+		if (number < 0)
+		{
+			if (sign == -1)
+				return (0);
+			if (sign == 1)
+				return (-1);
+		}
 		str++;
 	}
 	return ((int) number * sign);
