@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 22:42:04 by htsang            #+#    #+#             */
-/*   Updated: 2022/05/08 22:57:05 by htsang           ###   ########.fr       */
+/*   Updated: 2022/05/09 18:02:14 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	static	ft_isspace(int c)
 
 int	ft_atoi(const char *str)
 {
-	int	number;
-	int	sign;
+	long	number;
+	int		sign;
 
 	number = 0;
 	sign = 1;
@@ -46,5 +46,5 @@ int	ft_atoi(const char *str)
 		number += (*str - '0');
 		str++;
 	}
-	return (number * sign);
+	return ((int) number * sign);
 }
