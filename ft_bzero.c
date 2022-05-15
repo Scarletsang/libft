@@ -6,22 +6,14 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 22:21:34 by htsang            #+#    #+#             */
-/*   Updated: 2022/05/08 22:26:40 by htsang           ###   ########.fr       */
+/*   Updated: 2022/05/09 23:57:36 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 void	ft_bzero(void *str, size_t n)
 {
-	char	*p;
-
-	p = (char *) str;
-	while (n > 0)
-	{
-		*p = 0;
-		p++;
-		n--;
-	}
+	ft_memset(str, 0, n);
 	return ;
 }
