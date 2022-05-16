@@ -1,5 +1,5 @@
 NAME= libft.a
-LIBC_OBJS= ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o ft_memchr.o ft_memcmp.o ft_strlen.o ft_strdup.o ft_strcpy.o ft_strlcpy.o ft_strncpy.o ft_strcat.o ft_strncat.o ft_strlcat.o ft_strchr.o ft_strrchr.o ft_strstr.o ft_strnstr.o ft_strcmp.o ft_strncmp.o ft_atoi.o ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_toupper.o ft_tolower.o
+LIBC_OBJS= ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o ft_memchr.o ft_memcmp.o ft_calloc.o ft_strlen.o ft_strdup.o ft_strcpy.o ft_strlcpy.o ft_strncpy.o ft_strcat.o ft_strncat.o ft_strlcat.o ft_strchr.o ft_strrchr.o ft_strstr.o ft_strnstr.o ft_strcmp.o ft_strncmp.o ft_atoi.o ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_toupper.o ft_tolower.o
 FLAGS= -Wall -Wextra -Werror
 
 all: ${NAME}
@@ -27,6 +27,9 @@ ft_memchr.o: ft_memchr.c
 
 ft_memcmp.o: ft_memcmp.c
 	gcc ${FLAGS} -c ft_memcmp.c
+
+ft_calloc.o: ft_calloc.c
+	gcc ${FLAGS} -c ft_calloc.c
 
 ft_strlen.o: ft_strlen.c
 	gcc ${FLAGS} -c ft_strlen.c
