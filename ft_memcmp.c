@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 00:09:49 by htsang            #+#    #+#             */
-/*   Updated: 2022/05/16 19:51:13 by htsang           ###   ########.fr       */
+/*   Updated: 2022/05/16 19:57:15 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		str2++;
 		n--;
 	}
-	return (*str2 - *str1);
+	return (*str1 - *str2);
 }
