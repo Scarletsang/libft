@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 00:09:49 by htsang            #+#    #+#             */
-/*   Updated: 2022/05/10 00:19:11 by htsang           ###   ########.fr       */
+/*   Updated: 2022/05/16 19:51:13 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 
 	str1 = (unsigned char *) s1;
 	str2 = (unsigned char *) s2;
-	while (*str1 && *str2 && *str1 == *str2 && n > 0)
+	while (*str1 == *str2 && n > 0)
 	{
 		str1++;
 		str2++;
 		n--;
 	}
-	return (*str1 - *str2);
+	return (*str2 - *str1);
 }
