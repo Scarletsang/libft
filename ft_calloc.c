@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 23:46:51 by htsang            #+#    #+#             */
-/*   Updated: 2022/05/19 17:47:03 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/17 16:59:41 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_calloc(size_t count, size_t size)
 	void	*str;
 	size_t	total;
 
-	if ((size_t) -1/ size < count)
+	if ((size_t) -1 / size < count)
 	{
 		return (NULL);
 	}
