@@ -6,36 +6,39 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 16:30:46 by htsang            #+#    #+#             */
-/*   Updated: 2022/05/15 17:45:33 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/18 18:58:52 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
+void static	*ft_memcpy_from_last(void *dest, const void *src, size_t size)
+{
+	void	*original_dest;
+
+	original_dest = dest;
+	while (size > 0)
+	{
+		*(unsigned char *)(dest + size - 1) = \
+		*(unsigned char *)(src + size - 1);
+		size--;
+	}
+	return (original_dest);
+}
+
+/* Copy memory from src to dest, 
+memory overlap is POSSIBLE.
+Comparing the dest and src pointer address,
+to determine whether to copy chars from the beginning or the end. */
 void	*ft_memmove(void *dest, const void *src, size_t size)
 {
-	char		*dest_str;
-	const char	*src_str;
-
-	dest_str = (char *) dest;
-	src_str = (const char *) src;
 	if (dest < src)
 	{
-		while (size > 0)
-		{
-			*dest_str = *src_str;
-			dest_str++;
-			src_str++;
-			size--;
-		}
+		return (ft_memcpy(dest, src, size));
 	}
 	else if (dest > src)
 	{
-		while (size > 0)
-		{
-			dest_str[size - 1] = src_str[size - 1];
-			size--;
-		}
+		return (ft_memcpy_from_last(dest, src, size));
 	}
 	return (dest);
 }
