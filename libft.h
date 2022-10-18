@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 15:21:27 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/17 17:06:25 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/18 13:29:34 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ size_t	ft_strlen(const char *str);
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+size_t	ft_strlcpy(char *dest, const char *src, size_t max_size);
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size);
+size_t	ft_strlcat(char *dest, const char *src, size_t max_size);
 
 char	*ft_strnstr(const char *str, const char *to_find, size_t n);
 
