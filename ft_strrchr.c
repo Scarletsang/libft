@@ -6,12 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 18:14:05 by htsang            #+#    #+#             */
-/*   Updated: 2022/05/08 19:14:43 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/18 18:55:28 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
+/* Find the last occurance of a c in an array. */
 char	*ft_strrchr(const char *str, int c)
 {
 	char	*match;
@@ -26,6 +27,8 @@ char	*ft_strrchr(const char *str, int c)
 		str++;
 	}
 	if (c == 0)
+	{
 		return ((char *) str);
+	}
 	return (match);
 }

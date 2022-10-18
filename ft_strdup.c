@@ -6,14 +6,15 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 22:06:49 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/17 17:17:26 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/18 18:59:09 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strcpy(char *dest, const char *src)
+/* Simple copy an array from src to dest. Unsafe operation. */
+char static	*ft_strcpy(char *dest, const char *src)
 {
 	char	*tmp;
 
@@ -28,6 +29,7 @@ char	*ft_strcpy(char *dest, const char *src)
 	return (tmp);
 }
 
+/* Duplicating a null terminating string to a new memory address. */
 char	*ft_strdup(const char *str)
 {
 	char	*copy;
