@@ -6,29 +6,28 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 00:19:44 by htsang            #+#    #+#             */
-/*   Updated: 2022/05/16 22:25:39 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/18 12:24:59 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
+/* Copy memory from src to dest, assuming that no overlapping is possible. */
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	char	*dest_str;
-	char	*src_str;
+	void	*original_dest;
 
 	if (dest == 0 && src == 0)
 	{
 		return (NULL);
 	}
-	dest_str = (char *) dest;
-	src_str = (char *) src;
+	original_dest = dest;
 	while (n > 0)
 	{
-		*dest_str = *src_str;
-		dest_str++;
-		src_str++;
+		*(unsigned char *) dest = *(unsigned char *) src;
+		dest++;
+		src++;
 		n--;
 	}
-	return (dest);
+	return (original_dest);
 }
