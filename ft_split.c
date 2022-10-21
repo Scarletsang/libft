@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 11:23:16 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/20 20:41:30 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/21 23:41:53 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,11 @@ static size_t	ft_count_word(char const *s, char c)
 			is_word = 0;
 		}
 		s++;
-		// printf("n: %zu\nis_word: %d\ns: %s\n\n", n, is_word, s);
 	}
 	return (n);
 }
 
-static char **ft_deep_free(char **s, size_t size)
+static char	*ft_deep_free(char **s, size_t size)
 {
 	while (size)
 	{
@@ -51,43 +50,52 @@ static char **ft_deep_free(char **s, size_t size)
 	return (NULL);
 }
 
+/* The core logic for copying substring from the original string
+to a new array of string.*/
+static char	*ft_splitsubstr(char const *s, char c, char **result, size_t count)
+{
+	char		*substr;
+	char const	*ptr;
+
+	ptr = s;
+	while (*ptr && *ptr != c)
+		ptr++;
+	substr = (char *) malloc(ptr - s + 1);
+	if (!substr)
+		return (ft_deep_free(result, count));
+	*result = substr;
+	if (!ft_memmove(substr, s, ptr - s))
+		return (ft_deep_free(result, count));
+	substr[ptr - s] = 0;
+	return ((char *) ptr);
+}
+
+/* Allocate memory for an array of string that are
+splitted from a string s by delimiter c. */
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
-	char	**result_ptr;
-	char	*substr;
-	char const	*ptr;
+	size_t	count;
+	size_t	i;
 
-	result = (char **) malloc(sizeof(char *) * ft_count_word(s, c) + 1);
-	if (!result)
-	{
+	if (!s)
 		return (NULL);
-	}
-	result_ptr = result;
-	while (*s)
+	count = ft_count_word(s, c);
+	result = (char **) malloc(8 * (count + 1));
+	if (!result)
+		return (NULL);
+	i = 0;
+	while (*s && i < count)
 	{
 		if (*s != c)
 		{
-			ptr = s;
-			while (*ptr && *ptr != c)
-			{
-				ptr++;
-			}
-			substr = (char *) malloc(ptr - s + 1);
-			if (!substr)
-			{
-				return (ft_deep_free(result, result_ptr - result));
-			}
-			if (!ft_memmove(substr, s, ptr - s))
-			{
+			s = ft_splitsubstr(s, c, result + i, count);
+			if (!s)
 				return (NULL);
-			}
-			*result_ptr = substr;
-			result_ptr++;
-			s = ptr;
+			i++;
 		}
 		s++;
 	}
-	*result_ptr = 0;
+	result[count] = 0;
 	return (result);
 }
