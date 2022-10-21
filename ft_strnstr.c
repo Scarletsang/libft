@@ -6,40 +6,35 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 19:27:07 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/19 19:08:13 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/21 23:44:17 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-/* Locate the first occurance of a string in a longer string.
-Logic: if the comparision fails, it reset the counter j, 
-the result pointer. */
+/* Locate the first occurance of a string in a longer string. */
 char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 {
-	int		j;
-	char	*p;
+	char	*str_ptr;
+	char	*to_find_ptr;
 
-	j = 0;
-	p = NULL;
+	if (!str && n == 0)
+		return (NULL);
 	if (*to_find == 0)
 		return ((char *) str);
-	while (str[j] && to_find[j] && n)
+	while (*str && n)
 	{
-		n--;
-		if (str[j] == to_find[j])
+		str_ptr = (char *) str;
+		to_find_ptr = (char *) to_find;
+		while (*to_find_ptr && *str_ptr == *to_find_ptr && n--)
 		{
-			if (p == NULL)
-				p = (char *) str;
-			j++;
-			continue ;
+			str_ptr++;
+			to_find_ptr++;
 		}
-		n += j;
+		if (!*to_find_ptr)
+			return ((char *) str);
+		n += (str_ptr - str) - 1;
 		str++;
-		p = NULL;
-		j = 0;
 	}
-	if (to_find[j] == 0)
-		return (p);
 	return (NULL);
 }
