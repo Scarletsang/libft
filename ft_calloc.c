@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 23:46:51 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/19 16:23:20 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/22 23:07:16 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,8 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*str;
 
-	if (count == 0 || size == 0 \
-	|| SIZE_MAX / size < count)
-	{
+	if (size && SIZE_MAX / size < count)
 		return (NULL);
-	}
 	str = malloc(count * size);
 	if (str == 0)
 	{
