@@ -6,24 +6,29 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 11:23:16 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/21 23:41:53 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/24 18:45:53 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "libft.h"
 
-static size_t	ft_count_word(char const *s, char c)
+/*
+** @brief Counts the amount of splitted string seperated by 
+** delimiter c.
+*/
+static size_t	ft_count_word(char const *str, char c)
 {
 	size_t	n;
 	char	is_word;
 
 	n = 0;
 	is_word = 0;
-	while (*s)
+	while (*str)
 	{
-		if (*s != c)
+		if (*str != c)
 		{
 			if (!is_word)
 			{
@@ -35,67 +40,85 @@ static size_t	ft_count_word(char const *s, char c)
 		{
 			is_word = 0;
 		}
-		s++;
+		str++;
 	}
 	return (n);
 }
 
-static char	*ft_deep_free(char **s, size_t size)
+/*
+** @brief free pointers contained in an array
+*/
+static char	*ft_deep_free(char **result, size_t count)
 {
-	while (size)
+	while (count)
 	{
-		free(s[size]);
-		size--;
+		free(result[count]);
+		count--;
 	}
+	free(result);
 	return (NULL);
 }
 
-/* The core logic for copying substring from the original string
-to a new array of string.*/
-static char	*ft_splitsubstr(char const *s, char c, char **result, size_t count)
+/* 
+** @brief The core logic for copying substring from the original string
+to a new array of string.
+** 
+** @param str: the string to be splitted
+** @param c: the delimiter
+** @param result: the array that contains splitted string
+** @param count: size of the result array
+** @return pointer pointing to the end of substring on str
+*/
+static char	*ft_splitstr(char const *str, char c, char **result, size_t count)
 {
 	char		*substr;
-	char const	*ptr;
+	char const	*end;
 
-	ptr = s;
-	while (*ptr && *ptr != c)
-		ptr++;
-	substr = (char *) malloc(ptr - s + 1);
+	end = str;
+	while (*end && *end != c)
+		end++;
+	substr = (char *) malloc((end - str + 1) * sizeof(char));
 	if (!substr)
 		return (ft_deep_free(result, count));
 	*result = substr;
-	if (!ft_memmove(substr, s, ptr - s))
+	if (!ft_memmove(substr, str, end - str))
 		return (ft_deep_free(result, count));
-	substr[ptr - s] = 0;
-	return ((char *) ptr);
+	substr[end - str] = 0;
+	return ((char *) end);
 }
 
-/* Allocate memory for an array of string that are
-splitted from a string s by delimiter c. */
-char	**ft_split(char const *s, char c)
+/* 
+** @brief Allocate memory for an array of string that are
+** splitted from a string str by delimiter c.
+** 
+** @param str: the string to be splitted
+** @param c: delimiter
+** @return the splitted string in an array
+*/
+char	**ft_split(char const *str, char c)
 {
 	char	**result;
 	size_t	count;
 	size_t	i;
 
-	if (!s)
+	if (!str)
 		return (NULL);
-	count = ft_count_word(s, c);
-	result = (char **) malloc(8 * (count + 1));
+	count = ft_count_word(str, c);
+	result = (char **) malloc((count + 1) * sizeof(char *));
 	if (!result)
 		return (NULL);
 	i = 0;
-	while (*s && i < count)
+	while (*str && i < count)
 	{
-		if (*s != c)
+		if (*str != c)
 		{
-			s = ft_splitsubstr(s, c, result + i, count);
-			if (!s)
+			str = ft_splitstr(str, c, result + i, count) - 1;
+			if (!str)
 				return (NULL);
 			i++;
 		}
-		s++;
+		str++;
 	}
-	result[count] = 0;
+	result[i] = 0;
 	return (result);
 }
