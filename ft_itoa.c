@@ -6,16 +6,16 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 12:37:13 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/22 16:04:48 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/24 12:54:02 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <string.h>
 
-static size_t	ft_count_itoa_size(unsigned int n)
+static unsigned int	ft_count_itoa_size(unsigned int n)
 {
-	size_t	i;
+	unsigned int	i;
 
 	i = 1;
 	while (n / 10 > 0)
@@ -38,8 +38,8 @@ static unsigned int	ft_abs(int n)
 /* Allocate memory for a string that represents the given int. */
 char	*ft_itoa(int n)
 {
-	size_t	count;
-	char	*str;
+	unsigned int	count;
+	char			*str;
 
 	count = ft_count_itoa_size(ft_abs(n));
 	if (n < 0)

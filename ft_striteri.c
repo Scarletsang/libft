@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 21:23:47 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/22 23:02:32 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/24 12:49:21 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	unsigned int	i;
 
-	if (!s || *f)
+	if (!s || !f)
 		return ;
 	i = 0;
 	while (s[i])
