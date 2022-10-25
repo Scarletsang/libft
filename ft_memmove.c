@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 16:30:46 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/18 18:58:52 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/25 18:04:47 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ Comparing the dest and src pointer address,
 to determine whether to copy chars from the beginning or the end. */
 void	*ft_memmove(void *dest, const void *src, size_t size)
 {
+	if (!dest && !src)
+	{
+		return (NULL);
+	}
 	if (dest < src)
 	{
 		return (ft_memcpy(dest, src, size));
