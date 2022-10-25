@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:48:06 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/25 17:46:30 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/25 21:31:56 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *front)
 {
-	if (lst && *lst && front)
+	if (lst && front)
 	{
 		front->next = *lst;
+		*lst = front;
 	}
 }

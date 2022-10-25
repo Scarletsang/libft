@@ -6,10 +6,11 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:22:16 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/25 18:31:25 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/25 21:47:22 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
@@ -21,8 +22,9 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 		while (*lst)
 		{
 			tmp_lst = lst;
-			lst = &(*lst)->next;
+			*lst = (*lst)->next;
 			ft_lstdelone(*tmp_lst, del);
 		}
 	}
+	free(lst);
 }
