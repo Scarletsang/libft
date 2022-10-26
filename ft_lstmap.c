@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:46:25 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/25 18:26:26 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/26 16:36:10 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	if (!result)
 		return (NULL);
 	result_ptr = result;
-	lst = lst->next;
-	while (lst)
+	while (lst->next)
 	{
+		lst = lst->next;
 		result_ptr->next = ft_lstnew(f(lst->content));
+		result_ptr = result_ptr->next;
 		if (!result_ptr)
 		{
 			ft_lstclear(&result, del);
 			return (NULL);
 		}
-		lst = lst->next;
 	}
 	return (result);
 }
