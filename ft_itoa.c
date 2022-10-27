@@ -6,10 +6,11 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 12:37:13 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 12:59:16 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 13:14:51 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <limits.h>
 #include "libft.h"
 
 static unsigned int	ft_count_itoa_size(unsigned int n)
@@ -49,7 +50,7 @@ char	*ft_itoa(int n)
 	if (n < 0)
 		*str = '-';
 	str[count--] = 0;
-	if (n == INT32_MIN)
+	if (n == INT_MIN)
 	{
 		str[count--] = '8';
 		n /= 10;
