@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:34:45 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 13:05:31 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 13:30:12 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int static	ft_charinset(char c, char const *set)
+static int	ft_charinset(char c, char const *set)
 {
 	while (*set)
 	{
