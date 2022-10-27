@@ -6,14 +6,20 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 22:21:34 by htsang            #+#    #+#             */
-/*   Updated: 2022/05/09 23:57:36 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/26 17:29:51 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *str, size_t n)
+/*
+** @brief set a given amount of 0 to a memory address.
+**
+** @param mem:  the memory address
+** @param size: the amount
+*/
+void	ft_bzero(void *mem, size_t size)
 {
-	ft_memset(str, 0, n);
+	ft_memset(mem, 0, size);
 	return ;
 }

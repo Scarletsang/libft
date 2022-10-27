@@ -6,17 +6,28 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 23:46:51 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/22 23:07:16 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/26 17:48:00 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-/* Allocate memory for a count amount of size byte.
-If either of the argument is 0, Null pointer is returned. 
-SIZE_MAX / size < count ensures multiplication
-won't cause overflow in the malloc. */
+/*
+** @brief Allocate memory for a given amount of byte
+** with a certain size. The memory is initialized with
+** all bytes filled with 0.
+** 
+** @details SIZE_MAX / size < count ensures multiplication
+** won't cause overflow in the malloc. Size is also
+** checked because it will cause the division to fail
+** when size is 0.
+**
+** @param count: amount of memory chunk
+** @param size:  size of the memory chunk
+** @return the memory address with the corresponding size,
+** null when malloc fails.
+*/
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*str;
