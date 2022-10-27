@@ -6,14 +6,14 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 12:00:29 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 17:55:52 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 18:48:38 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
 /*
-** @brief write a byte to the given file descripter.
+** @brief Write a byte to the given file descripter.
 **
 ** @param c:  the byte
 ** @param fd: the file descripter

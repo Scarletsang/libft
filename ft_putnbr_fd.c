@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 12:04:42 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 17:57:04 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 18:48:43 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	ft_putnbr_recurse(int n, int fd)
 }
 
 /*
-** @brief write an int to the given file descripter.
+** @brief Write an int to the given file descripter.
 **
 ** @param n:  the interger to be written to the file descripter
 ** @param fd: the file descripter
