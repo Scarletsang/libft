@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:34:45 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 13:30:12 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 13:33:41 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (*end)
 		end++;
 	if (s1 == end)
-		return ((char *) ft_calloc(1, 1));
+		return (ft_strdup("0"));
 	end--;
 	while (ft_charinset(*end, set))
 		end--;
