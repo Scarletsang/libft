@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:34:45 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 13:33:41 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 21:25:22 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,28 +25,37 @@ static int	ft_charinset(char c, char const *set)
 	return (0);
 }
 
-/* Trim start and end chars from an array that is included in a set. */
-char	*ft_strtrim(char const *s1, char const *set)
+/*
+** @brief Trim the start and end of a string by removing chars that
+** is in the given set. The trimmed string is stored in a new memory
+** address. The original string is not touched at all.
+**
+** @param str: a NULL-terminated string to be trimmed.
+** @param set: a char array represents a set of chars that needs
+** to be trimmed.
+** @return the pointer to the new trimmed string
+*/
+char	*ft_strtrim(char const *str, char const *set)
 {
 	char	*ptr;
 	char	*end;
 
-	if (!s1 || !set)
+	if (!str || !set)
 		return (NULL);
-	while (ft_charinset(*s1, set))
-		s1++;
-	end = (char *) s1;
+	while (ft_charinset(*str, set))
+		str++;
+	end = (char *) str;
 	while (*end)
 		end++;
-	if (s1 == end)
+	if (str == end)
 		return (ft_strdup("0"));
 	end--;
 	while (ft_charinset(*end, set))
 		end--;
-	ptr = (char *) malloc(end - s1 + 2);
+	ptr = (char *) malloc(end - str + 2);
 	if (!ptr)
 		return (NULL);
-	ft_memmove(ptr, s1, end - s1 + 1);
-	ptr[end - s1 + 1] = 0;
+	ft_memmove(ptr, str, end - str + 1);
+	ptr[end - str + 1] = 0;
 	return (ptr);
 }

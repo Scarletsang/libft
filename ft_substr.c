@@ -6,32 +6,40 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 18:40:48 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 13:11:16 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 21:25:44 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* Allocates memory for a substring in a longer string.
-The substring starts at an index with a given length. */
-char	*ft_substr(char const *s, unsigned int start, size_t max_size)
+/*
+** @brief Cut a substring out of a given string by its starting index
+** and length. Th substring is stored in a new memory address. The
+** original string is left untouched.
+**
+** @param str:     a NULL-terminated string to cut the string from.
+** @paarm start:   the starting index to cut from the string
+** @param max_len: the maximum length to cut from the string
+** @return the newly created substring
+*/
+char	*ft_substr(char const *str, unsigned int start, size_t max_len)
 {
 	char	*ptr;
 	size_t	possible_size;
 
-	if (!s)
+	if (!str)
 		return (NULL);
-	while (*s && start)
+	while (*str && start)
 	{
-		s++;
+		str++;
 		start--;
 	}
-	possible_size = ft_strlen(s);
-	if (max_size + start > possible_size)
-		max_size = possible_size - start;
-	ptr = (char *) malloc(max_size + 1);
+	possible_size = ft_strlen(str);
+	if (max_len + start > possible_size)
+		max_len = possible_size - start;
+	ptr = (char *) malloc(max_len + 1);
 	if (!ptr)
 		return (NULL);
-	ft_strlcpy(ptr, s, max_size + 1);
+	ft_strlcpy(ptr, str, max_len + 1);
 	return (ptr);
 }
