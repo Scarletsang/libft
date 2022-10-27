@@ -6,20 +6,29 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 21:23:47 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/24 12:49:21 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 18:17:13 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+/*
+** @brief Iterate on a string, apply a function on every char of
+** the string. The function can change the char in the string but
+** won't produce a new string like strmapi.
+** 
+** @param str: a NULL-terminating string
+** @param f(index,char):   the function to be applied on every char,
+** it takes 2 arguments: the char and its index in the string.
+*/
+void	ft_striteri(char *str, void (*f)(unsigned int, char*))
 {
 	unsigned int	i;
 
-	if (!s || !f)
+	if (!str || !f)
 		return ;
 	i = 0;
-	while (s[i])
+	while (str[i])
 	{
-		f(i, s + i);
+		f(i, str + i);
 		i++;
 	}
 }

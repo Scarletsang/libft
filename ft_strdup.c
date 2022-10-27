@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 22:06:49 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 13:30:55 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 18:06:46 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* Simple copy an array from src to dest. Unsafe operation. */
+/* @brief Simple copy an array from src to dest. Unsafe operation. */
 static char	*ft_strcpy(char *dest, const char *src)
 {
 	char	*tmp;
@@ -28,7 +28,12 @@ static char	*ft_strcpy(char *dest, const char *src)
 	return (tmp);
 }
 
-/* Duplicating a null terminating string to a new memory address. */
+/* 
+** @brief Duplicates a string to a new memory address.
+**
+** @param str: a NULL-terminated stirng
+** @return the new string after duplication from the given string
+*/
 char	*ft_strdup(const char *str)
 {
 	char	*copy;

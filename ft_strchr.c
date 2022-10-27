@@ -6,14 +6,20 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 18:10:25 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 12:57:48 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 18:48:25 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* Finds the first given char in an array,
-a pointer to that char is returned. */
+/*
+** @brief Locate the first given char in a given string.
+**
+** @param str: a NULL-terminated string
+** @param c:   the value to find in the string, it is interpreted
+** as char during search.
+** @return the memory address of the value in the string
+*/
 char	*ft_strchr(const char *str, int c)
 {
 	while (*str)

@@ -6,35 +6,43 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 19:27:07 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 12:57:10 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 18:57:06 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* Locate the first occurance of a string in a longer string. */
-char	*ft_strnstr(const char *str, const char *to_find, size_t n)
+/*
+** @brief Locate the first occurance of a string(needle) in
+** a longer string(haystack).
+**
+** @param haystack: a NULL-terminated string to be searched in
+** @param needle:   a NULL-terminated string to find in haystack
+** @param max_len:  the maximum length to search in the haystack
+** @return the pointer to the needle location
+*/
+char	*ft_strnstr(const char *haystack, const char *needle, size_t max_len)
 {
-	char	*str_ptr;
-	char	*to_find_ptr;
+	char	*haystack_ptr;
+	char	*needle_ptr;
 
-	if (!str && n == 0)
+	if (!haystack && max_len == 0)
 		return (NULL);
-	if (*to_find == 0)
-		return ((char *) str);
-	while (*str && n)
+	if (*needle == 0)
+		return ((char *) haystack);
+	while (*haystack && max_len)
 	{
-		str_ptr = (char *) str;
-		to_find_ptr = (char *) to_find;
-		while (*to_find_ptr && *str_ptr == *to_find_ptr && n--)
+		haystack_ptr = (char *) haystack;
+		needle_ptr = (char *) needle;
+		while (*needle_ptr && *haystack_ptr == *needle_ptr && max_len--)
 		{
-			str_ptr++;
-			to_find_ptr++;
+			haystack_ptr++;
+			needle_ptr++;
 		}
-		if (!*to_find_ptr)
-			return ((char *) str);
-		n += (str_ptr - str) - 1;
-		str++;
+		if (!*needle_ptr)
+			return ((char *) haystack);
+		max_len += (haystack_ptr - haystack) - 1;
+		haystack++;
 	}
 	return (NULL);
 }

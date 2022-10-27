@@ -6,29 +6,36 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 22:06:23 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 13:26:39 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 18:53:30 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* Copy array from src to dest up to the max size.
-Copy will not happen if there is not enough space.*/
-size_t	ft_strlcpy(char *dest, const char *src, size_t max_size)
+/*
+** @brief Safe copy of the source string to the destination 
+** string. It only copies up to a maximum amount of char.
+**
+** @param dest: the destination memory address to copy to.
+** @param src:  a NULL-terminated string to be copied from.
+** @param max_len: the maximum length of char to be copied.
+** @return the length of the destination string after copying.
+*/
+size_t	ft_strlcpy(char *dest, const char *src, size_t max_len)
 {
 	size_t	src_size;
 
 	src_size = ft_strlen(src);
-	if (max_size == 0)
+	if (max_len == 0)
 	{
 		return (src_size);
 	}
-	while (*src && max_size > 1)
+	while (*src && max_len > 1)
 	{
 		*dest = *src;
 		dest++;
 		src++;
-		max_size--;
+		max_len--;
 	}
 	*dest = 0;
 	return (src_size);

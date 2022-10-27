@@ -6,32 +6,39 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 20:54:14 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 12:57:20 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 18:39:13 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* Allocate memory of the result of a string
-that are mapped over by a function. */
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+/*
+** @brief Map a function over a string, and creates a new string
+** from it. The given string will not be changed at all.
+**
+** @param str: a NULL-terminated string to be mapped over
+** @param f(index,char):   the function to be applied on every char,
+** it takes 2 arguments: the char and its index in the string.
+** @return the new string
+*/
+char	*ft_strmapi(char const *str, char (*f)(unsigned int, char))
 {
 	unsigned int	i;
 	char			*result;
 
-	if (!s || !f)
+	if (!str || !f)
 	{
 		return (NULL);
 	}
-	result = (char *) malloc(ft_strlen(s) + 1);
+	result = (char *) malloc(ft_strlen(str) + 1);
 	if (!result)
 	{
 		return (NULL);
 	}
 	i = 0;
-	while (s[i])
+	while (str[i])
 	{
-		result[i] = f(i, s[i]);
+		result[i] = f(i, str[i]);
 		i++;
 	}
 	result[i] = 0;
