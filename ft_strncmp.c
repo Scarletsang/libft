@@ -6,11 +6,11 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 15:26:44 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/18 13:35:12 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 12:57:15 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 /* Calculates the difference of the first different char in an array,
 comparision stops when any array has terminated. */

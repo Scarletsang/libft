@@ -6,11 +6,10 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 18:40:48 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/25 22:27:46 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 12:55:49 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 /* Allocates memory for a substring in a longer string.

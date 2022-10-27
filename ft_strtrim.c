@@ -6,11 +6,10 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:34:45 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/19 19:23:31 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 12:55:55 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 int static	ft_charinset(char c, char const *set)

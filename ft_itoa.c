@@ -6,12 +6,11 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 12:37:13 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/24 12:54:02 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 12:59:16 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
+#include "libft.h"
 
 static unsigned int	ft_count_itoa_size(unsigned int n)
 {
