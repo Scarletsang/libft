@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 16:30:46 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 13:30:37 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 17:51:19 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,18 @@ static void	*ft_memcpy_from_last(void *dest, const void *src, size_t size)
 	return (original_dest);
 }
 
-/* Copy memory from src to dest, 
-memory overlap is POSSIBLE.
-Comparing the dest and src pointer address,
-to determine whether to copy chars from the beginning or the end. */
+/*
+** @brief Copy a given size of memory from one byte string to
+** another, assuming that memory overlapping IS possible.
+** 
+** @details Comparing the dest and src pointer to determine
+** whether to copy bytes from the beginning or the end.
+**
+** @param dest: destination memory address to be copied to
+** @param src:  source memory address to be copied from
+** @param size: size of bytes to copy
+** @return the destination memory address
+*/
 void	*ft_memmove(void *dest, const void *src, size_t size)
 {
 	if (!dest && !src)

@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 22:38:45 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 15:23:24 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 17:51:45 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
 ** @brief Set a given amount of the same value
-** to any given memory address.
+** to the given memory address.
 **
 ** @param mem:  the memory address
 ** @param val:  the int value
