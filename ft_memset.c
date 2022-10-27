@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 22:38:45 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 17:51:45 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 22:42:29 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,13 @@
 */
 void	*ft_memset(void *mem, int val, size_t size)
 {
+	unsigned char	*ptr;
+
+	ptr = mem;
 	while (size > 0)
 	{
-		*((unsigned char *) mem) = (unsigned char) val;
-		mem++;
+		*ptr = (unsigned char) val;
+		ptr++;
 		size--;
 	}
 	return (mem);

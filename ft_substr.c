@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 18:40:48 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 21:25:44 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 22:37:25 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_substr(char const *str, unsigned int start, size_t max_len)
 	}
 	possible_size = ft_strlen(str);
 	if (max_len + start > possible_size)
-		max_len = possible_size - start;
+		max_len = possible_size;
 	ptr = (char *) malloc(max_len + 1);
 	if (!ptr)
 		return (NULL);
