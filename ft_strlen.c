@@ -6,11 +6,11 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 15:24:30 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/18 13:29:52 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 12:57:23 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 /* Returns the length of an array. */
 size_t	ft_strlen(const char *str)

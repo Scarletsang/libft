@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 22:06:23 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/18 13:29:28 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 13:26:39 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t max_size)
 	size_t	src_size;
 
 	src_size = ft_strlen(src);
-	if (dest == 0 || max_size == 0)
+	if (max_size == 0)
 	{
 		return (src_size);
 	}

@@ -6,14 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:34:45 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/19 19:23:31 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 13:33:41 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-int static	ft_charinset(char c, char const *set)
+static int	ft_charinset(char c, char const *set)
 {
 	while (*set)
 	{
@@ -40,15 +39,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (*end)
 		end++;
 	if (s1 == end)
-		return ((char *) ft_calloc(1, 1));
+		return (ft_strdup("0"));
 	end--;
 	while (ft_charinset(*end, set))
 		end--;
 	ptr = (char *) malloc(end - s1 + 2);
 	if (!ptr)
 		return (NULL);
-	if (!ft_memmove(ptr, s1, end - s1 + 1))
-		return (NULL);
+	ft_memmove(ptr, s1, end - s1 + 1);
 	ptr[end - s1 + 1] = 0;
 	return (ptr);
 }

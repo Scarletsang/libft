@@ -6,11 +6,11 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 19:27:07 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/21 23:44:17 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 12:57:10 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 /* Locate the first occurance of a string in a longer string. */
 char	*ft_strnstr(const char *str, const char *to_find, size_t n)

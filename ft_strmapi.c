@@ -6,11 +6,10 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 20:54:14 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/22 22:53:41 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 12:57:20 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 /* Allocate memory of the result of a string

@@ -6,15 +6,14 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 22:06:49 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/18 18:59:09 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 13:30:55 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 /* Simple copy an array from src to dest. Unsafe operation. */
-char static	*ft_strcpy(char *dest, const char *src)
+static char	*ft_strcpy(char *dest, const char *src)
 {
 	char	*tmp;
 

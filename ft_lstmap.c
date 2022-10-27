@@ -6,11 +6,10 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:46:25 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/26 16:36:10 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 12:58:48 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))

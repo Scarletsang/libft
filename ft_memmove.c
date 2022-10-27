@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 16:30:46 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/25 18:04:47 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 13:30:37 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void static	*ft_memcpy_from_last(void *dest, const void *src, size_t size)
+static void	*ft_memcpy_from_last(void *dest, const void *src, size_t size)
 {
 	void	*original_dest;
 

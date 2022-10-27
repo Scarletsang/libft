@@ -6,11 +6,10 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 23:46:51 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/26 17:48:00 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 15:22:13 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 /*

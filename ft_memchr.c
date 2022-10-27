@@ -6,11 +6,11 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 22:23:11 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/18 11:37:40 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 12:58:34 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 /* Finds the first occurance of a char in an array,
 values are interpreted as a unsigned char during comparison. */

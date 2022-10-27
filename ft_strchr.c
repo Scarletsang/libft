@@ -6,11 +6,11 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 18:10:25 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/18 13:00:21 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 12:57:48 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 /* Finds the first given char in an array,
 a pointer to that char is returned. */
