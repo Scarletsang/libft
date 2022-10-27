@@ -6,12 +6,19 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:12:38 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/25 21:40:28 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 15:55:51 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+** @brief append a node to a linked list.
+**
+** @param lst:  the memory address of the pointer pointing
+** to the start of linked list.
+** @param back: the node to be appended
+*/
 void	ft_lstadd_back(t_list **lst, t_list *back)
 {
 	t_list	*last;

@@ -6,12 +6,16 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:54:15 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/25 17:45:19 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 15:59:41 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+** @param lst: the start of a linked list
+** @return the size of the linked list
+*/
 int	ft_lstsize(t_list *lst)
 {
 	int	size;

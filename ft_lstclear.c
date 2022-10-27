@@ -6,12 +6,20 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:22:16 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 12:59:01 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 15:54:41 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+** @brief Clear all memory that is used by the given linked list.
+** 
+** @param lst: the memory address of the pointer pointing
+** to the start of linked list.
+** @param del: the delete function that is used to delete the content
+** of each node of the linked list.
+*/
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*tmp_lst;
