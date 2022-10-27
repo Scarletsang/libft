@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:34:45 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 21:25:22 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 22:37:53 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	ft_charinset(char c, char const *set)
 ** @param str: a NULL-terminated string to be trimmed.
 ** @param set: a char array represents a set of chars that needs
 ** to be trimmed.
-** @return the pointer to the new trimmed string
+** @return the new trimmed string
 */
 char	*ft_strtrim(char const *str, char const *set)
 {
@@ -48,7 +48,7 @@ char	*ft_strtrim(char const *str, char const *set)
 	while (*end)
 		end++;
 	if (str == end)
-		return (ft_strdup("0"));
+		return (ft_strdup(""));
 	end--;
 	while (ft_charinset(*end, set))
 		end--;
