@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 12:37:13 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 13:14:51 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 15:56:00 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,14 @@ static unsigned int	ft_abs(int n)
 	return ((unsigned int) -n);
 }
 
-/* Allocate memory for a string that represents the given int. */
+/*
+** @brief Convert an int to a string, memory is allocated to
+** the string.
+**
+** @param n: the int to be converted
+** @return a NULL-terminated string that represents the int,
+** NULL pointer is returned if malloc fails.
+*/
 char	*ft_itoa(int n)
 {
 	unsigned int	count;
