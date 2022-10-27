@@ -56,8 +56,11 @@ ${NAME}: ${OBJS}
 bonus: ${OBJS} ${BONUS_OBJS}
 	ar -rc ${NAME} ${OBJS} ${BONUS_OBJS}
 
-%.o: %.c
-	gcc ${FLAGS} -c $<
+${OBJS}: ${SRC}
+	gcc ${FLAGS} -c ${SRC}
+
+${BONUS_OBJS}: ${BONUS}
+	gcc ${FLAGS} -c ${BONUS}
 
 clean: 
 	rm -f ${OBJS} ${BONUS_OBJS}
