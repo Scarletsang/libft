@@ -6,14 +6,14 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 22:23:11 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 16:08:41 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/27 18:49:02 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** @brief Finds the first occurance of a value in a byte string.
+** @brief Locate the first occurance of a value in a byte string.
 **
 ** @param mem:  the memory address
 ** @param val:  the value to look for, it is interpreted as an
