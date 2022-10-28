@@ -51,16 +51,16 @@ FLAGS= -Wall -Wextra -Werror
 all: ${NAME}
 
 ${NAME}: ${OBJS}
-	ar -rc ${NAME} ${OBJS}
+	ar -rcs ${NAME} ${OBJS}
 
 bonus: ${OBJS} ${BONUS_OBJS}
-	ar -rc ${NAME} ${OBJS} ${BONUS_OBJS}
+	ar -rcs ${NAME} ${OBJS} ${BONUS_OBJS}
 
 ${OBJS}: ${SRC}
-	gcc ${FLAGS} -c ${SRC}
+	cc ${FLAGS} -c ${SRC}
 
 ${BONUS_OBJS}: ${BONUS}
-	gcc ${FLAGS} -c ${BONUS}
+	cc ${FLAGS} -c ${BONUS}
 
 clean: 
 	rm -f ${OBJS} ${BONUS_OBJS}
