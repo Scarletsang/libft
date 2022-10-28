@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:19:15 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 15:56:13 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/28 13:12:20 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@
 */
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if (del && lst && lst->content)
+	if (!del || !lst)
+	{
+		return ;
+	}
+	if(lst->content)
 	{
 		del(lst->content);
 	}
