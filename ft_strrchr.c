@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 18:14:05 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 21:14:33 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/28 16:09:33 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_strrchr(const char *str, int c)
 		}
 		str++;
 	}
-	if (c == 0)
+	if ((char) c == 0)
 	{
 		return ((char *) str);
 	}
