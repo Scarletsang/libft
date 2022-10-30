@@ -6,11 +6,32 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:46:25 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 15:54:29 by htsang           ###   ########.fr       */
+/*   Updated: 2022/10/30 17:23:35 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** @brief Same as lstnew, but able to also delete the content using
+** the function function pointer when memory allocation fails.
+**
+** @param content: the content to generate a new node.
+** @param del(content): a function to delete the content of a node
+** when malloc allocation fails.
+*/
+static t_list	*ft_lstnew_del(void *content, void (*del)(void *))
+{
+	t_list	*node;
+
+	node = ft_lstnew(content);
+	if (!node)
+	{
+		del(content);
+		return (NULL);
+	}
+	return (node);
+}
 
 /*
 ** @brief Map the content of a linked list to the content
@@ -30,14 +51,14 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 	if (!lst || !f || !del)
 		return (NULL);
-	result = ft_lstnew(f(lst->content));
+	result = ft_lstnew_del(f(lst->content), del);
 	if (!result)
 		return (NULL);
 	result_ptr = result;
 	while (lst->next)
 	{
 		lst = lst->next;
-		result_ptr->next = ft_lstnew(f(lst->content));
+		result_ptr->next = ft_lstnew_del(f(lst->content), del);
 		result_ptr = result_ptr->next;
 		if (!result_ptr)
 		{
