@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 16:30:46 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 17:51:19 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:08:51 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	*ft_memcpy_from_last(void *dest, const void *src, size_t size)
 	return (original_dest);
 }
 
-/*
+/**
 ** @brief Copy a given size of memory from one byte string to
 ** another, assuming that memory overlapping IS possible.
 ** 

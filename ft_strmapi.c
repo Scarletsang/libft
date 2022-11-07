@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 20:54:14 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 18:39:13 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:07:32 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
+/**
 ** @brief Map a function over a string, and creates a new string
 ** from it. The given string will not be changed at all.
 **

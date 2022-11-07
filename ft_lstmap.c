@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:46:25 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/30 17:23:35 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:09:16 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
+/**
 ** @brief Same as lstnew, but able to also delete the content using
 ** the function function pointer when memory allocation fails.
 **
@@ -33,7 +33,7 @@ static t_list	*ft_lstnew_del(void *content, void (*del)(void *))
 	return (node);
 }
 
-/*
+/**
 ** @brief Map the content of a linked list to the content
 ** of a new linked list. A new linked list is created based on
 ** applying a function to every element of the given linked list.

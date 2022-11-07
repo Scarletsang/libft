@@ -6,14 +6,14 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 12:02:48 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 18:01:33 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:08:38 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "libft.h"
 
-/*
+/**
 ** @brief write a string and a new line character
 ** to the given file descripter.
 **

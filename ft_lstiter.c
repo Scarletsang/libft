@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:41:26 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 15:56:25 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:09:26 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
+/**
 ** @brief Iterate on a linked list, apply a function to
 ** change the content of each node of the linked list. Since
 ** this function will not make a new linked list, the function

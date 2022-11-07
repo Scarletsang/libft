@@ -6,11 +6,11 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 21:23:47 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 18:17:13 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:07:56 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
+/**
 ** @brief Iterate on a string, apply a function on every char of
 ** the string. The function can change the char in the string but
 ** won't produce a new string like strmapi.

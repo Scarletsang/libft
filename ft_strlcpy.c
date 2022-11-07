@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 22:06:23 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 18:53:30 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:07:43 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
+/**
 ** @brief Safe copy of the source string to the destination 
 ** string. It only copies up to a maximum amount of char.
 **

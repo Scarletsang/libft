@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 15:34:51 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 18:53:08 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:07:47 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* 
+/** 
 ** @brief Safe concatenate of the source string after the
 ** destination string. Length of the string after concatenation
 ** (including the NULL-terminator) must be specified to ensure

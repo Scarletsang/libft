@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:48:06 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 15:55:39 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:09:37 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
+/**
 ** @brief Add a node to the start of linked list.
 ** Equivalence to the 'cons' function in Lisp.
 **

@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:22:16 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 15:54:41 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:09:34 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
+/**
 ** @brief Clear all memory that is used by the given linked list.
 ** 
 ** @param lst: the memory address of the pointer pointing

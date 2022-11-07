@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:03:50 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 15:56:29 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:09:22 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
+/**
 ** @param lst: the start of a linked list
 ** @return the last node of the linked list
 */

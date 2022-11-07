@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 22:42:04 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 15:21:47 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:10:04 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	ft_isspace(int c)
 	return (0);
 }
 
-/*
+/**
 ** @brief converts a string into an int.
 **
 ** @details When the number overflow at the long long

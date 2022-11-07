@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:12:38 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 15:55:51 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:09:41 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
+/**
 ** @brief append a node to a linked list.
 **
 ** @param lst:  the memory address of the pointer pointing

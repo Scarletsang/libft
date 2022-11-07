@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 00:09:49 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 18:45:00 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:08:59 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
+/**
 ** @brief Compare the first different byte found between two byte strings.
 ** Both byte strings are assumed to have the size of the third argument.
 **

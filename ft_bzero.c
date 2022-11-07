@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 22:21:34 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/26 17:29:51 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:10:00 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
+/**
 ** @brief set a given amount of 0 to a memory address.
 **
 ** @param mem:  the memory address

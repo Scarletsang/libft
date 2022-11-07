@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:44:00 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 15:58:55 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:09:11 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
+/**
 ** @brief Creates a new node with the given content.
 **
 ** @param content: The pointer to be stored in the content

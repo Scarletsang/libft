@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 18:40:48 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 22:37:25 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:07:05 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
+/**
 ** @brief Cut a substring out of a given string by its starting index
 ** and length. Th substring is stored in a new memory address. The
 ** original string is left untouched.

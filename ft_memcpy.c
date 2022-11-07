@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 00:19:44 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 17:48:45 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:08:55 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
+/**
 ** @brief Copy a given size of memory from one byte string to another,
 ** assuming that NO memory overlapping is possible.
 **

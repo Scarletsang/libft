@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 11:23:16 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 15:01:26 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:08:23 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
+/**
 ** @brief Counts the amount of splitted string seperated by 
 ** delimiter c.
 */
@@ -42,7 +42,7 @@ static size_t	ft_count_word(char const *str, char c)
 	return (n);
 }
 
-/*
+/**
 ** @brief free pointers contained in an array
 */
 static char	*ft_deep_free(char **result, size_t count)
@@ -56,7 +56,7 @@ static char	*ft_deep_free(char **result, size_t count)
 	return (NULL);
 }
 
-/* 
+/**
 ** @brief The core logic for copying substring from the original string
 to a new array of string.
 ** 

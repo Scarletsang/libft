@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 18:14:05 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/28 16:09:33 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:07:16 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
+/**
 ** @brief Locate the last given char in a given string.
 **
 ** @param str: a NULL-terminated string

@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:19:15 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/28 14:16:41 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:09:29 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
+/**
 ** @brief Free the space of and clear the content of the given node.
 **
 ** @param lst: the node

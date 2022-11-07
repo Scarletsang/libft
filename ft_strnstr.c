@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 19:27:07 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 18:57:06 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:07:20 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
+/**
 ** @brief Locate the first occurance of a string(needle) in
 ** a longer string(haystack).
 **

@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 23:46:51 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 15:22:13 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:09:56 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
+/**
 ** @brief Allocate memory for a given amount of byte
 ** with a certain size. The memory is initialized with
 ** all bytes filled with 0.

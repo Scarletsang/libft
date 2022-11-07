@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 15:26:44 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 18:53:55 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:07:27 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
+/**
 ** @brief Compare the first different byte found between two strings.
 ** Comparision stops when a string terminated.
 **

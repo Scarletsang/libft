@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:34:45 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 22:37:53 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:07:09 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	ft_charinset(char c, char const *set)
 	return (0);
 }
 
-/*
+/**
 ** @brief Trim the start and end of a string by removing chars that
 ** is in the given set. The trimmed string is stored in a new memory
 ** address. The original string is not touched at all.

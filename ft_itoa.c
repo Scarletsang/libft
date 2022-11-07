@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 12:37:13 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/27 15:56:00 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:09:45 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static unsigned int	ft_abs(int n)
 	return ((unsigned int) -n);
 }
 
-/*
+/**
 ** @brief Convert an int to a string, memory is allocated to
 ** the string.
 **
