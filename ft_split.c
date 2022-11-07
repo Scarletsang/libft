@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 11:23:16 by htsang            #+#    #+#             */
-/*   Updated: 2022/10/28 16:09:43 by htsang           ###   ########.fr       */
+/*   Updated: 2022/11/07 15:01:26 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static char	*ft_splitstr(char const *str, char c, char **result, size_t count)
 	return ((char *) end);
 }
 
-/* 
+/**
 ** @brief Allocate memory for an array of string that are
 ** splitted from a string str by delimiter c.
 ** 
@@ -109,7 +109,7 @@ char	**ft_split(char const *str, char c)
 	{
 		if (*str != c)
 		{
-			str = ft_splitstr(str, c, result + i, count) - 1;
+			str = ft_splitstr(str, c, result + i, i) - 1;
 			if (!str)
 				return (NULL);
 			i++;
