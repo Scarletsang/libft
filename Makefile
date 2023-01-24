@@ -46,7 +46,7 @@ BONUS= \
 	ft_lstiter.c \
 	ft_lstmap.c
 BONUS_OBJS=${BONUS:.c=.o}
-FLAGS= -Wall -Wextra -Werror
+CFLAGS= -Wall -Wextra -Werror
 
 all: ${NAME}
 
@@ -57,10 +57,10 @@ bonus: ${OBJS} ${BONUS_OBJS}
 	ar -rcs ${NAME} ${OBJS} ${BONUS_OBJS}
 
 ${OBJS}: ${SRC}
-	cc ${FLAGS} -c ${SRC}
+	cc ${CFLAGS} -c ${SRC}
 
 ${BONUS_OBJS}: ${BONUS}
-	cc ${FLAGS} -c ${BONUS}
+	cc ${CFLAGS} -c ${BONUS}
 
 clean: 
 	rm -f ${OBJS} ${BONUS_OBJS}
