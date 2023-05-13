@@ -49,24 +49,27 @@ BONUS= \
 BONUS_OBJS=${BONUS:.c=.o}
 CFLAGS= -Wall -Wextra -Werror
 
-all: ${NAME}
+all:
+	@$(MAKE) ${NAME} -j
 
 ${NAME}: ${OBJS}
-	ar -rcs ${NAME} ${OBJS}
+	@ar -rcs ${NAME} ${OBJS} && echo "Compilation of $(NAME) successful"
 
 bonus: ${OBJS} ${BONUS_OBJS}
-	ar -rcs ${NAME} ${OBJS} ${BONUS_OBJS}
+	@ar -rcs ${NAME} ${OBJS} ${BONUS_OBJS}
 
 ${OBJS}: ${SRC}
-	cc ${CFLAGS} -c ${SRC}
+	@cc ${CFLAGS} -c ${SRC}
 
 ${BONUS_OBJS}: ${BONUS}
-	cc ${CFLAGS} -c ${BONUS}
+	@cc ${CFLAGS} -c ${BONUS}
 
 clean: 
-	rm -f ${OBJS} ${BONUS_OBJS}
+	@rm -f ${OBJS} ${BONUS_OBJS}
 
 fclean: clean
-	rm -f ${NAME}
+	@rm -f ${NAME}
 
 re: fclean all
+
+.PHONY: all clean fclean re bonus
