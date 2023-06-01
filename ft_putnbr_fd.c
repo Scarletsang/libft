@@ -6,11 +6,10 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 12:04:42 by htsang            #+#    #+#             */
-/*   Updated: 2022/11/07 15:08:34 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/01 15:50:45 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
 #include "libft.h"
 
 static void	ft_putnbr_recurse(int n, int fd)
