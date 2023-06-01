@@ -35,7 +35,7 @@ SRC= \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c
-OBJS=${SRC:.c=.o}
+OBJS=$(SRC:.c=.o)
 BONUS= \
 	ft_lstnew.c \
 	ft_lstadd_front.c \
@@ -46,27 +46,30 @@ BONUS= \
 	ft_lstclear.c \
 	ft_lstiter.c \
 	ft_lstmap.c
-BONUS_OBJS=${BONUS:.c=.o}
+BONUS_OBJS=$(BONUS:.c=.o)
 CFLAGS= -Wall -Wextra -Werror
+ifdef FSANITIZE
+	CFLAGS+= -g3 -fsanitize=address
+endif
 
-all: ${NAME}
+all:
+	@$(MAKE) $(NAME) -j
 
-${NAME}: ${OBJS}
-	ar -rcs ${NAME} ${OBJS}
+$(NAME): $(OBJS)
+	@ar -rcs $(NAME) $(OBJS) && echo "Compilation of $(NAME) successful"
 
-bonus: ${OBJS} ${BONUS_OBJS}
-	ar -rcs ${NAME} ${OBJS} ${BONUS_OBJS}
+%.o: %.c
+	@$(CC) $(CFLAGS) -c $< -o $@
 
-${OBJS}: ${SRC}
-	cc ${CFLAGS} -c ${SRC}
-
-${BONUS_OBJS}: ${BONUS}
-	cc ${CFLAGS} -c ${BONUS}
+bonus: $(OBJS) $(BONUS_OBJS)
+	@ar -rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 clean: 
-	rm -f ${OBJS} ${BONUS_OBJS}
+	@rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	rm -f ${NAME}
+	@rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re bonus
