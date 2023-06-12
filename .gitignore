@@ -1,0 +1,10 @@
+.DS_Store
+.vscode
+**/*.DSYM
+**/*.out
+**/*.o
+**/*.so
+**/*.txt
+**/*.dylib
+**/*.so
+**/*.a
