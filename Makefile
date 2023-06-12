@@ -89,6 +89,10 @@ STRINGBUILDER_SRC:= \
 	stringbuilder/action/delete.c \
 	stringbuilder/action/insert.c \
 	stringbuilder/action/field_validator.c
+GNL_SRC:= \
+	gnl/get_next_line.c
+GNL_BONUS_SRC:= \
+	gnl/get_next_line_bonus.c
 
 SRC:= $(CORE_SRC)
 ifdef USE
