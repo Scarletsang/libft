@@ -93,6 +93,25 @@ GNL_SRC:= \
 	gnl/get_next_line.c
 GNL_BONUS_SRC:= \
 	gnl/get_next_line_bonus.c
+FT_PRINTF_SRC:= \
+	ft_printf/printers/cs.c \
+	ft_printf/printers/diu.c \
+	ft_printf/printers/xXp.c \
+	ft_printf/printers/prefix.c \
+	ft_printf/printers/hex_printer.c \
+	ft_printf/printers/sequencer.c \
+	ft_printf/parsers/parsers.c \
+	ft_printf/parsers/calc_numlen.c \
+	ft_printf/parsers/calc_strlen.c \
+	ft_printf/parsers/calc_states.c \
+	ft_printf/parsers/peek.c \
+	ft_printf/parsers/utils.c \
+	ft_printf/sequence/substitution_printer.c \
+	ft_printf/sequence/str_sequence.c \
+	ft_printf/sequence/num_sequence.c \
+	ft_printf/sequence/num_precision_sequence.c \
+	ft_printf/logic.c \
+	ft_printf/ft_printf.c
 
 SRC:= $(CORE_SRC)
 ifdef USE
