@@ -6,15 +6,12 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 09:08:23 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/12 12:42:40 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 15:21:22 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIST_H
 # define LIST_H
-
-# include <stdlib.h>
-# include <unistd.h>
 
 ////////////////////////////////////
 ////// Linked list interface ///////

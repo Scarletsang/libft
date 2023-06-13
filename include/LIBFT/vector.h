@@ -6,20 +6,15 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 15:44:56 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/13 13:14:24 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 15:08:20 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VECTOR_H
 # define VECTOR_H
 
-# include <stdlib.h>
+# include <stddef.h>
 # include <stdbool.h>
-# ifdef __linux__
-#  include <stdint.h>
-# endif
-# include <limits.h>
-# include "LIBFT/libft.h"
 
 /////////////////////////////////////////////////////////////
 ////////////     Minimum vector interface     ///////////////

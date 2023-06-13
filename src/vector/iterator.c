@@ -6,11 +6,12 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 23:38:55 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/13 12:59:14 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 15:10:14 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/vector.h"
+#include "vector_internal.h"
 
 void	ft_vector_iterator_init(t_ft_vector_iterator *iterator, \
 const t_ft_vector *vector)

@@ -6,16 +6,14 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 23:08:04 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/13 14:28:43 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 15:23:14 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HASHTABLE_H
 # define HASHTABLE_H
 
-# include <stdlib.h>
-# include <stdbool.h>
-# include "LIBFT/libft.h"
+# include <stddef.h>
 # include "LIBFT/vector.h"
 
 ///////////////////////////////////////////////

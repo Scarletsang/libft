@@ -6,11 +6,12 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 16:19:07 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/13 13:07:55 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 15:13:14 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/stringbuilder.h"
+#include "stringbuilder_internal.h"
 
 int	ft_sb_init(t_ft_sb *sb, const size_t capacity)
 {

@@ -6,16 +6,15 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 22:14:25 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/13 13:17:02 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 15:28:24 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLIPPER_H
 # define CLIPPER_H
 
+# include <stddef.h>
 # include "LIBFT/stringbuilder.h"
-# include "LIBFT/stringbuilder/sb_iterator.h"
-# include "LIBFT/vector.h"
 
 //////////////////////////////////////////////////////////
 ////////     String Builder clipper interface   //////////

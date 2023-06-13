@@ -6,16 +6,14 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 16:19:47 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/13 14:14:22 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 15:12:40 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRINGBUILDER_H
 # define STRINGBUILDER_H
 
-# include <stdlib.h>
-# include <stdbool.h>
-# include "LIBFT/libft.h"
+# include <stddef.h>
 # include "LIBFT/vector.h"
 
 ///////////////////////////////////////////////////

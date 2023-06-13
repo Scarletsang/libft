@@ -6,11 +6,12 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 17:44:51 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/13 13:18:07 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 15:13:42 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/stringbuilder/sb_iterator.h"
+#include "../stringbuilder_internal.h"
 
 int	ft_sb_iterator_mut_insert(t_ft_sb_iterator *iterator, const char *str)
 {

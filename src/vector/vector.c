@@ -6,11 +6,12 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:13:19 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/13 12:58:20 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 15:10:24 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/vector.h"
+#include "vector_internal.h"
 
 int	ft_vector_init(t_ft_vector *vector, size_t item_size, size_t capacity, \
 t_ft_vector_setter setter)

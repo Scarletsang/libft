@@ -6,10 +6,11 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:44:00 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/12 12:41:56 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 15:22:11 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "LIBFT/list.h"
 
 /**

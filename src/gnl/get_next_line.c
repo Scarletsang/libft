@@ -6,10 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 22:09:04 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/12 13:13:02 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 15:05:25 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <unistd.h>
+#include "LIBFT/string.h"
 #include "LIBFT/gnl.h"
 
 static size_t	find_line_end(char *str)

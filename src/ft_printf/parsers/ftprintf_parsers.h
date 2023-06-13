@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 04:47:34 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/13 04:55:41 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 15:01:15 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 # include <stdarg.h>
 # include <stdlib.h>
-# include "LIBFT/libft.h"
+# include "LIBFT/ctype.h"
+# include "LIBFT/string.h"
 
 /**
  * @brief A strict to be constructed by parsers, and passed

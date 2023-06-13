@@ -6,11 +6,12 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 23:50:45 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/13 14:20:46 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 15:30:37 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/hashtable.h"
+#include "internal/hashtable_internal.h"
 
 void	ft_ht_entry_init(struct s_ft_ht_entry *entry)
 {

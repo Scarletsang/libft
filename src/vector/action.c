@@ -6,11 +6,12 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:26:09 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/13 12:58:13 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 15:10:01 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/vector.h"
+#include "vector_internal.h"
 
 void	*ft_vector_append(t_ft_vector *vector, void *data)
 {

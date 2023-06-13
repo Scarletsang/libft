@@ -6,14 +6,17 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 14:21:10 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/13 14:23:32 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 15:23:31 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HASHTABLE_INTERNAL_H
 # define HASHTABLE_INTERNAL_H
 
+# include <stdlib.h>
+# include <stdbool.h>
 # include "LIBFT/hashtable.h"
+# include "LIBFT/string.h"
 
 ///////////////////////////////////////////
 ////////    private interface    //////////

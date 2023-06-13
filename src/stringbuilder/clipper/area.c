@@ -6,11 +6,12 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:28:52 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/13 13:25:23 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 15:13:47 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/stringbuilder/clipper.h"
+#include "../stringbuilder_internal.h"
 
 static int	sb_clipper_area_left(struct s_ft_sb_clipper *clipper, \
 const char *start_match)

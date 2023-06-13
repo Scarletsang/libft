@@ -6,15 +6,16 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 16:19:47 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/13 13:18:26 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 15:29:13 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SB_ITERATOR_H
 # define SB_ITERATOR_H
 
+# include <stddef.h>
+# include <stdbool.h>
 # include "LIBFT/stringbuilder.h"
-# include "LIBFT/vector.h"
 
 ///////////////////////////////////////////////////////////
 ////////     String Builder iterator interface   //////////
@@ -27,7 +28,7 @@
 typedef t_ft_vector_iterator	t_ft_sb_iterator;
 
 void						ft_sb_iterator_init(t_ft_sb_iterator *iterator, \
-const t_ft_vector *vector);
+const t_ft_sb *sb);
 
 int							ft_sb_iterator_next(t_ft_sb_iterator *iterator);
 

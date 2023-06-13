@@ -4,22 +4,22 @@ An all-in-one library for data structures and utility functions needed for the 4
 
 The core library features:
 
-- Functions to compare, copy and iterate on C NULL-terminated strings
-- Functions to create new strings by allocating on heap on every call
-- Functions to compare and copy on arbitary memory location
-- Simple IO functions to write to given file descriptors
+- LIBFT/string.h: Functions to compare, copy and iterate on C strings (NULL-terminated or not)
+- LIBFT/ctype.h: Functions to get the type of integer
+- LIBFT/general.h: Convertion between different data and allocation functions
+- LIBFT/io.h: Simple IO functions to write to given file descriptors
 
 Additional data structure includes:
 
-- vector (dynamic array)
-- stringbuilder
-- hashtable
-- list (linked list)
+- LIBFT/vector.h: dynamic array
+- LIBFT/stringbuilder.h: Easy string manipulation that minimize use of malloc
+- LIBFT/hashtable.h: hashtable
+- LIBFT/list.h: linked list
 
 Additional utility functions:
 
-- get_next_line
-- ft_printf
+- LIBFT/gnl.h: features the get_next_line function which extract one line as NULL-terminated string from a file descriptor
+- LIBFT/printf.h: features the ft_printf function which does the same thing as the normal "printf" but without buffering 
 
 ## Compilation
 

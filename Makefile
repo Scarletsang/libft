@@ -20,41 +20,41 @@ INCLUDE_DIR= \
 # To add souce files, create a varaible for each folder, and then
 # contatenate them in the SRC variable like this:
 CORE_SRC:= \
-	core/ft_memset.c \
-	core/ft_bzero.c \
-	core/ft_memcpy.c \
-	core/ft_memmove.c \
-	core/ft_memchr.c \
-	core/ft_memcmp.c \
-	core/ft_calloc.c \
-	core/ft_strlen.c \
-	core/ft_strdup.c \
-	core/ft_strlcpy.c \
-	core/ft_strlcat.c \
-	core/ft_strchr.c \
-	core/ft_strrchr.c \
-	core/ft_strnstr.c \
-	core/ft_strncmp.c \
-	core/ft_strcmp.c \
-	core/ft_atoi.c \
-	core/ft_isalpha.c \
-	core/ft_isdigit.c \
-	core/ft_isalnum.c \
-	core/ft_isascii.c \
-	core/ft_isprint.c \
-	core/ft_toupper.c \
-	core/ft_tolower.c \
-	core/ft_substr.c \
-	core/ft_strjoin.c \
-	core/ft_strtrim.c \
-	core/ft_split.c \
-	core/ft_itoa.c \
-	core/ft_strmapi.c \
-	core/ft_striteri.c \
-	core/ft_putchar_fd.c \
-	core/ft_putstr_fd.c \
-	core/ft_putendl_fd.c \
-	core/ft_putnbr_fd.c
+	core/general/ft_calloc.c \
+	core/general/ft_atoi.c \
+	core/general/ft_itoa.c \
+	core/ctype/ft_isalpha.c \
+	core/ctype/ft_isdigit.c \
+	core/ctype/ft_isalnum.c \
+	core/ctype/ft_isascii.c \
+	core/ctype/ft_isprint.c \
+	core/ctype/ft_toupper.c \
+	core/ctype/ft_tolower.c \
+	core/string/ft_memset.c \
+	core/string/ft_bzero.c \
+	core/string/ft_memcpy.c \
+	core/string/ft_memmove.c \
+	core/string/ft_memchr.c \
+	core/string/ft_memcmp.c \
+	core/string/ft_strlen.c \
+	core/string/ft_strdup.c \
+	core/string/ft_strlcpy.c \
+	core/string/ft_strlcat.c \
+	core/string/ft_strchr.c \
+	core/string/ft_strrchr.c \
+	core/string/ft_strnstr.c \
+	core/string/ft_strncmp.c \
+	core/string/ft_strcmp.c \
+	core/string/ft_substr.c \
+	core/string/ft_strjoin.c \
+	core/string/ft_strtrim.c \
+	core/string/ft_split.c \
+	core/string/ft_strmapi.c \
+	core/string/ft_striteri.c \
+	core/io/ft_putchar_fd.c \
+	core/io/ft_putstr_fd.c \
+	core/io/ft_putendl_fd.c \
+	core/io/ft_putnbr_fd.c
 LIST_SRC:= \
 	list/ft_lstnew.c \
 	list/ft_lstadd_front.c \

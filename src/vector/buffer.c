@@ -6,12 +6,12 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 20:16:44 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/13 13:26:28 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 15:10:07 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/vector.h"
-#include <stdio.h>
+#include "vector_internal.h"
 
 /**
  * @details If the vector is empty, nothing happens. If the buffer need to be

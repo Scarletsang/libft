@@ -6,11 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 21:10:42 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/13 13:25:12 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 15:26:39 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/stringbuilder/clipper.h"
+#include "LIBFT/stringbuilder/sb_iterator.h"
+#include "../stringbuilder_internal.h"
 
 void	ft_sb_clipper_init(struct s_ft_sb_clipper *clipper, const t_ft_sb *sb)
 {
