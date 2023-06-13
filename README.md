@@ -1,6 +1,6 @@
 # Libft
 
-An all-in-one library for data struture and utility functions needed for the 42 curriculum.
+An all-in-one library for data structures and utility functions needed for the 42 curriculum.
 
 The core library features:
 
@@ -23,7 +23,7 @@ Additional utility functions:
 
 ## Compilation
 
-The core library is compiled in any case. Users have to specify which additional modules you need to include them in the compilation.
+The core library is compiled in any case. In case user intends to include additional modules, one have to specify which additional modules you need through the make command option.
 
 For example, this will compile the core, vector and get_next_line:
 
