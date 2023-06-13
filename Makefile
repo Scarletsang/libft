@@ -73,12 +73,12 @@ VECTOR_SRC:= \
 	vector/action.c
 HASHTABLE_SRC:= \
 	hashtable/hashtable.c \
-	hashtable/mutation.c \
+	hashtable/hashtable_entry.c \
+	hashtable/rehash.c \
+	hashtable/action.c \
 	hashtable/printer.c \
-	hashtable/getters.c \
-	hashtable/entry.c \
-	hashtable/hash/hash.c \
-	hashtable/hash/rehash.c
+	hashtable/internal/hash.c \
+	hashtable/internal/query.c
 STRINGBUILDER_SRC:= \
 	stringbuilder/stringbuilder.c \
 	stringbuilder/iterator/iterator.c \

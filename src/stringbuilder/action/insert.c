@@ -6,11 +6,12 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 17:44:51 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/13 13:08:38 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 14:15:12 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/stringbuilder.h"
+#include "field_validator.h"
 
 struct s_ft_sb_action	ft_sb_action_append(const char *str)
 {

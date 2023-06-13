@@ -6,11 +6,12 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 04:17:16 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/13 13:26:18 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 14:24:55 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/hashtable.h"
+#include "internal/hashtable_internal.h"
 
 static void	ht_clone(t_ft_ht *dest, t_ft_ht *src)
 {

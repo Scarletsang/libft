@@ -1,32 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   getters.c                                          :+:      :+:    :+:   */
+/*   query.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 14:43:08 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/13 13:25:51 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 14:24:06 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/hashtable.h"
-
-/**
- * @brief Get the value of a key from the hash table.
- * @param ht The hash table.
- * @param key The key.
- * @return void* The value of the key, or NULL if the key is not found.
-*/
-void	*ft_ht_get(const t_ft_ht *ht, const char *key)
-{
-	struct s_ft_ht_entry	*entry;
-
-	entry = ft_ht_get_entry(ht, key);
-	if (!entry)
-		return (NULL);
-	return (entry->value);
-}
+#include "hashtable_internal.h"
 
 struct s_ft_ht_entry	*ft_ht_get_entry(const t_ft_ht *ht, const char *key)
 {

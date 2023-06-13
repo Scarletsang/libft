@@ -6,11 +6,12 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 18:09:57 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/13 13:09:20 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 14:15:23 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/stringbuilder.h"
+#include "field_validator.h"
 
 static void	sb_injection_word(t_ft_sb *sb, struct s_ft_sb_action *action)
 {

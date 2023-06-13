@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 23:08:04 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/13 13:23:00 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 14:28:43 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,31 +69,9 @@ const void *value, t_ft_ht_entry_cleaner cleaner);
 
 void						ft_ht_delete(t_ft_ht *ht, const char *key);
 
-///////////////////////////////////////////
-////////    private interface    //////////
-///////////////////////////////////////////
-
-struct s_ft_ht_entry		*ft_ht_get_entry(const t_ft_ht *ht, \
-const char *key);
-
-struct s_ft_ht_entry		*ft_ht_get_empty_entry(const t_ft_ht *ht, \
-const char *key);
-
-/**
- * @brief The hash function used to calculate the index of the storing entry.
-*/
-size_t						ft_hash(const char *key, size_t capacity);
-
-/**
- * @brief The hash function used to calculate the interval between each probing
- * for that particular entry.
-*/
-size_t						ft_hash_for_interval(const char *key, \
-size_t capacity);
-
-///////////////////////////////////////////
-////////    private interface    //////////
-///////////////////////////////////////////
+//////////////////////////////////////////////////
+////////   hashtable entry interface    //////////
+//////////////////////////////////////////////////
 
 /**
  * @brief The entry of the hashtable. Each entry stores a key, a value, and

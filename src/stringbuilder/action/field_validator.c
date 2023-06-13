@@ -6,11 +6,12 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 18:48:44 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/13 13:09:20 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 14:15:01 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/stringbuilder.h"
+#include "field_validator.h"
 
 void	ft_sb_action_set_validator_bit(struct s_ft_sb_action *action, \
 enum e_ft_sb_validator_bit bit)
