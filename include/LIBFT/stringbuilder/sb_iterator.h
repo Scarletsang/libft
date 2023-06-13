@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 16:19:47 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/12 12:49:53 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 13:18:26 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@
  * @brief The String builder iterator iterates over the string contained
  * in the string builder.
 */
-typedef t_vector_iterator	t_sb_iterator;
+typedef t_ft_vector_iterator	t_ft_sb_iterator;
 
-void						sb_iterator_init(t_sb_iterator *iterator, \
-const t_vector *vector);
+void						ft_sb_iterator_init(t_ft_sb_iterator *iterator, \
+const t_ft_vector *vector);
 
-int							sb_iterator_next(t_sb_iterator *iterator);
+int							ft_sb_iterator_next(t_ft_sb_iterator *iterator);
 
-int							sb_iterator_prev(t_sb_iterator *iterator);
+int							ft_sb_iterator_prev(t_ft_sb_iterator *iterator);
 
-char						sb_iterator_current(t_sb_iterator *iterator);
+char						ft_sb_iterator_current(t_ft_sb_iterator *iterator);
 
-bool						sb_iterator_is_end(t_sb_iterator *iterator);
+bool						ft_sb_iterator_is_end(t_ft_sb_iterator *iterator);
 
 //////////////////////////////////////////////////////////
 ////////      manipulative iterator interface   //////////
@@ -49,20 +49,20 @@ bool						sb_iterator_is_end(t_sb_iterator *iterator);
  * pointing at.
 */
 
-int							sb_iterator_mut_insert(t_sb_iterator *iterator, \
-const char *str);
+int							ft_sb_iterator_mut_insert(\
+t_ft_sb_iterator *iterator, const char *str);
 
-int							sb_iterator_mut_insert_len(t_sb_iterator *iterator, \
-const char *str, const size_t str_len);
+int							ft_sb_iterator_mut_insert_len(\
+t_ft_sb_iterator *iterator, const char *str, const size_t str_len);
 
-int							sb_iterator_mut_delete(t_sb_iterator *iterator, \
-const size_t edit_len);
+int							ft_sb_iterator_mut_delete(\
+t_ft_sb_iterator *iterator, const size_t edit_len);
 
-int							sb_iterator_mut_replace(t_sb_iterator *iterator, \
-const char *str, const size_t edit_len);
+int							ft_sb_iterator_mut_replace(\
+t_ft_sb_iterator *iterator, const char *str, const size_t edit_len);
 
-int							sb_iterator_mut_replace_len(\
-t_sb_iterator *iterator, const char *str, const size_t str_len, \
+int							ft_sb_iterator_mut_replace_len(\
+t_ft_sb_iterator *iterator, const char *str, const size_t str_len, \
 const size_t edit_len);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 20:16:44 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/12 12:52:17 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 13:26:28 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  * from the start to the end. The implementation is exactly like memmove, but
  * it copies with the vector_setter for more efficient copying.
 */
-void	vector_buffer_shift(t_vector *vector, size_t to, size_t from)
+void	ft_vector_buffer_shift(t_ft_vector *vector, size_t to, size_t from)
 {
 	size_t	distance;
 
@@ -33,28 +33,28 @@ void	vector_buffer_shift(t_vector *vector, size_t to, size_t from)
 		from += distance;
 		while (to > from)
 		{
-			vector_set(vector, to, vector_get(vector, to - distance));
+			ft_vector_set(vector, to, ft_vector_get(vector, to - distance));
 			to--;
 		}
-		vector_set(vector, to, vector_get(vector, to - distance));
+		ft_vector_set(vector, to, ft_vector_get(vector, to - distance));
 	}
 	else if ((from > to) && (from < vector->capacity))
 	{
 		distance = from - to;
 		while (to < vector->size)
 		{
-			vector_set(vector, to, vector_get(vector, to + distance));
+			ft_vector_set(vector, to, ft_vector_get(vector, to + distance));
 			to++;
 		}
 	}
 }
 
-void	vector_buffer_copy_from(t_vector *vector, void *buffer, size_t index, \
-size_t copy_amount)
+void	ft_vector_buffer_copy_from(t_ft_vector *vector, void *buffer, \
+size_t index, size_t copy_amount)
 {
 	while ((index < vector->capacity) && (copy_amount > 0))
 	{
-		vector_set(vector, index, buffer);
+		ft_vector_set(vector, index, buffer);
 		buffer += vector->item_size;
 		index++;
 		copy_amount--;

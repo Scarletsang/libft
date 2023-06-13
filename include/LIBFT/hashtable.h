@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 23:08:04 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/12 12:50:44 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 13:23:00 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@
 ///////////////////////////////////////////////
 
 /**
- * @implements  t_vector interface
+ * @implements  t_ft_vector interface
  * @brief The hashtable is implemented with open addressing, and double
  * hashing as the strategy for resolving collisions. One hash function is
  * used to calculate the index of the storing entry, and another hash function
  * is used to calculate the interval between each probing for that particular
  * entry.
 */
-typedef t_vector	t_ht;
-struct				s_ht_entry;
+typedef t_ft_vector	t_ft_ht;
+struct				s_ft_ht_entry;
 
 /**
  * @brief This implementation of hashtable concern about ownership of the
@@ -42,51 +42,54 @@ struct				s_ht_entry;
  * Therefore each entry owned by the hashtable stores a cleaner function
  * that will be called when the entry is freed.
 */
-typedef void		(*t_ht_entry_cleaner)(void *);
+typedef void		(*t_ft_ht_entry_cleaner)(void *);
 
-int						ht_init(t_ht *ht, const size_t capacity);
+int							ft_ht_init(t_ft_ht *ht, const size_t capacity);
 
-void					*ht_get(const t_ht *ht, const char *key);
+void						*ft_ht_get(const t_ft_ht *ht, const char *key);
 
 /**
  * @brief When the cleaner function is specified, the entry is assumed to be
  * owned by the hashtable. The cleaner function will be called when the entry
  * is freed. Otherwise, user should pass NULL to the cleaner parameter.
 */
-const struct s_ht_entry	*ht_set(t_ht *ht, const char *key, const void *value, \
-t_ht_entry_cleaner cleaner);
+const struct s_ft_ht_entry	*ft_ht_set(t_ft_ht *ht, const char *key, \
+const void *value, t_ft_ht_entry_cleaner cleaner);
 
-int						ht_resize(t_ht *ht);
+int							ft_ht_resize(t_ft_ht *ht);
 
-void					ht_free(t_ht *ht);
+void						ft_ht_free(t_ft_ht *ht);
 
 /**
  * @brief hashtable-specific functions
 */
 
-const struct s_ht_entry	*ht_update(t_ht *ht, const char *key, \
-const void *value, t_ht_entry_cleaner cleaner);
+const struct s_ft_ht_entry	*ft_ht_update(t_ft_ht *ht, const char *key, \
+const void *value, t_ft_ht_entry_cleaner cleaner);
 
-void					ht_del(t_ht *ht, const char *key);
+void						ft_ht_delete(t_ft_ht *ht, const char *key);
 
 ///////////////////////////////////////////
 ////////    private interface    //////////
 ///////////////////////////////////////////
 
-struct s_ht_entry		*ht_get_entry(const t_ht *ht, const char *key);
+struct s_ft_ht_entry		*ft_ht_get_entry(const t_ft_ht *ht, \
+const char *key);
 
-struct s_ht_entry		*ht_get_empty_entry(const t_ht *ht, const char *key);
+struct s_ft_ht_entry		*ft_ht_get_empty_entry(const t_ft_ht *ht, \
+const char *key);
 
 /**
  * @brief The hash function used to calculate the index of the storing entry.
 */
-size_t					hash(const char *key, size_t capacity);
+size_t						ft_hash(const char *key, size_t capacity);
 
 /**
  * @brief The hash function used to calculate the interval between each probing
  * for that particular entry.
 */
-size_t					hash_for_interval(const char *key, size_t capacity);
+size_t						ft_hash_for_interval(const char *key, \
+size_t capacity);
 
 ///////////////////////////////////////////
 ////////    private interface    //////////
@@ -98,28 +101,28 @@ size_t					hash_for_interval(const char *key, size_t capacity);
  * owned by the hashtable, and the cleaner function will be run when the
  * entry is freed.
 */
-struct s_ht_entry
+struct s_ft_ht_entry
 {
-	char				*key;
-	void				*value;
-	bool				deleted;
-	t_ht_entry_cleaner	cleaner;
+	char					*key;
+	void					*value;
+	bool					deleted;
+	t_ft_ht_entry_cleaner	cleaner;
 };
 
-void					ht_entry_init(struct s_ht_entry *entry);
+void						ft_ht_entry_init(struct s_ft_ht_entry *entry);
 
-void					ht_entry_delete(struct s_ht_entry *entry);
+void						ft_ht_entry_delete(struct s_ft_ht_entry *entry);
 
-int						ht_entry_set_key(struct s_ht_entry *entry, \
+int							ft_ht_entry_set_key(struct s_ft_ht_entry *entry, \
 const char *key);
 
-int						ht_entry_set_value(struct s_ht_entry *entry, \
-const void *value, t_ht_entry_cleaner cleaner);
+int							ft_ht_entry_set_value(struct s_ft_ht_entry *entry, \
+const void *value, t_ft_ht_entry_cleaner cleaner);
 
 ////////////////////////////////////////////
 ////////      debugp printer      //////////
 ////////////////////////////////////////////
 
-void					ht_print(t_ht *ht);
+void						ft_ht_print(t_ft_ht *ht);
 
 #endif

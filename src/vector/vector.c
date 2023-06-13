@@ -6,14 +6,14 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:13:19 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/12 12:52:17 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 12:58:20 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/vector.h"
 
-int	vector_init(t_vector *vector, size_t item_size, size_t capacity, \
-t_vector_setter setter)
+int	ft_vector_init(t_ft_vector *vector, size_t item_size, size_t capacity, \
+t_ft_vector_setter setter)
 {
 	vector->buffer = ft_calloc(capacity, item_size);
 	if (!vector->buffer)
@@ -22,22 +22,22 @@ t_vector_setter setter)
 	vector->item_size = item_size;
 	vector->size = 0;
 	if (!setter)
-		vector->setter = (t_vector_setter) vector_set_char;
+		vector->setter = (t_ft_vector_setter) ft_vector_set_char;
 	else
 		vector->setter = setter;
 	return (EXIT_SUCCESS);
 }
 
-void	*vector_get(const t_vector *vector, size_t index)
+void	*ft_vector_get(const t_ft_vector *vector, size_t index)
 {
 	return (vector->buffer + (index * vector->item_size));
 }
 
-void	*vector_set(t_vector *vector, size_t index, void *data)
+void	*ft_vector_set(t_ft_vector *vector, size_t index, void *data)
 {
 	void	*element;
 
-	element = vector_get(vector, index);
+	element = ft_vector_get(vector, index);
 	vector->setter(element, data);
 	return (element);
 }
@@ -46,7 +46,7 @@ void	*vector_set(t_vector *vector, size_t index, void *data)
  * @details Double the current capacity of the vector. If the capacity after
  * resizing exceeds SIZE_MAX, then the new capacity is set to SIZE_MAX.
 */
-int	vector_resize(t_vector *vector)
+int	ft_vector_resize(t_ft_vector *vector)
 {
 	char	*old_buffer;
 	size_t	new_capacity;
@@ -60,13 +60,13 @@ int	vector_resize(t_vector *vector)
 	vector->buffer = malloc(vector->item_size * new_capacity);
 	if (!vector->buffer)
 		return (EXIT_FAILURE);
-	vector_buffer_copy_from(vector, old_buffer, 0, vector->size);
+	ft_vector_buffer_copy_from(vector, old_buffer, 0, vector->size);
 	free(old_buffer);
 	vector->capacity = new_capacity;
 	return (EXIT_SUCCESS);
 }
 
-void	vector_free(t_vector *vector)
+void	ft_vector_free(t_ft_vector *vector)
 {
 	if (vector->buffer)
 		free(vector->buffer);

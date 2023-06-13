@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:28:52 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/12 12:52:17 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 13:25:23 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/stringbuilder/clipper.h"
 
-static int	sb_clipper_area_left(struct s_sb_clipper *clipper, \
+static int	sb_clipper_area_left(struct s_ft_sb_clipper *clipper, \
 const char *start_match)
 {
 	size_t	i;
@@ -24,7 +24,7 @@ const char *start_match)
 		j = 0;
 		while (start_match[j] && (i + j < clipper->rbound))
 		{
-			if (sb_get(clipper->sb, i + j) != start_match[j])
+			if (ft_sb_get(clipper->sb, i + j) != start_match[j])
 				break ;
 			j++;
 		}
@@ -38,7 +38,7 @@ const char *start_match)
 	return (EXIT_FAILURE);
 }
 
-static int	sb_clipper_area_right(struct s_sb_clipper *clipper, \
+static int	sb_clipper_area_right(struct s_ft_sb_clipper *clipper, \
 const char *end_match)
 {
 	char	*end;
@@ -53,8 +53,8 @@ const char *end_match)
 	return (EXIT_SUCCESS);
 }
 
-int	sb_clipper_area(struct s_sb_clipper *clipper, const char *start_match, \
-const char *end_match)
+int	ft_sb_clipper_area(struct s_ft_sb_clipper *clipper, \
+const char *start_match, const char *end_match)
 {
 	size_t	lbound;
 	size_t	rbound;

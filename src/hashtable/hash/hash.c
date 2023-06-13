@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 00:52:50 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/12 12:52:17 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 13:21:21 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/hashtable.h"
 
-size_t	hash(const char *key, size_t capacity)
+size_t	ft_hash(const char *key, size_t capacity)
 {
 	unsigned long	hash;
 	size_t			i;
@@ -40,7 +40,7 @@ static bool	is_coprime(size_t a, size_t b)
 	return (a == 1);
 }
 
-size_t	hash_for_interval(const char *key, size_t capacity)
+size_t	ft_hash_for_interval(const char *key, size_t capacity)
 {
 	size_t	hash;
 	size_t	interval;

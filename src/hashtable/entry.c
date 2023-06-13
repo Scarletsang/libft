@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 23:50:45 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/12 12:52:17 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/13 13:21:46 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/hashtable.h"
 
-void	ht_entry_init(struct s_ht_entry *entry)
+void	ft_ht_entry_init(struct s_ft_ht_entry *entry)
 {
 	entry->key = NULL;
 	entry->value = NULL;
@@ -20,7 +20,7 @@ void	ht_entry_init(struct s_ht_entry *entry)
 	entry->deleted = false;
 }
 
-void	ht_entry_delete(struct s_ht_entry *entry)
+void	ft_ht_entry_delete(struct s_ft_ht_entry *entry)
 {
 	if (entry->key)
 		free(entry->key);
@@ -40,7 +40,7 @@ void	ht_entry_delete(struct s_ht_entry *entry)
  * @details When setting the key of an entry, the given key will be be copied
  * to a new allocated memory using strdup.
 */
-int	ht_entry_set_key(struct s_ht_entry *entry, const char *key)
+int	ft_ht_entry_set_key(struct s_ft_ht_entry *entry, const char *key)
 {
 	entry->deleted = false;
 	entry->key = ft_strdup(key);
@@ -49,8 +49,8 @@ int	ht_entry_set_key(struct s_ht_entry *entry, const char *key)
 	return (EXIT_SUCCESS);
 }
 
-int	ht_entry_set_value(struct s_ht_entry *entry, const void *value, \
-t_ht_entry_cleaner cleaner)
+int	ft_ht_entry_set_value(struct s_ft_ht_entry *entry, const void *value, \
+t_ft_ht_entry_cleaner cleaner)
 {
 	if (entry->cleaner && entry->value)
 		entry->cleaner(entry->value);
