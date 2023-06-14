@@ -89,6 +89,9 @@ STRINGBUILDER_SRC:= \
 	stringbuilder/action/delete.c \
 	stringbuilder/action/insert.c \
 	stringbuilder/action/field_validator.c
+SMARTPOINTER_SRC:= \
+	smartpointer/smartpointer.c \
+	smartpointer/borrow.c
 GNL_SRC:= \
 	gnl/get_next_line.c
 GNL_BONUS_SRC:= \
