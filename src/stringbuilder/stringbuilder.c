@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 16:19:07 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/13 15:13:14 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/15 18:37:54 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	ft_sb_init(t_ft_sb *sb, const size_t capacity)
 {
-	if (ft_vector_init(sb, sizeof(char), capacity + 1, ft_vector_set_char))
+	if (ft_vector_init(sb, sizeof(char), capacity + 1, ft_vector_copy_char))
 		return (EXIT_FAILURE);
 	ft_vector_set(sb, 0, "\0");
 	sb->size = 1;

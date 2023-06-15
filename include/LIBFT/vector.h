@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 15:44:56 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/13 15:08:20 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/15 18:40:33 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 */
 
 /**
- * @brief A vector setter is an assigment function to assign the value of
+ * @brief A vector copier is an assigment function to assign the value of
  * an item to the another item. It is equvalent to the assignment operator in
  * c++. Since the vector is a generic data structure, it needs to know how to
  * assign the value of an item to another item. When a vector needs to resize or
@@ -54,7 +54,7 @@
  * While using memcpy is a valid option, it is a very inefficient way to copy
  * items.
 */
-typedef void	(*t_ft_vector_setter)(void *dest, void *src);
+typedef void	(*t_ft_vector_item_copier)(void *dest, void *src);
 
 /**
  * @brief A vector is a dynamic array. It handles the memory allocation and
@@ -66,19 +66,19 @@ typedef void	(*t_ft_vector_setter)(void *dest, void *src);
  * @param item_size The size of each item in the vector.
  * @param size The number of items in the vector.
  * @param capacity The number of items that the vector can hold.
- * @param setter The function that assigns the value of an item to another item.
+ * @param copier The function that assigns the value of an item to another item.
 */
 typedef struct s_ft_vector
 {
-	void				*buffer;
-	size_t				item_size;
-	size_t				size;
-	size_t				capacity;
-	t_ft_vector_setter	setter;
+	void					*buffer;
+	size_t					item_size;
+	size_t					size;
+	size_t					capacity;
+	t_ft_vector_item_copier	copier;
 }				t_ft_vector;
 
 int		ft_vector_init(t_ft_vector *vector, size_t item_size, \
-size_t capacity, t_ft_vector_setter setter);
+size_t capacity, t_ft_vector_item_copier copier);
 
 /**
  * @return The item at the given index.
@@ -129,19 +129,19 @@ int		ft_vector_remove(t_ft_vector *vector, size_t index);
  * @brief The following is a list of default vector_setter that is so
  * common that it is included in the utilities kit:
  * 
- * - ft_vector_set_char: setter for a vector that stores char.
- * - ft_vector_set_string: setter for a vector that stores string.
- * - ft_vector_set_ptr: setter for a vector that stores pointer.
- * - ft_vector_set_int: setter for a vector that stores int.
+ * - ft_vector_copy_char: copier for a vector that stores char.
+ * - ft_vector_copy_string: copier for a vector that stores string.
+ * - ft_vector_copy_ptr: copier for a vector that stores pointer.
+ * - ft_vector_copy_int: copier for a vector that stores int.
 */
 
-void	ft_vector_set_char(void *buffer, void *character);
+void	ft_vector_copy_char(void *buffer, void *character);
 
-void	ft_vector_set_string(void *buffer, void *string);
+void	ft_vector_copy_string(void *buffer, void *string);
 
-void	ft_vector_set_ptr(void *buffer, void *ptr);
+void	ft_vector_copy_ptr(void *buffer, void *ptr);
 
-void	ft_vector_set_int(void *buffer, void *integer);
+void	ft_vector_copy_int(void *buffer, void *integer);
 
 /**
  * @brief The following is two utility functions that helps you build your own

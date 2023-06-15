@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 23:30:47 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/13 13:26:11 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/15 18:34:25 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /**
  * @details Hashtable is implemented using a vector of entries, this function
- * is a t_ft_vector_setter function to copy an entry into another entry.
+ * is a t_ft_vector_item_copier function to copy an entry into another entry.
 */
 static void	ht_setter(struct s_ft_ht_entry *entry, \
 struct s_ft_ht_entry *new_entry)
@@ -28,7 +28,7 @@ struct s_ft_ht_entry *new_entry)
 int	ft_ht_init(t_ft_ht *ht, const size_t capacity)
 {
 	return (ft_vector_init(ht, sizeof(struct s_ft_ht_entry), capacity, \
-		(t_ft_vector_setter) ht_setter));
+		(t_ft_vector_item_copier) ht_setter));
 }
 
 void	ft_ht_free(t_ft_ht *ht)

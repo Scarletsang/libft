@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 04:17:16 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/13 14:24:55 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/15 18:34:55 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	ht_clone(t_ft_ht *dest, t_ft_ht *src)
 	dest->item_size = src->item_size;
 	dest->size = src->size;
 	dest->capacity = src->capacity;
-	dest->setter = src->setter;
+	dest->copier = src->copier;
 }
 
 static int	ht_import(t_ft_ht *ht, struct s_ft_ht_entry *entry)
@@ -29,7 +29,7 @@ static int	ht_import(t_ft_ht *ht, struct s_ft_ht_entry *entry)
 	new_entry = ft_ht_get_empty_entry(ht, entry->key);
 	if (!new_entry)
 		return (EXIT_FAILURE);
-	ht->setter(new_entry, entry);
+	ht->copier(new_entry, entry);
 	ht->size++;
 	return (EXIT_SUCCESS);
 }

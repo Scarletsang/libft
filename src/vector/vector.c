@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:13:19 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/13 15:10:24 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/15 18:37:54 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "vector_internal.h"
 
 int	ft_vector_init(t_ft_vector *vector, size_t item_size, size_t capacity, \
-t_ft_vector_setter setter)
+t_ft_vector_item_copier copier)
 {
 	vector->buffer = ft_calloc(capacity, item_size);
 	if (!vector->buffer)
@@ -22,10 +22,10 @@ t_ft_vector_setter setter)
 	vector->capacity = capacity;
 	vector->item_size = item_size;
 	vector->size = 0;
-	if (!setter)
-		vector->setter = (t_ft_vector_setter) ft_vector_set_char;
+	if (!copier)
+		vector->copier = (t_ft_vector_item_copier) ft_vector_copy_char;
 	else
-		vector->setter = setter;
+		vector->copier = copier;
 	return (EXIT_SUCCESS);
 }
 
@@ -39,7 +39,7 @@ void	*ft_vector_set(t_ft_vector *vector, size_t index, void *data)
 	void	*element;
 
 	element = ft_vector_get(vector, index);
-	vector->setter(element, data);
+	vector->copier(element, data);
 	return (element);
 }
 
@@ -75,5 +75,5 @@ void	ft_vector_free(t_ft_vector *vector)
 	vector->item_size = 0;
 	vector->size = 0;
 	vector->capacity = 0;
-	vector->setter = NULL;
+	vector->copier = NULL;
 }
