@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 05:00:15 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/14 13:56:33 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/15 13:12:15 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,35 @@
 */
 typedef struct s_ft_sptr
 {
-	void	*allocation;
-	bool	owned : 1;
-	bool	borrowed : 1;
-	bool	mut_borrowed : 1;
+	void			*allocation;
+	unsigned int	borrowed_count;
+	bool			borrowed_is_mut : 1;
 }				t_ft_sptr;
 
-int				ft_sptr_create(t_ft_sptr *sptr, size_t allocation_size);
+int					ft_sptr_create(t_ft_sptr *sptr, size_t allocation_size);
 
-t_ft_sptr		ft_sptr_move(t_ft_sptr *sptr);
+t_ft_sptr			ft_sptr_move(t_ft_sptr *sptr);
 
-t_ft_sptr		ft_sptr_borrow(t_ft_sptr *sptr);
+const void			*ft_sptr_use(t_ft_sptr *sptr);
 
-t_ft_sptr		ft_sptr_mut_borrow(t_ft_sptr *sptr);
+void				*ft_sptr_use_mut(t_ft_sptr *sptr);
 
-void			*ft_sptr(t_ft_sptr *sptr);
+void				ft_sptr_drop(t_ft_sptr *sptr, void (*cleaner)(void *));
 
-void			ft_sptr_drop(t_ft_sptr *sptr, void (*cleaner)(void *));
+typedef struct s_ft_sptr_borrow
+{
+	t_ft_sptr	*owner;
+	bool		is_mut;
+}				t_ft_sptr_borrow;
 
+t_ft_sptr_borrow	ft_sptr_borrow(t_ft_sptr *sptr);
+
+t_ft_sptr_borrow	ft_sptr_mut_borrow(t_ft_sptr *sptr);
+
+const void			*ft_sptr_borrow_use(t_ft_sptr_borrow *borrow);
+
+void				*ft_sptr_mut_borrow_use(t_ft_sptr_borrow *borrow);
+
+void				ft_sptr_borrow_drop(t_ft_sptr_borrow *borrow);
 
 #endif

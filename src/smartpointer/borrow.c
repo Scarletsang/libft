@@ -6,53 +6,98 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 05:27:04 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/14 13:57:09 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/15 13:34:53 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
 #include "LIBFT/smartpointer.h"
-#include "smartpointer_internal.h"
 
-t_ft_sptr	ft_sptr_borrow(t_ft_sptr *sptr)
+t_ft_sptr_borrow	ft_sptr_borrow(t_ft_sptr *sptr)
 {
-	t_ft_sptr	borrowed_sptr;
-
-	if (sptr->mut_borrowed)
+	if (sptr->allocation == NULL)
 	{
-		ft_sptr_empty(&borrowed_sptr);
-		write(STDERR_FILENO, \
-			"Attempt to borrow a mutably borrowed smart pointer\n", 51);
-		return (borrowed_sptr);
+		write(STDERR_FILENO, "Dropped smart pointer cannot be used\n", 37);
+		return ((t_ft_sptr_borrow){NULL, false});
 	}
-	sptr->borrowed = true;
-	borrowed_sptr.allocation = sptr->allocation;
-	borrowed_sptr.owned = false;
-	borrowed_sptr.borrowed = true;
-	borrowed_sptr.mut_borrowed = false;
-	return (borrowed_sptr);
+	if (sptr->borrowed_count && sptr->borrowed_is_mut)
+	{
+		write(STDERR_FILENO, \
+			"Cannot borrow while there is another mutably borrow\n", 52);
+		return ((t_ft_sptr_borrow){NULL, false});
+	}
+	sptr->borrowed_count += 1;
+	sptr->borrowed_is_mut = false;
+	return ((t_ft_sptr_borrow){sptr, false});
 }
 
-t_ft_sptr	ft_sptr_mut_borrow(t_ft_sptr *sptr)
+t_ft_sptr_borrow	ft_sptr_mut_borrow(t_ft_sptr *sptr)
 {
-	t_ft_sptr	borrowed_sptr;
-
-	if (sptr->mut_borrowed || sptr->borrowed)
+	if (sptr->allocation == NULL)
 	{
-		ft_sptr_empty(&borrowed_sptr);
-		if (sptr->mut_borrowed)
+		write(STDERR_FILENO, "Dropped smart pointer cannot be used\n", 37);
+		return ((t_ft_sptr_borrow){NULL, false});
+	}
+	if (sptr->borrowed_count)
+	{
+		if (sptr->borrowed_is_mut)
 			write(STDERR_FILENO, \
-				"Only one mutably borrowed smart pointer can exists\n", 51);
+			"Cannot mutably borrow while there is another mutably borrow\n", 60);
 		else
 			write(STDERR_FILENO, \
-				"No mixing mutable and immutable borrowing\n", 42);
-		return (borrowed_sptr);
+				"Cannot mutably borrow while there is another borrow\n", 52);
+		return ((t_ft_sptr_borrow){NULL, true});
 	}
-	sptr->mut_borrowed = true;
-	borrowed_sptr.allocation = sptr->allocation;
-	borrowed_sptr.owned = false;
-	borrowed_sptr.borrowed = true;
-	borrowed_sptr.mut_borrowed = true;
-	return (borrowed_sptr);
+	sptr->borrowed_count = 1;
+	sptr->borrowed_is_mut = true;
+	return ((t_ft_sptr_borrow){sptr, true});
+}
+
+const void	*ft_sptr_borrow_use(t_ft_sptr_borrow *borrow)
+{
+	if (!borrow->owner)
+	{
+		write(STDERR_FILENO, "Attempt to use a empty borrow\n", 30);
+		return (NULL);
+	}
+	if (borrow->owner->allocation == NULL)
+	{
+		write(STDERR_FILENO, "Dropped smart pointer cannot be used\n", 37);
+	}
+	return (borrow->owner->allocation);
+}
+
+void	*ft_sptr_mut_borrow_use(t_ft_sptr_borrow *borrow)
+{
+	if (!borrow->owner)
+	{
+		write(STDERR_FILENO, "Attempt to mutably use a empty borrow\n", 38);
+		return (NULL);
+	}
+	if (!borrow->owner->borrowed_is_mut)
+	{
+		write(STDERR_FILENO, \
+			"Attempt to mutably use a readonly borrow\n", 41);
+		return (NULL);
+	}
+	if (borrow->owner->allocation == NULL)
+	{
+		write(STDERR_FILENO, "Dropped smart pointer cannot be used\n", 37);
+	}
+	return (borrow->owner->allocation);
+}
+
+void	ft_sptr_borrow_drop(t_ft_sptr_borrow *borrow)
+{
+	if (!borrow->owner)
+	{
+		write(STDERR_FILENO, "Attempt to drop an empty borrow\n", 32);
+		return ;
+	}
+	if (borrow->is_mut)
+		borrow->owner->borrowed_count = 0;
+	else
+		borrow->owner->borrowed_count -= 1;
+	borrow->owner = NULL;
 }
