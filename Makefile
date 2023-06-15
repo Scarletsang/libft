@@ -70,7 +70,9 @@ VECTOR_SRC:= \
 	vector/buffer.c \
 	vector/setters.c \
 	vector/iterator.c \
-	vector/action.c
+	vector/action.c \
+	vector/stringvector/stringvector.c \
+	vector/stringvector/action.c
 HASHTABLE_SRC:= \
 	hashtable/hashtable.c \
 	hashtable/hashtable_entry.c \
