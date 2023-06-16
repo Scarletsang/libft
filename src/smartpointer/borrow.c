@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 05:27:04 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/15 13:34:53 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/15 13:58:49 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_ft_sptr_borrow	ft_sptr_borrow(t_ft_sptr *sptr)
 	return ((t_ft_sptr_borrow){sptr, false});
 }
 
-t_ft_sptr_borrow	ft_sptr_mut_borrow(t_ft_sptr *sptr)
+t_ft_sptr_borrow	ft_sptr_borrow_mut(t_ft_sptr *sptr)
 {
 	if (sptr->allocation == NULL)
 	{
@@ -68,7 +68,7 @@ const void	*ft_sptr_borrow_use(t_ft_sptr_borrow *borrow)
 	return (borrow->owner->allocation);
 }
 
-void	*ft_sptr_mut_borrow_use(t_ft_sptr_borrow *borrow)
+void	*ft_sptr_borrow_mut_use(t_ft_sptr_borrow *borrow)
 {
 	if (!borrow->owner)
 	{
