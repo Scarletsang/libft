@@ -12,9 +12,13 @@ The core library features:
 Additional data structure includes:
 
 - LIBFT/vector.h: dynamic array
+- LIBFT/vector/stringvector.h: A dynamic array of string. Easy manipulation of char **
 - LIBFT/stringbuilder.h: Easy string manipulation that minimize use of malloc
+- LIBFT/stringbuilder/clipper.h: A clipper to turn a stringbuilder to a NULL-terminated string
+- LIBFT/stringbuilder/sb_iterator.h: A stringbuilder iterator, with interface to mutate the underlying string during iteration
 - LIBFT/hashtable.h: hashtable
 - LIBFT/list.h: linked list
+- LIBFT/smartpointer.h: Rust-like pointers implemented in C (for educational purposes)
 
 Additional utility functions:
 
@@ -37,6 +41,7 @@ Avaliable options:
 - stringbuilder
 - hashtable
 - list
+- smartpointer
 - gnl
 - gnl_bonus
 - ft_printf
