@@ -8,11 +8,12 @@ The core library features:
 - LIBFT/ctype.h: Functions to get the type of integer
 - LIBFT/general.h: Convertion between different data and allocation functions
 - LIBFT/io.h: Simple IO functions to write to given file descriptors
+- LIBFT/vector.h: dynamic array
+- LIBFT/vector/stringvector.h: A dynamic array of string. Easy manipulation of char **
+- LIBFT/slice.h: A slice of an iterable. String slice is current defined.
 
 Additional data structure includes:
 
-- LIBFT/vector.h: dynamic array
-- LIBFT/vector/stringvector.h: A dynamic array of string. Easy manipulation of char **
 - LIBFT/stringbuilder.h: Easy string manipulation that minimize use of malloc
 - LIBFT/stringbuilder/clipper.h: A clipper to turn a stringbuilder to a NULL-terminated string
 - LIBFT/stringbuilder/sb_iterator.h: A stringbuilder iterator, with interface to mutate the underlying string during iteration
@@ -22,6 +23,7 @@ Additional data structure includes:
 
 Additional utility functions:
 
+- LIBFT/iostream.h: A more flexible way to receive input from a file descriptor
 - LIBFT/gnl.h: features the get_next_line function which extract one line as NULL-terminated string from a file descriptor
 - LIBFT/printf.h: features the ft_printf function which does the same thing as the normal "printf" but without buffering 
 
@@ -37,11 +39,11 @@ make USE="vector gnl"
 
 Avaliable options:
 
-- vector
 - stringbuilder
 - hashtable
 - list
 - smartpointer
+- iostream
 - gnl
 - gnl_bonus
 - ft_printf
