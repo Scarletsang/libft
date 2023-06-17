@@ -54,7 +54,15 @@ CORE_SRC:= \
 	core/io/ft_putchar_fd.c \
 	core/io/ft_putstr_fd.c \
 	core/io/ft_putendl_fd.c \
-	core/io/ft_putnbr_fd.c
+	core/io/ft_putnbr_fd.c \
+	core/vector/vector.c \
+	core/vector/buffer.c \
+	core/vector/setters.c \
+	core/vector/iterator.c \
+	core/vector/action.c \
+	core/vector/stringvector/stringvector.c \
+	core/vector/stringvector/action.c \
+	core/slice/slice.c
 LIST_SRC:= \
 	list/ft_lstnew.c \
 	list/ft_lstadd_front.c \
@@ -65,14 +73,6 @@ LIST_SRC:= \
 	list/ft_lstclear.c \
 	list/ft_lstiter.c \
 	list/ft_lstmap.c
-VECTOR_SRC:= \
-	vector/vector.c \
-	vector/buffer.c \
-	vector/setters.c \
-	vector/iterator.c \
-	vector/action.c \
-	vector/stringvector/stringvector.c \
-	vector/stringvector/action.c
 HASHTABLE_SRC:= \
 	hashtable/hashtable.c \
 	hashtable/hashtable_entry.c \
@@ -86,6 +86,7 @@ STRINGBUILDER_SRC:= \
 	stringbuilder/iterator/iterator.c \
 	stringbuilder/iterator/manipulation.c \
 	stringbuilder/clipper/clipper.c \
+	stringbuilder/clipper/action.c \
 	stringbuilder/clipper/area.c \
 	stringbuilder/action/action.c \
 	stringbuilder/action/delete.c \
@@ -94,6 +95,11 @@ STRINGBUILDER_SRC:= \
 SMARTPOINTER_SRC:= \
 	smartpointer/smartpointer.c \
 	smartpointer/borrow.c
+IOSTREAM_SRC:=\
+	$(SLICE_SRC) \
+	$(STRINGBUILDER_SRC) \
+	iostream/iostream.c \
+	iostream/action.c
 GNL_SRC:= \
 	gnl/get_next_line.c
 GNL_BONUS_SRC:= \
