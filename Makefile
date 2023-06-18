@@ -11,7 +11,7 @@ ifdef FSANITIZE
 	LDFLAGS+= -g3 -fsanitize=address
 endif
 INCLUDE_DIR= \
-	include
+	../include
 
 ###################################
 ######     Source files     #######
@@ -21,7 +21,9 @@ INCLUDE_DIR= \
 # contatenate them in the SRC variable like this:
 
 TEST_SRC:= \
-	test/test.c
+	main.c \
+	stringbuilder.c \
+	iostream.c
 
 SRC:= $(TEST_SRC)
 
@@ -31,11 +33,12 @@ SRC:= $(TEST_SRC)
 
 # To compile a library, store a variable for their library file like this
 # and add a rule for it after the main rules:
+LIBFT=../libft.a
 
 # To add a library, add the library header file like this:
 
 # Then add the library to the linking process in one of the following ways:
-# LDFLAGS+= -Llib/LIBRARY_NAME -lLIBRARY_NAME
+LDFLAGS+= ../libft.a
 # LDFLAGS+= lib/LIBRARY_NAME/libLIBRARY_NAME.a
 
 ###########################################
@@ -44,7 +47,7 @@ SRC:= $(TEST_SRC)
 
 # This in effect makes all the object files to be compiled in the OBJ_DIR directory
 
-SRC_DIR:=src
+SRC_DIR:=tests
 OBJ_DIR:=obj
 OBJ:= $(addprefix $(OBJ_DIR)/,$(subst /,@,$(SRC:.c=.o)))
 
@@ -55,8 +58,8 @@ OBJ:= $(addprefix $(OBJ_DIR)/,$(subst /,@,$(SRC:.c=.o)))
 all:
 	@$(MAKE) $(NAME) -j
 
-$(NAME): $(OBJ)
-	@ar -rcs $(NAME) $(OBJ) && echo "Compilation of $(NAME) successful"
+$(NAME): $(OBJ) $(LIBFT)
+	@$(CC) $(OBJ) -o $(NAME) $(LDFLAGS) && echo "Compilation of $(NAME) successful"
 
 ##########################################
 ######     Library compilation     #######
@@ -66,6 +69,8 @@ $(NAME): $(OBJ)
 
 # $(LIBRARY_NAME):
 # 	@${MAKE} $(if $(FSANITIZE),FSANITIZE=yes,) -C lib/LIBRARY_NAME
+$(LIBFT):
+	@${MAKE} $(if $(FSANITIZE),FSANITIZE=yes,) USE="iostream" -C .. re
 
 #########################################
 ######     Object compilation     #######
@@ -88,6 +93,7 @@ clean:
 	@rm -f $(OBJ_DIR)/*.o
 
 fclean: clean
+	@$(MAKE) -C .. fclean
 	@rm -rf $(OBJ_DIR)
 	@rm -f $(NAME)
 
