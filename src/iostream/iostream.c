@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 22:25:51 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/18 00:28:10 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/18 20:21:53 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	ft_iostream_init(struct s_ft_iostream *iostream)
 	if (ft_sb_init(&iostream->sb, IOSTREAM_BUFFER_SIZE))
 		return (EXIT_FAILURE);
 	ft_sb_clipper_init(&iostream->clipper, &iostream->sb);
-	iostream->no_selection = false;
 	return (EXIT_SUCCESS);
 }
 

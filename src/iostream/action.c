@@ -6,12 +6,11 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:05:15 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/18 00:31:38 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/19 00:02:36 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 #include "LIBFT/iostream.h"
 
 int	ft_iostream_read(struct s_ft_iostream *iostream, int fd)
@@ -24,65 +23,62 @@ int	ft_iostream_read(struct s_ft_iostream *iostream, int fd)
 	iostream->read_size = read(fd, \
 		ft_vector_get(&iostream->sb, iostream->sb.size - 1), \
 			IOSTREAM_BUFFER_SIZE);
-	iostream->sb.size += (size_t) iostream->read_size;
 	if (iostream->read_size < 0)
 		return (EXIT_FAILURE);
+	iostream->sb.size += (size_t) iostream->read_size;
 	iostream->clipper.rbound += (size_t) iostream->read_size;
 	return (EXIT_SUCCESS);
 }
 
-static int	ft_iostream_find_end_match(struct s_ft_iostream *iostream, \
-const char **match, const char *end_match)
+static size_t	ft_iostream_find_end_match(struct s_ft_iostream *iostream, \
+const char *end_match, const char **match, size_t lbound_reset)
 {
-	size_t	lbound_reset;
-
 	while (true)
 	{
-		*match = end_match;
-		lbound_reset = iostream->clipper.lbound;
 		while (ft_sb_clipper_at_lbound(&iostream->clipper) == **match)
 		{
 			(*match)++;
 			if (ft_sb_clipper_move_lbound(&iostream->clipper))
-				break ;
+				return (lbound_reset);
 		}
+		iostream->clipper.lbound = lbound_reset;
+		lbound_reset++;
+		*match = end_match;
 		if (ft_sb_clipper_move_lbound(&iostream->clipper))
 			break ;
 	}
-	if (!**match)
-	{
-		iostream->clipper.lbound = 0;
-		iostream->clipper.rbound = lbound_reset - 1;
-		return (EXIT_SUCCESS);
-	}
-	return (EXIT_FAILURE);
+	return (lbound_reset);
 }
 
 int	ft_iostream_read_until(struct s_ft_iostream *iostream, int fd, \
 const char *end_match)
 {
 	const char	*match;
+	size_t		lbound_reset;
 
 	if (ft_iostream_read(iostream, fd))
 		return (-1);
 	match = end_match;
-	iostream->no_selection = false;
+	lbound_reset = iostream->clipper.lbound;
 	while (true)
 	{
-		if (!ft_iostream_find_end_match(iostream, &match, end_match))
+		lbound_reset = ft_iostream_find_end_match(iostream, end_match, \
+			&match, lbound_reset);
+		if (!*match)
+		{
+			iostream->clipper.lbound = 0;
+			iostream->clipper.rbound = lbound_reset;
 			return (EXIT_SUCCESS);
-		if (match == end_match && ft_iostream_read(iostream, fd))
+		}
+		if (ft_iostream_read(iostream, fd))
 			return (-1);
 		if (ft_sb_clipper_move_lbound(&iostream->clipper))
 			break ;
 	}
-	iostream->no_selection = true;
 	return (EXIT_FAILURE);
 }
 
 t_ft_string_slice	ft_iostream_to_slice(struct s_ft_iostream *iostream)
 {
-	if (iostream->no_selection)
-		return ((t_ft_string_slice) {NULL, 0});
 	return (ft_sb_clipper_slice(&iostream->clipper));
 }
