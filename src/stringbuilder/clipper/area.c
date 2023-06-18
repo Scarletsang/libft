@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:28:52 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/13 15:13:47 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/18 19:35:09 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,7 @@ const char *end_match)
 		end_match, clipper->rbound - clipper->lbound);
 	if (!end)
 		return (EXIT_FAILURE);
-	if ((end - 1) < (const char *) clipper->sb->buffer)
-		return (EXIT_FAILURE);
-	clipper->rbound = end - (const char *)clipper->sb->buffer - 1;
+	clipper->rbound = end - (const char *)clipper->sb->buffer;
 	return (EXIT_SUCCESS);
 }
 

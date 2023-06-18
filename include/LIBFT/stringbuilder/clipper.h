@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 22:14:25 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/17 14:51:24 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/19 00:03:42 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@
  * substring.
  * @param sb The string builder to clip from. A clipper will not modify the
  * string builder.
- * @param lbound The left bound of the substring, aka the index of the first
+ * @param lbound The start of the substring, aka the index of the first
  * character of the substring.
- * @param rbound The right bound of the substring, aka the index of the last
+ * @param rbound The right bound of the substring, aka next index after the last
  * character of the substring.
 */
 struct s_ft_sb_clipper
