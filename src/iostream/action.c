@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:05:15 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/17 16:54:30 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/18 00:31:38 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ const char *end_match)
 	if (ft_iostream_read(iostream, fd))
 		return (-1);
 	match = end_match;
+	iostream->no_selection = false;
 	while (true)
 	{
 		if (!ft_iostream_find_end_match(iostream, &match, end_match))
@@ -75,10 +76,13 @@ const char *end_match)
 		if (ft_sb_clipper_move_lbound(&iostream->clipper))
 			break ;
 	}
+	iostream->no_selection = true;
 	return (EXIT_FAILURE);
 }
 
 t_ft_string_slice	ft_iostream_to_slice(struct s_ft_iostream *iostream)
 {
+	if (iostream->no_selection)
+		return ((t_ft_string_slice) {NULL, 0});
 	return (ft_sb_clipper_slice(&iostream->clipper));
 }

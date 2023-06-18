@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 22:53:54 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/17 15:13:19 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/18 00:45:39 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ const struct s_ft_sb_clipper *clipper)
 {
 	return ((t_ft_string_slice){
 		.content = clipper->sb->buffer + clipper->lbound,
-		.size = clipper->rbound - clipper->lbound + 1
+		.size = clipper->rbound - clipper->lbound
 	});
 }

@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 20:56:31 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/17 16:54:47 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/18 00:29:22 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ struct s_ft_iostream
 {
 	t_ft_sb					sb;
 	struct s_ft_sb_clipper	clipper;
+	bool					no_selection;
 	ssize_t					read_size;
 };
 
