@@ -30,27 +30,29 @@ CORE_SRC:= \
 	core/ctype/ft_isprint.c \
 	core/ctype/ft_toupper.c \
 	core/ctype/ft_tolower.c \
-	core/string/ft_memset.c \
 	core/string/ft_bzero.c \
-	core/string/ft_memcpy.c \
-	core/string/ft_memmove.c \
 	core/string/ft_memchr.c \
 	core/string/ft_memcmp.c \
-	core/string/ft_strlen.c \
-	core/string/ft_strdup.c \
-	core/string/ft_strlcpy.c \
-	core/string/ft_strlcat.c \
-	core/string/ft_strchr.c \
-	core/string/ft_strrchr.c \
-	core/string/ft_strnstr.c \
-	core/string/ft_strncmp.c \
-	core/string/ft_strcmp.c \
-	core/string/ft_substr.c \
-	core/string/ft_strjoin.c \
-	core/string/ft_strtrim.c \
+	core/string/ft_memcpy.c \
+	core/string/ft_memmove.c \
+	core/string/ft_memset.c \
 	core/string/ft_split.c \
-	core/string/ft_strmapi.c \
+	core/string/ft_strchr.c \
+	core/string/ft_strcmp.c \
+	core/string/ft_strdup.c \
 	core/string/ft_striteri.c \
+	core/string/ft_strjoin.c \
+	core/string/ft_strlcat.c \
+	core/string/ft_strlcpy.c \
+	core/string/ft_strlen.c \
+	core/string/ft_strljoin.c \
+	core/string/ft_strmapi.c \
+	core/string/ft_strncmp.c \
+	core/string/ft_strncpy.c \
+	core/string/ft_strnstr.c \
+	core/string/ft_strrchr.c \
+	core/string/ft_strtrim.c \
+	core/string/ft_substr.c \
 	core/io/ft_putchar_fd.c \
 	core/io/ft_putstr_fd.c \
 	core/io/ft_putendl_fd.c \
