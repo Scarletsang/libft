@@ -6,11 +6,12 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 22:09:57 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/18 00:36:25 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/21 15:05:22 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <unistd.h>
 #include "LIBFT/string.h"
 #include "LIBFT/slice.h"
 
@@ -31,4 +32,11 @@ char	*ft_string_slice_to_cstring(t_ft_string_slice slice)
 char	*ft_string_slice_content(t_ft_string_slice *slice)
 {
 	return (slice->content);
+}
+
+ssize_t	ft_string_slice_print(t_ft_string_slice slice, int fd)
+{
+	if (!slice.content)
+		return (0);
+	return (write(fd, slice.content, slice.size));
 }

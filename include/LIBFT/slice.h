@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 21:59:49 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/17 14:51:37 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/21 15:03:12 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@ typedef t_ft_slice	t_ft_string_slice;
 char	*ft_string_slice_to_cstring(t_ft_string_slice slice);
 
 char	*ft_string_slice_content(t_ft_string_slice *slice);
+
+ssize_t	ft_string_slice_print(t_ft_string_slice slice, int fd);
 
 #endif
