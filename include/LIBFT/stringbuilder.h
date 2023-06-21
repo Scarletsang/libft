@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 16:19:47 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/13 15:12:40 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/21 10:01:45 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ char					ft_sb_get(const t_ft_sb *sb, const size_t index);
 */
 int						ft_sb_perform(t_ft_sb *sb, \
 struct s_ft_sb_action action);
+
+void					ft_sb_reset(t_ft_sb *sb);
 
 int						ft_sb_resize(t_ft_sb *sb);
 
