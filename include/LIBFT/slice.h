@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 21:59:49 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/21 15:03:12 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/23 01:42:34 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SLICE_H
 
 # include <stddef.h>
+# include <sys/types.h>
 
 typedef struct s_ft_slice
 {
