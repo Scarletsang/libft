@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 17:44:51 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/13 15:13:42 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/24 12:55:04 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ const size_t edit_len)
 	if (iterator->vector->size > sb_size)
 		iterator->index += iterator->vector->size - sb_size;
 	else
-		iterator->index -= sb_size - iterator->vector->size;
+		iterator->index += sb_size - iterator->vector->size;
 	return (EXIT_SUCCESS);
 }
 
@@ -69,6 +69,6 @@ const size_t str_len, const size_t edit_len)
 	if (iterator->vector->size > sb_size)
 		iterator->index += iterator->vector->size - sb_size;
 	else
-		iterator->index -= sb_size - iterator->vector->size;
+		iterator->index += sb_size - iterator->vector->size;
 	return (EXIT_SUCCESS);
 }
