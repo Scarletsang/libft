@@ -27,6 +27,7 @@ CORE_SRC:= \
 	core/ctype/ft_isdigit.c \
 	core/ctype/ft_isalnum.c \
 	core/ctype/ft_isascii.c \
+	core/ctype/ft_isspace.c \
 	core/ctype/ft_isprint.c \
 	core/ctype/ft_toupper.c \
 	core/ctype/ft_tolower.c \
