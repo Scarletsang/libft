@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:05:15 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/26 02:24:00 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/26 23:11:43 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,69 +15,65 @@
 #include "LIBFT/string.h"
 #include <stdio.h>
 
-int	ft_iostream_read(struct s_ft_iostream *iostream, int fd)
+ssize_t	ft_iostream_read(struct s_ft_iostream *iostream, int fd)
 {
-	while (iostream->sb.capacity - iostream->sb.size < IOSTREAM_BUFFER_SIZE)
-	{
-		if (ft_sb_resize(&iostream->sb))
-			return (EXIT_FAILURE);
-	}
-	iostream->read_size = read(fd, \
-		ft_vector_get(&iostream->sb, iostream->sb.size - 1), \
-			IOSTREAM_BUFFER_SIZE);
-	if (iostream->read_size < 0)
-		return (EXIT_FAILURE);
-	iostream->sb.size += (size_t) iostream->read_size;
-	return (EXIT_SUCCESS);
+	char	buffer[IOSTREAM_BUFFER_SIZE];
+
+	iostream->read_size = read(fd, buffer, IOSTREAM_BUFFER_SIZE);
+	if (iostream->read_size <= 0)
+		return (iostream->read_size);
+	if (ft_sb_perform(&iostream->sb, ft_sb_action_append_len(buffer, \
+		(size_t) iostream->read_size)))
+		return (-1);
+	return (iostream->read_size);
 }
 
-static bool	ft_iostream_find_match(struct s_ft_iostream *iostream, \
-t_ft_string_slice match, size_t *current_match, size_t *current_index)
+static int	ft_iostream_lookahead_delimiter(struct s_ft_iostream *iostream, \
+int fd, t_ft_string_slice delimiter)
 {
-	while (*current_match < match.size)
+	size_t	lookahead;
+	size_t	delimiter_index;
+
+	delimiter_index = 0;
+	lookahead = iostream->iterator.index;
+	while (ft_sb_get(&iostream->sb, lookahead) == \
+		ft_string_slice_content(&delimiter)[delimiter_index])
 	{
-		while (ft_sb_iterator_current(&iostream->iterator) == \
-			ft_string_slice_content(&match)[*current_match])
+		if ((delimiter_index + 1) == delimiter.size)
+			return (EXIT_SUCCESS);
+		if ((lookahead + 1) == iostream->sb.size)
 		{
-			(*current_match)++;
-			if ((*current_match >= match.size) || \
-				ft_sb_iterator_next(&iostream->iterator))
-				return (true);
+			if (ft_iostream_read(iostream, fd) <= 0)
+				return (-1);
 		}
-		iostream->iterator.index = *current_index;
-		iostream->iterator.current = NULL;
-		(*current_index)++;
-		*current_match = 0;
-		if (ft_sb_iterator_next(&iostream->iterator))
-			return (false);
+		delimiter_index++;
+		lookahead++;
 	}
-	return (true);
+	return (EXIT_FAILURE);
 }
 
 int	ft_iostream_read_until_delimiter(struct s_ft_iostream *iostream, int fd, \
 t_ft_string_slice delimiter)
 {
-	size_t	current_match;
-	size_t	current_index;
-	int		return_value;
+	int	lookahead_result;
 
-	current_match = 0;
-	current_index = 0;
-	return_value = EXIT_SUCCESS;
-	while (!ft_iostream_find_match(iostream, delimiter, \
-		&current_match, &current_index))
-	{
-		if ((ft_iostream_read(iostream, fd) == EXIT_FAILURE) || \
-			ft_sb_iterator_next(&iostream->iterator))
-		{
-			return_value = EXIT_FAILURE;
-			break ;
-		}
-	}
 	iostream->delimiter_size = delimiter.size;
-	iostream->iterator.index = current_index;
-	iostream->iterator.current = NULL;
-	return (return_value);
+	while (true)
+	{
+		while (!ft_sb_iterator_is_end(&iostream->iterator))
+		{
+			lookahead_result = ft_iostream_lookahead_delimiter(iostream, fd, \
+				delimiter);
+			if (lookahead_result == EXIT_SUCCESS)
+				return (EXIT_SUCCESS);
+			else if (lookahead_result == -1)
+				return (EXIT_FAILURE);
+			ft_sb_iterator_next(&iostream->iterator);
+		}
+		if (ft_iostream_read(iostream, fd) <= 0)
+			return (EXIT_FAILURE);
+		ft_sb_iterator_prev(&iostream->iterator);
+	}
 }
 
 int	ft_iostream_read_until(struct s_ft_iostream *iostream, int fd, \
@@ -94,6 +90,8 @@ t_ft_string_slice match)
 
 t_ft_string_slice	ft_iostream_to_slice(struct s_ft_iostream *iostream)
 {
+	if (iostream->iterator.index <= 1)
+		return ((t_ft_string_slice){.content = NULL, .size = 0});
 	return ((t_ft_string_slice){\
 		.content = iostream->sb.buffer, \
 		.size = iostream->iterator.index});
