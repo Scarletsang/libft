@@ -6,12 +6,14 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:05:15 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/19 00:02:36 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/26 02:24:00 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "LIBFT/iostream.h"
+#include "LIBFT/string.h"
+#include <stdio.h>
 
 int	ft_iostream_read(struct s_ft_iostream *iostream, int fd)
 {
@@ -26,59 +28,73 @@ int	ft_iostream_read(struct s_ft_iostream *iostream, int fd)
 	if (iostream->read_size < 0)
 		return (EXIT_FAILURE);
 	iostream->sb.size += (size_t) iostream->read_size;
-	iostream->clipper.rbound += (size_t) iostream->read_size;
 	return (EXIT_SUCCESS);
 }
 
-static size_t	ft_iostream_find_end_match(struct s_ft_iostream *iostream, \
-const char *end_match, const char **match, size_t lbound_reset)
+static bool	ft_iostream_find_match(struct s_ft_iostream *iostream, \
+t_ft_string_slice match, size_t *current_match, size_t *current_index)
 {
-	while (true)
+	while (*current_match < match.size)
 	{
-		while (ft_sb_clipper_at_lbound(&iostream->clipper) == **match)
+		while (ft_sb_iterator_current(&iostream->iterator) == \
+			ft_string_slice_content(&match)[*current_match])
 		{
-			(*match)++;
-			if (ft_sb_clipper_move_lbound(&iostream->clipper))
-				return (lbound_reset);
+			(*current_match)++;
+			if ((*current_match >= match.size) || \
+				ft_sb_iterator_next(&iostream->iterator))
+				return (true);
 		}
-		iostream->clipper.lbound = lbound_reset;
-		lbound_reset++;
-		*match = end_match;
-		if (ft_sb_clipper_move_lbound(&iostream->clipper))
-			break ;
+		iostream->iterator.index = *current_index;
+		iostream->iterator.current = NULL;
+		(*current_index)++;
+		*current_match = 0;
+		if (ft_sb_iterator_next(&iostream->iterator))
+			return (false);
 	}
-	return (lbound_reset);
+	return (true);
+}
+
+int	ft_iostream_read_until_delimiter(struct s_ft_iostream *iostream, int fd, \
+t_ft_string_slice delimiter)
+{
+	size_t	current_match;
+	size_t	current_index;
+	int		return_value;
+
+	current_match = 0;
+	current_index = 0;
+	return_value = EXIT_SUCCESS;
+	while (!ft_iostream_find_match(iostream, delimiter, \
+		&current_match, &current_index))
+	{
+		if ((ft_iostream_read(iostream, fd) == EXIT_FAILURE) || \
+			ft_sb_iterator_next(&iostream->iterator))
+		{
+			return_value = EXIT_FAILURE;
+			break ;
+		}
+	}
+	iostream->delimiter_size = delimiter.size;
+	iostream->iterator.index = current_index;
+	iostream->iterator.current = NULL;
+	return (return_value);
 }
 
 int	ft_iostream_read_until(struct s_ft_iostream *iostream, int fd, \
-const char *end_match)
+t_ft_string_slice match)
 {
-	const char	*match;
-	size_t		lbound_reset;
+	int	return_value;
 
-	if (ft_iostream_read(iostream, fd))
-		return (-1);
-	match = end_match;
-	lbound_reset = iostream->clipper.lbound;
-	while (true)
-	{
-		lbound_reset = ft_iostream_find_end_match(iostream, end_match, \
-			&match, lbound_reset);
-		if (!*match)
-		{
-			iostream->clipper.lbound = 0;
-			iostream->clipper.rbound = lbound_reset;
-			return (EXIT_SUCCESS);
-		}
-		if (ft_iostream_read(iostream, fd))
-			return (-1);
-		if (ft_sb_clipper_move_lbound(&iostream->clipper))
-			break ;
-	}
-	return (EXIT_FAILURE);
+	return_value = ft_iostream_read_until_delimiter(iostream, fd, match);
+	iostream->delimiter_size = 0;
+	iostream->iterator.index += match.size;
+	iostream->iterator.current = NULL;
+	return (return_value);
 }
 
 t_ft_string_slice	ft_iostream_to_slice(struct s_ft_iostream *iostream)
 {
-	return (ft_sb_clipper_slice(&iostream->clipper));
+	return ((t_ft_string_slice){\
+		.content = iostream->sb.buffer, \
+		.size = iostream->iterator.index});
 }
