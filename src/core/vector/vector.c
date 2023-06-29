@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:13:19 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/15 18:37:54 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/29 03:43:48 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	*ft_vector_set(t_ft_vector *vector, size_t index, void *data)
 */
 int	ft_vector_resize(t_ft_vector *vector)
 {
-	char	*old_buffer;
+	void	*old_buffer;
 	size_t	new_capacity;
 
 	if (vector->capacity == SIZE_MAX)
