@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 23:30:47 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/15 18:34:25 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/30 21:59:14 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ void	ft_ht_free(t_ft_ht *ht)
 	size_t	i;
 
 	i = 0;
-	while ((ht->size > 0) && (i < ht->capacity))
+	while (i < ht->capacity)
 	{
 		ft_ht_entry_delete(ft_vector_get(ht, i));
-		ht->size--;
 		i++;
 	}
+	ht->size = 0;
 	ft_vector_free(ht);
 }

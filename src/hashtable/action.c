@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 00:35:00 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/13 14:25:20 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/30 22:44:58 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,16 @@ const void *value, t_ft_ht_entry_cleaner cleaner)
 	return (entry);
 }
 
-void	ft_ht_delete(t_ft_ht *ht, const char *key)
+int	ft_ht_delete(t_ft_ht *ht, const char *key)
 {
 	struct s_ft_ht_entry	*entry;
 
 	entry = ft_ht_get_entry(ht, key);
 	if (!entry)
-		return ;
+		return (EXIT_FAILURE);
 	ft_ht_entry_delete(entry);
 	ht->size--;
+	return (EXIT_SUCCESS);
 }
 
 const struct s_ft_ht_entry	*ft_ht_update(t_ft_ht *ht, const char *key, \

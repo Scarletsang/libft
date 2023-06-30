@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 23:08:04 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/13 15:23:14 by htsang           ###   ########.fr       */
+/*   Updated: 2023/06/30 22:45:11 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void						ft_ht_free(t_ft_ht *ht);
 const struct s_ft_ht_entry	*ft_ht_update(t_ft_ht *ht, const char *key, \
 const void *value, t_ft_ht_entry_cleaner cleaner);
 
-void						ft_ht_delete(t_ft_ht *ht, const char *key);
+int							ft_ht_delete(t_ft_ht *ht, const char *key);
 
 //////////////////////////////////////////////////
 ////////   hashtable entry interface    //////////
