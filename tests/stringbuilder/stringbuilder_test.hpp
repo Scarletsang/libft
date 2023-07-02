@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests.h                                            :+:      :+:    :+:   */
+/*   stringbuilder_test.hpp                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 20:00:58 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/18 20:26:17 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/02 14:28:07 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTS_H
-# define TESTS_H
+#ifndef STRINGBUILDER_TEST_HPP
+# define STRINGBUILDER_TEST_HPP
 
-#include "LIBFT/stringbuilder/clipper.h"
-#include "LIBFT/iostream.h"
+# include <gtest/gtest.h>
 
-int	resource_init_stringbuilder_clipper(t_ft_sb *sb, const char *str);
+extern "C"
+{
+	#include "LIBFT/stringbuilder.h"
+	#include "LIBFT/stringbuilder/clipper.h"
+	#include "LIBFT/stringbuilder/sb_iterator.h"
+}
 
-int	test_ft_sb_clipper_area(const char **user_input);
-
-int	test_ft_iostream_read_until(const char **user_input);
+class SbTest : public ::testing::TestWithParam<const char *>
+{
+	protected:
+		t_ft_sb	sb;
+		void	SetUp() override;
+		void	TearDown() override;
+	
+	public:
+		int	appendToSb(const char *str);
+};
 
 #endif

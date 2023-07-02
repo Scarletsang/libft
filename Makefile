@@ -4,8 +4,9 @@
 
 NAME:=debug.out
 
-CC:=cc
-CFLAGS:= -Wall -Wextra -Werror
+CC:=g++
+CFLAGS:= -Wall -Wextra -Werror -std=c++14
+LDFLAGS:=-std=c++14
 ifdef FSANITIZE
 	CFLAGS+= -g3 -fsanitize=address
 	LDFLAGS+= -g3 -fsanitize=address
@@ -21,9 +22,8 @@ INCLUDE_DIR= \
 # contatenate them in the SRC variable like this:
 
 TEST_SRC:= \
-	main.c \
-	stringbuilder.c \
-	iostream.c
+	stringbuilder/stringbuilder.cpp \
+	stringbuilder/stringbuilder_identity.cpp
 
 SRC:= $(TEST_SRC)
 
@@ -36,9 +36,12 @@ SRC:= $(TEST_SRC)
 LIBFT=../libft.a
 
 # To add a library, add the library header file like this:
+LIB_INCLUDE_DIR += $(shell brew --prefix googletest)/include
 
 # Then add the library to the linking process in one of the following ways:
 LDFLAGS+= ../libft.a
+LDFLAGS+= -L$(shell brew --prefix googletest)/lib -lgtest  -L$(shell brew --prefix googletest)/lib -lgtest_main
+# LDFLAGS+= -Llib/LIBRARY_NAME -lLIBRARY_NAME
 # LDFLAGS+= lib/LIBRARY_NAME/libLIBRARY_NAME.a
 
 ###########################################
@@ -49,7 +52,7 @@ LDFLAGS+= ../libft.a
 
 SRC_DIR:=tests
 OBJ_DIR:=obj
-OBJ:= $(addprefix $(OBJ_DIR)/,$(subst /,@,$(SRC:.c=.o)))
+OBJ:= $(addprefix $(OBJ_DIR)/,$(subst /,@,$(SRC:.cpp=.o)))
 
 #################################
 ######     Main rules     #######
@@ -70,14 +73,14 @@ $(NAME): $(OBJ) $(LIBFT)
 # $(LIBRARY_NAME):
 # 	@${MAKE} $(if $(FSANITIZE),FSANITIZE=yes,) -C lib/LIBRARY_NAME
 $(LIBFT):
-	@${MAKE} $(if $(FSANITIZE),FSANITIZE=yes,) USE="iostream" -C .. re
+	@${MAKE} $(if $(FSANITIZE),FSANITIZE=yes,) USE="stringbuilder" -C .. re
 
 #########################################
 ######     Object compilation     #######
 #########################################
 
 .SECONDEXPANSION:
-$(OBJ_DIR)/%.o: $(SRC_DIR)/$$(subst @,/,$$*).c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/$$(subst @,/,$$*).cpp
 	@$(CC) $(CFLAGS) $(addprefix -iquote ,$(INCLUDE_DIR)) $(addprefix -I ,$(LIB_INCLUDE_DIR)) -c $< -o $@
 
 $(OBJ): $(OBJ_DIR)
