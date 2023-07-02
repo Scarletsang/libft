@@ -6,12 +6,11 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 22:25:51 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/26 23:19:29 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/02 00:57:05 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 #include "LIBFT/iostream.h"
 
 int	ft_iostream_init(struct s_ft_iostream *iostream)
