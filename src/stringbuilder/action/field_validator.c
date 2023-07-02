@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 18:48:44 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/13 14:15:01 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/01 20:49:40 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,6 @@ void	ft_sb_action_flip_validator_bit(struct s_ft_sb_action *action, \
 enum e_ft_sb_validator_bit bit)
 {
 	action->field_validator ^= bit;
-}
-
-bool	ft_sb_action_has_entry_str_len(struct s_ft_sb_action *action)
-{
-	return (action->field_validator & SB_ENTRY_STR_LEN_BIT);
 }
 
 bool	ft_sb_action_has_edit_start(struct s_ft_sb_action *action)

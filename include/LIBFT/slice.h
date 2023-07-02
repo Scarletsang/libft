@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 21:59:49 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/23 01:42:34 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/02 12:19:35 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,19 @@
 typedef struct s_ft_slice
 {
 	void	*content;
-	size_t	size;
+	size_t	len;
 }				t_ft_slice;
 
-typedef t_ft_slice	t_ft_string_slice;
+typedef t_ft_slice	t_ft_str;
 
-char	*ft_string_slice_to_cstring(t_ft_string_slice slice);
+t_ft_str	ft_str_slice(char *cstring, size_t from, size_t to);
 
-char	*ft_string_slice_content(t_ft_string_slice *slice);
+t_ft_str	ft_str_from_cstring(const char *cstring);
 
-ssize_t	ft_string_slice_print(t_ft_string_slice slice, int fd);
+char		*ft_str_to_cstring(t_ft_str slice);
+
+char		*ft_str_as_ptr(t_ft_str *slice);
+
+ssize_t		ft_str_print(t_ft_str slice, int fd);
 
 #endif

@@ -92,14 +92,12 @@ STRINGBUILDER_SRC:= \
 	stringbuilder/clipper/action.c \
 	stringbuilder/clipper/area.c \
 	stringbuilder/action/action.c \
-	stringbuilder/action/delete.c \
-	stringbuilder/action/insert.c \
+	stringbuilder/action/perform.c \
 	stringbuilder/action/field_validator.c
 SMARTPOINTER_SRC:= \
 	smartpointer/smartpointer.c \
 	smartpointer/borrow.c
 IOSTREAM_SRC:=\
-	$(SLICE_SRC) \
 	$(STRINGBUILDER_SRC) \
 	iostream/iostream.c \
 	iostream/action.c

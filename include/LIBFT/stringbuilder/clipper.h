@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 22:14:25 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/19 00:03:42 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/02 01:03:19 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,17 @@ struct s_ft_sb_clipper
 	size_t			rbound;
 };
 
-void				ft_sb_clipper_init(struct s_ft_sb_clipper *clipper, \
+void		ft_sb_clipper_init(struct s_ft_sb_clipper *clipper, \
 const t_ft_sb *sb);
 
-int					ft_sb_clipper_move_lbound(struct s_ft_sb_clipper *clipper);
+int			ft_sb_clipper_move_lbound(struct s_ft_sb_clipper *clipper);
 
-int					ft_sb_clipper_move_rbound(struct s_ft_sb_clipper *clipper);
+int			ft_sb_clipper_move_rbound(struct s_ft_sb_clipper *clipper);
 
-char				ft_sb_clipper_at_lbound(\
+char		ft_sb_clipper_at_lbound(\
 const struct s_ft_sb_clipper *clipper);
 
-char				ft_sb_clipper_at_rbound(\
+char		ft_sb_clipper_at_rbound(\
 const struct s_ft_sb_clipper *clipper);
 
 /**
@@ -71,14 +71,14 @@ const struct s_ft_sb_clipper *clipper);
  * @param start_match The string to be found to move the left bound.
  * @param end_match The string to be found to move the right bound.
 */
-int					ft_sb_clipper_area(struct s_ft_sb_clipper *clipper, \
+int			ft_sb_clipper_area(struct s_ft_sb_clipper *clipper, \
 const char *start_match, const char *end_match);
 
 /**
  * @brief Creates a null-terminated substring from a string builder clipper.
 */
-char				*ft_sb_clipper_run(const struct s_ft_sb_clipper *clipper);
+char		*ft_sb_clipper_run(const struct s_ft_sb_clipper *clipper);
 
-t_ft_string_slice	ft_sb_clipper_slice(const struct s_ft_sb_clipper *clipper);
+t_ft_str	ft_sb_clipper_slice(const struct s_ft_sb_clipper *clipper);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 16:19:47 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/21 10:01:45 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/02 00:27:22 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define STRINGBUILDER_H
 
 # include <stddef.h>
+# include "LIBFT/slice.h"
 # include "LIBFT/vector.h"
 
 ///////////////////////////////////////////////////
@@ -65,27 +66,18 @@ struct s_ft_sb_action
 	size_t			entry_str_len;
 	size_t			edit_start;
 	size_t			edit_len;
-	unsigned int	field_validator : 3;
+	unsigned int	field_validator : 2;
 };
 
-struct s_ft_sb_action	ft_sb_action_append(const char *str);
+struct s_ft_sb_action	ft_sb_action_append(t_ft_str str);
 
-struct s_ft_sb_action	ft_sb_action_append_len(const char *str, \
-const size_t str_len);
-
-struct s_ft_sb_action	ft_sb_action_insert(const char *str, \
+struct s_ft_sb_action	ft_sb_action_insert(t_ft_str str, \
 const size_t edit_start);
-
-struct s_ft_sb_action	ft_sb_action_insert_len(const char *str, \
-const size_t str_len, const size_t edit_start);
 
 struct s_ft_sb_action	ft_sb_action_delete(const size_t edit_start, \
 const size_t edit_len);
 
-struct s_ft_sb_action	ft_sb_action_replace(const char *str, \
+struct s_ft_sb_action	ft_sb_action_replace(t_ft_str str, \
 const size_t edit_start, const size_t edit_len);
-
-struct s_ft_sb_action	ft_sb_action_replace_len(const char *str, \
-const size_t str_len, const size_t edit_start, const size_t edit_len);
 
 #endif

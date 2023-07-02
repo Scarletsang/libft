@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 16:19:47 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/13 15:29:13 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/02 00:50:44 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,19 +51,12 @@ bool						ft_sb_iterator_is_end(t_ft_sb_iterator *iterator);
 */
 
 int							ft_sb_iterator_mut_insert(\
-t_ft_sb_iterator *iterator, const char *str);
-
-int							ft_sb_iterator_mut_insert_len(\
-t_ft_sb_iterator *iterator, const char *str, const size_t str_len);
+t_ft_sb_iterator *iterator, t_ft_str str);
 
 int							ft_sb_iterator_mut_delete(\
 t_ft_sb_iterator *iterator, const size_t edit_len);
 
 int							ft_sb_iterator_mut_replace(\
-t_ft_sb_iterator *iterator, const char *str, const size_t edit_len);
-
-int							ft_sb_iterator_mut_replace_len(\
-t_ft_sb_iterator *iterator, const char *str, const size_t str_len, \
-const size_t edit_len);
+t_ft_sb_iterator *iterator, t_ft_str str, const size_t edit_len);
 
 #endif
