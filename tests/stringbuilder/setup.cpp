@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stringbuilder_test.hpp                             :+:      :+:    :+:   */
+/*   setup.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/18 20:00:58 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/02 18:09:33 by htsang           ###   ########.fr       */
+/*   Created: 2023/07/02 10:56:58 by htsang            #+#    #+#             */
+/*   Updated: 2023/07/03 00:05:22 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRINGBUILDER_TEST_HPP
-# define STRINGBUILDER_TEST_HPP
+#include "stringbuilder_test.hpp"
 
-# include <gtest/gtest.h>
-
-extern "C"
+void	SbTest::SetUp()
 {
-	#include "LIBFT/stringbuilder.h"
-	#include "LIBFT/stringbuilder/clipper.h"
-	#include "LIBFT/stringbuilder/sb_iterator.h"
+	ft_sb_init(&sb, 20);
 }
 
-class SbTest : public ::testing::TestWithParam<const char *>
+void	SbTest::TearDown()
 {
-	protected:
-		t_ft_sb	sb;
-		void	SetUp() override;
-		void	TearDown() override;
-	
-	public:
-		int	setSb(const char *str);
-};
+	ASSERT_EQ(((char *) sb.buffer)[sb.size - 1], '\0');
+	ASSERT_GE(sb.size, (size_t) 1);
+	ASSERT_GE(sb.capacity, (size_t) 1);
+	ASSERT_LE(sb.size, sb.capacity);
+	ft_sb_free(&sb);
+}
 
-#endif
+int	SbTest::setSb(const char *str)
+{
+	return ft_sb_perform(&sb, \
+		ft_sb_action_append(ft_str_from_cstring(str)));
+}

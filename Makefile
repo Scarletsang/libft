@@ -21,9 +21,7 @@ INCLUDE_DIR= \
 # To add souce files, create a varaible for each folder, and then
 # contatenate them in the SRC variable like this:
 
-TEST_SRC:= \
-	stringbuilder/stringbuilder.cpp \
-	stringbuilder/stringbuilder_identity.cpp
+TEST_SRC:= $(shell cd tests && echo **/*.cpp)
 
 SRC:= $(TEST_SRC)
 
