@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 20:00:58 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/03 00:43:33 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/03 21:32:05 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,47 +25,49 @@ class VectorTest : public ::testing::TestWithParam<std::vector<T>>
 {
 	protected:
 		t_ft_vector vector;
-		void	SetUp() override;
-		void	TearDown() override;
+		void		TearDown() override
+		{
+			ASSERT_GE(vector.size, (size_t) 0);
+			ASSERT_GE(vector.capacity, (size_t) 0);
+			ASSERT_LE(vector.size, vector.capacity);
+			ft_vector_free(&vector);
+		}
 	
 	public:
-		int	setVector(std::vector<T>);
+		int			setVector(std::vector<T> v)
+		{
+			typename std::vector<T>::iterator	it;
+
+			for (it = v.begin(); it != v.end(); ++it) {
+				if (!ft_vector_append(&vector, &(*it)))
+					return (EXIT_FAILURE);
+			}
+			return (EXIT_SUCCESS);
+		}
 };
 
-template <>
-class VectorTest<char *> : public ::testing::TestWithParam<std::vector<char *>>
+class VectorPtrTest : public VectorTest<void *>
 {
 	protected:
-		t_ft_vector vector;
 		void	SetUp() override;
 };
 
-typedef VectorTest<char *> VectorCharPtrTest;
-
-template <>
-class VectorTest<char> : public ::testing::TestWithParam<std::vector<char>>
+class VectorCharPtrTest : public VectorTest<const char *>
 {
 	protected:
-		t_ft_vector vector;
 		void	SetUp() override;
-	
-	public:
-		int	setVector(std::vector<char>);
 };
 
-typedef VectorTest<char> VectorCharTest;
-
-template <>
-class VectorTest<int> : public ::testing::TestWithParam<std::vector<int>>
+class VectorCharTest : public VectorTest<char>
 {
 	protected:
-		t_ft_vector vector;
 		void	SetUp() override;
-	
-	public:
-		int	setVector(std::vector<int>);
 };
 
-typedef VectorTest<int> VectorIntTest;
+class VectorIntTest : public VectorTest<int>
+{
+	protected:
+		void	SetUp() override;
+};
 
 #endif

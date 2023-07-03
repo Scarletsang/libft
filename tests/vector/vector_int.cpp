@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 10:56:58 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/03 13:18:28 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/03 16:48:35 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ TEST_P(VectorIntTest, ft_vector_insert)
 	}
 }
 
-TEST_P(VectorIntTest, ft_vector_remove)
+TEST_P(VectorIntTest, ft_vector_remove_EntireVector)
 {
 	size_t	i = 0;
 
@@ -101,6 +101,53 @@ TEST_P(VectorIntTest, ft_vector_remove)
 		i--;
 	}
 	ASSERT_EQ(vector.size, (size_t) 0);
+}
+
+TEST_P(VectorIntTest, ft_vector_remove_FirstElement)
+{
+	std::vector<int> 	input = GetParam();
+	int					ret;
+
+	setVector(input);
+	ASSERT_EQ(vector.size, input.size());
+	ret = ft_vector_remove(&vector, 0);
+	if (input.size() > 0)
+	{
+		ASSERT_EQ(ret, EXIT_SUCCESS);
+		ASSERT_EQ(vector.size, input.size() - 1);
+		if (input.size() > 1)
+		{
+			ASSERT_EQ(*(int *) ft_vector_get(&vector, 0), input[1]);
+		}
+	}
+	else
+	{
+		ASSERT_EQ(ret, EXIT_FAILURE);
+		ASSERT_EQ(vector.size, (size_t) 0);
+	}
+}
+
+TEST_P(VectorIntTest, ft_vector_remove_SecondElement)
+{
+	std::vector<int> 	input = GetParam();
+	int					ret;
+
+	setVector(input);
+	ASSERT_EQ(vector.size, input.size());
+	ret = ft_vector_remove(&vector, 1);
+	if (input.size() > 1)
+	{
+		ASSERT_EQ(ret, EXIT_SUCCESS);
+		ASSERT_EQ(vector.size, input.size() - 1);
+		if (input.size() > 2)
+		{
+			ASSERT_EQ(*(int *) ft_vector_get(&vector, 1), input[2]);
+		}
+	}
+	else
+	{
+		ASSERT_EQ(ret, EXIT_FAILURE);
+	}
 }
 
 INSTANTIATE_TEST_SUITE_P(Vector, VectorIntTest, testing::Values(
