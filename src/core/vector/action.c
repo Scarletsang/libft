@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:26:09 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/15 18:40:16 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/03 17:10:25 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ int	ft_vector_remove(t_ft_vector *vector, size_t index)
 {
 	if (index >= vector->size)
 		return (EXIT_FAILURE);
-	ft_vector_buffer_shift(vector, index, index + 1);
+	if (index + 1 < vector->size)
+		ft_vector_buffer_shift(vector, index, index + 1);
 	vector->size--;
 	return (EXIT_SUCCESS);
 }

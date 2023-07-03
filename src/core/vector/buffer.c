@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 20:16:44 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/13 15:10:07 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/03 18:16:11 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void	ft_vector_buffer_shift(t_ft_vector *vector, size_t to, size_t from)
 	else if ((from > to) && (from < vector->capacity))
 	{
 		distance = from - to;
-		while (to < vector->size)
+		while ((to + distance) < vector->size)
 		{
-			ft_vector_set(vector, to, ft_vector_get(vector, to + distance));
+			ft_vector_set(vector, to, ft_vector_get(vector, (to + distance)));
 			to++;
 		}
 	}
