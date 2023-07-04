@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 16:19:47 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/02 00:50:44 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/04 17:31:48 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,21 @@
 */
 typedef t_ft_vector_iterator	t_ft_sb_iterator;
 
-void						ft_sb_iterator_init(t_ft_sb_iterator *iterator, \
+void	ft_sb_iterator_begin(t_ft_sb_iterator *iterator, \
 const t_ft_sb *sb);
 
-int							ft_sb_iterator_next(t_ft_sb_iterator *iterator);
+void	ft_sb_iterator_end(t_ft_sb_iterator *iterator, \
+const t_ft_sb *sb);
 
-int							ft_sb_iterator_prev(t_ft_sb_iterator *iterator);
+int		ft_sb_iterator_next(t_ft_sb_iterator *iterator);
 
-char						ft_sb_iterator_current(t_ft_sb_iterator *iterator);
+int		ft_sb_iterator_prev(t_ft_sb_iterator *iterator);
 
-bool						ft_sb_iterator_is_end(t_ft_sb_iterator *iterator);
+bool	ft_sb_iterator_has_next(const t_ft_sb_iterator *iterator);
+
+bool	ft_sb_iterator_has_prev(const t_ft_sb_iterator *iterator);
+
+char	ft_sb_iterator_current(t_ft_sb_iterator *iterator);
 
 //////////////////////////////////////////////////////////
 ////////      manipulative iterator interface   //////////
@@ -50,13 +55,13 @@ bool						ft_sb_iterator_is_end(t_ft_sb_iterator *iterator);
  * pointing at.
 */
 
-int							ft_sb_iterator_mut_insert(\
+int		ft_sb_iterator_mut_insert(\
 t_ft_sb_iterator *iterator, t_ft_str str);
 
-int							ft_sb_iterator_mut_delete(\
+int		ft_sb_iterator_mut_delete(\
 t_ft_sb_iterator *iterator, const size_t edit_len);
 
-int							ft_sb_iterator_mut_replace(\
+int		ft_sb_iterator_mut_replace(\
 t_ft_sb_iterator *iterator, t_ft_str str, const size_t edit_len);
 
 #endif

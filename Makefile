@@ -61,8 +61,9 @@ CORE_SRC:= \
 	core/vector/vector.c \
 	core/vector/buffer.c \
 	core/vector/setters.c \
-	core/vector/iterator.c \
 	core/vector/action.c \
+	core/vector/iterator/iterator.c \
+	core/vector/iterator/action.c \
 	core/vector/stringvector/stringvector.c \
 	core/vector/stringvector/action.c \
 	core/slice/slice.c

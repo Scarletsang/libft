@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 18:36:34 by htsang            #+#    #+#             */
-/*   Updated: 2023/06/15 18:53:10 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/04 20:54:07 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ void	ft_stringvector_free(t_ft_stringvector *stringv)
 	t_ft_vector_iterator	iterator;
 	char					*current;
 
-	ft_vector_iterator_init(&iterator, stringv);
-	while (ft_vector_iterator_is_end(&iterator))
+	ft_vector_iterator_begin(&iterator, stringv);
+	while (!iterator.is_end)
 	{
 		current = (char *)ft_vector_iterator_current(&iterator);
 		if (current)

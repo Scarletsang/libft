@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iterator.c                                         :+:      :+:    :+:   */
+/*   ternary.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/26 23:38:55 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/07/04 17:32:56 by htsang           ###   ########.fr       */
+/*   Created: 2023/07/04 19:45:40 by htsang            #+#    #+#             */
+/*   Updated: 2023/07/04 21:06:09 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "LIBFT/stringbuilder/sb_iterator.h"
+#ifndef TERNARY_H
+# define TERNARY_H
 
-void	ft_sb_iterator_begin(t_ft_sb_iterator *iterator, \
-const t_ft_sb *sb)
+typedef enum e_ternary
 {
-	ft_vector_iterator_begin(iterator, sb);
-}
+	TERNARY_FALSE,
+	TERNARY_TRUE,
+	TERNARY_UNKNOWN
+}				t_ternary;
 
-void	ft_sb_iterator_end(t_ft_sb_iterator *iterator, \
-const t_ft_sb *sb)
-{
-	ft_vector_iterator_end(iterator, sb);
-}
-
-char	ft_sb_iterator_current(t_ft_sb_iterator *iterator)
-{
-	return (*(char *) ft_vector_iterator_current(iterator));
-}
+#endif

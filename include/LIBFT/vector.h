@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 15:44:56 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/15 18:40:33 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/04 20:52:49 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stddef.h>
 # include <stdbool.h>
+# include "LIBFT/ternary.h"
 
 /////////////////////////////////////////////////////////////
 ////////////     Minimum vector interface     ///////////////
@@ -173,17 +174,23 @@ typedef struct s_ft_vector_iterator
 	const t_ft_vector	*vector;
 	size_t				index;
 	void				*current;
+	t_ternary			is_end;
 }				t_ft_vector_iterator;
 
-void	ft_vector_iterator_init(t_ft_vector_iterator *iterator, \
+void	ft_vector_iterator_begin(t_ft_vector_iterator *iterator, \
+const t_ft_vector *vector);
+
+void	ft_vector_iterator_end(t_ft_vector_iterator *iterator, \
 const t_ft_vector *vector);
 
 int		ft_vector_iterator_next(t_ft_vector_iterator *iterator);
 
 int		ft_vector_iterator_prev(t_ft_vector_iterator *iterator);
 
-void	*ft_vector_iterator_current(t_ft_vector_iterator *iterator);
+bool	ft_vector_iterator_has_next(const t_ft_vector_iterator *iterator);
 
-bool	ft_vector_iterator_is_end(const t_ft_vector_iterator *iterator);
+bool	ft_vector_iterator_has_prev(const t_ft_vector_iterator *iterator);
+
+void	*ft_vector_iterator_current(t_ft_vector_iterator *iterator);
 
 #endif

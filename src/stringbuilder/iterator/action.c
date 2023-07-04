@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iterator.c                                         :+:      :+:    :+:   */
+/*   action.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/26 23:38:55 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/07/04 17:32:56 by htsang           ###   ########.fr       */
+/*   Created: 2023/07/04 17:29:12 by htsang            #+#    #+#             */
+/*   Updated: 2023/07/04 17:30:47 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/stringbuilder/sb_iterator.h"
 
-void	ft_sb_iterator_begin(t_ft_sb_iterator *iterator, \
-const t_ft_sb *sb)
+bool	ft_sb_iterator_has_next(const t_ft_sb_iterator *iterator)
 {
-	ft_vector_iterator_begin(iterator, sb);
+	return (ft_vector_iterator_has_next(iterator));
 }
 
-void	ft_sb_iterator_end(t_ft_sb_iterator *iterator, \
-const t_ft_sb *sb)
+bool	ft_sb_iterator_has_prev(const t_ft_sb_iterator *iterator)
 {
-	ft_vector_iterator_end(iterator, sb);
+	return (ft_vector_iterator_has_prev(iterator));
 }
 
-char	ft_sb_iterator_current(t_ft_sb_iterator *iterator)
+int	ft_sb_iterator_next(t_ft_sb_iterator *iterator)
 {
-	return (*(char *) ft_vector_iterator_current(iterator));
+	return (ft_vector_iterator_next(iterator));
+}
+
+int	ft_sb_iterator_prev(t_ft_sb_iterator *iterator)
+{
+	return (ft_vector_iterator_prev(iterator));
 }
