@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 22:09:57 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/02 12:19:25 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/04 21:06:32 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@
 t_ft_str	ft_str_slice(char *cstring, size_t from, size_t to)
 {
 	if (to < from)
-		return ((t_ft_str) {cstring + to, from - to});
+		return ((t_ft_str){cstring + to, from - to});
 	else
-		return ((t_ft_str) {cstring + from, to - from});
+		return ((t_ft_str){cstring + from, to - from});
 }
 
 t_ft_str	ft_str_from_cstring(const char *cstring)
 {
 	if (!cstring)
-		return ((t_ft_str) {NULL, 0});
-	return ((t_ft_str) {(char *) cstring, ft_strlen(cstring)});
+		return ((t_ft_str){NULL, 0});
+	return ((t_ft_str){(char *) cstring, ft_strlen(cstring)});
 }
 
 char	*ft_str_to_cstring(t_ft_str slice)

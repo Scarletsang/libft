@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 17:44:51 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/02 00:52:40 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/04 17:32:49 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ const size_t edit_start, const size_t edit_len)
 		.entry_str_len = str.len,
 		.edit_start = edit_start,
 		.edit_len = edit_len,
-		.field_validator = 0  | SB_EDIT_START_BIT | SB_EDIT_LEN_BIT
+		.field_validator = 0 | SB_EDIT_START_BIT | SB_EDIT_LEN_BIT
 	});
 }
