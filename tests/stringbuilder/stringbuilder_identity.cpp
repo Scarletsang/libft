@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 10:56:58 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/05 11:00:34 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/05 11:30:32 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,69 @@ TEST_P(SbTest, ft_sb_iterator_ForwardsThenBackwards)
 			i--;
 	}
 	ASSERT_EQ(ft_sb_iterator_current(&it), input[i]);
+}
+
+TEST_P(SbTest, ft_sb_iterator_mut_insert)
+{
+	const char				*input = GetParam();
+	t_ft_sb_iterator		it;
+
+	setSb(input);
+	ft_sb_iterator_begin(&it, &sb);
+	while (!it.is_end)
+	{
+		ASSERT_EQ(ft_sb_iterator_current(&it), *input);
+		ft_sb_iterator_mut_insert(&it, ft_str_from_cstring("789"));
+		ft_sb_iterator_next(&it);
+		ft_sb_iterator_next(&it);
+		ft_sb_iterator_next(&it);
+		ft_sb_iterator_next(&it);
+		if (!it.is_end)
+			input++;
+	}
+	if (sb.size > 1)
+		ASSERT_EQ(ft_sb_iterator_current(&it), *input);
+	else
+		ASSERT_EQ(ft_sb_iterator_current(&it), '\0');
+}
+
+TEST_P(SbTest, ft_sb_iterator_mut_delete)
+{
+	const char				*input = GetParam();
+	t_ft_sb_iterator		it;
+
+	setSb(input);
+	ft_sb_iterator_begin(&it, &sb);
+	while (!it.is_end)
+	{
+		ASSERT_EQ(ft_sb_iterator_current(&it), *input);
+		ft_sb_iterator_mut_delete(&it, 1);
+		if (!it.is_end)
+			input++;
+	}
+	ASSERT_EQ(ft_sb_iterator_current(&it), '\0');
+}
+
+TEST_P(SbTest, ft_sb_iterator_mut_replace)
+{
+	const char				*input = GetParam();
+	t_ft_sb_iterator		it;
+
+	setSb(input);
+	ft_sb_iterator_begin(&it, &sb);
+	while (!it.is_end)
+	{
+		ASSERT_EQ(ft_sb_iterator_current(&it), *input);
+		ft_sb_iterator_mut_replace(&it, ft_str_from_cstring("abc"), 2);
+		ft_sb_iterator_next(&it);
+		ft_sb_iterator_next(&it);
+		if (!it.is_end)
+			input++;
+	}
+	if (sb.size > 1)
+		ASSERT_EQ(ft_sb_iterator_current(&it), *input);
+	else
+		ASSERT_EQ(ft_sb_iterator_current(&it), '\0');
 }
 
 INSTANTIATE_TEST_SUITE_P(Sb, SbTest, testing::Values(
