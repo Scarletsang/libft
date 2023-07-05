@@ -88,6 +88,7 @@ HASHTABLE_SRC:= \
 STRINGBUILDER_SRC:= \
 	stringbuilder/stringbuilder.c \
 	stringbuilder/iterator/iterator.c \
+	stringbuilder/iterator/action.c \
 	stringbuilder/iterator/manipulation.c \
 	stringbuilder/clipper/clipper.c \
 	stringbuilder/clipper/action.c \

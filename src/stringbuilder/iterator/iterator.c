@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 23:38:55 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/07/04 17:32:56 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/05 10:48:25 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,35 @@
 void	ft_sb_iterator_begin(t_ft_sb_iterator *iterator, \
 const t_ft_sb *sb)
 {
-	ft_vector_iterator_begin(iterator, sb);
+	iterator->vector = sb;
+	iterator->index = 0;
+	iterator->current = NULL;
+	if (sb->size <= 1)
+		iterator->is_end = TERNARY_TRUE;
+	else
+		iterator->is_end = TERNARY_FALSE;
 }
 
 void	ft_sb_iterator_end(t_ft_sb_iterator *iterator, \
 const t_ft_sb *sb)
 {
-	ft_vector_iterator_end(iterator, sb);
+	if (sb->size <= 1)
+	{
+		iterator->index = 0;
+		iterator->is_end = TERNARY_UNKNOWN;
+	}
+	else
+	{
+		iterator->index = sb->size - 2;
+		iterator->is_end = TERNARY_FALSE;
+	}
+	iterator->vector = sb;
+	iterator->current = NULL;
 }
 
 char	ft_sb_iterator_current(t_ft_sb_iterator *iterator)
 {
-	return (*(char *) ft_vector_iterator_current(iterator));
+	if (iterator->current == NULL)
+		iterator->current = ft_vector_get(iterator->vector, iterator->index);
+	return (*(char *) iterator->current);
 }
