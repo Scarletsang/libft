@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 23:50:45 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/07/07 01:37:11 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/07 01:45:55 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	ft_ht_entry_init(struct s_ft_ht_entry *entry)
 {
 	entry->key = NULL;
-	entry->value = (t_ft_object) {NULL, 0};
+	entry->value = (t_ft_object){NULL, 0};
 	entry->cleaner = NULL;
 	entry->deleted = false;
 }
@@ -32,7 +32,7 @@ void	ft_ht_entry_delete(struct s_ft_ht_entry *entry)
 			free(entry->value.content);
 	}
 	entry->key = NULL;
-	entry->value = (t_ft_object) {NULL, 0};
+	entry->value = (t_ft_object){NULL, 0};
 	entry->cleaner = NULL;
 	entry->deleted = true;
 }

@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 23:08:04 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/07/07 01:34:51 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/07 01:46:08 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef void		(*t_ft_ht_entry_cleaner)(void *);
 
 int							ft_ht_init(t_ft_ht *ht, const size_t capacity);
 
-void						*ft_ht_get(const t_ft_ht *ht, t_ft_str key);
+t_ft_object					ft_ht_get(const t_ft_ht *ht, t_ft_str key);
 
 /**
  * @brief When the cleaner function is specified, the entry is assumed to be
@@ -81,7 +81,7 @@ int							ft_ht_delete(t_ft_ht *ht, t_ft_str key);
 struct s_ft_ht_entry
 {
 	char					*key;
-	t_ft_object 			value;
+	t_ft_object				value;
 	bool					deleted;
 	t_ft_ht_entry_cleaner	cleaner;
 };

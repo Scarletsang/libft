@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 00:35:00 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/07/07 01:37:34 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/07 01:42:59 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@
  * @brief Get the value of a key from the hash table.
  * @param ht The hash table.
  * @param key The key.
- * @return void* The value of the key, or NULL if the key is not found.
+ * @return t_ft_object The value of the key, or NULL if the key is not found.
 */
-void	*ft_ht_get(const t_ft_ht *ht, t_ft_str key)
+t_ft_object	ft_ht_get(const t_ft_ht *ht, t_ft_str key)
 {
 	struct s_ft_ht_entry	*entry;
 
 	entry = ft_ht_get_entry(ht, key);
 	if (!entry)
-		return (NULL);
-	return (entry->value.content);
+		return ((t_ft_object){NULL, 0});
+	return (entry->value);
 }
 
 const struct s_ft_ht_entry	*ft_ht_set(t_ft_ht *ht, t_ft_str key, \
