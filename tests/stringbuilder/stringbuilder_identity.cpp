@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 10:56:58 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/05 11:30:32 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/06 14:48:04 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,7 @@ TEST_P(SbTest, ft_sb_iterator_Forwards)
 	{
 		ASSERT_EQ(ft_sb_iterator_current(&it), *input);
 		ft_sb_iterator_next(&it);
-		if (!it.is_end)
-			input++;
+		input++;
 	}
 	ASSERT_EQ(ft_sb_iterator_current(&it), *input);
 }
@@ -103,8 +102,7 @@ TEST_P(SbTest, ft_sb_iterator_ForwardsThenBackwards)
 	{
 		ASSERT_EQ(ft_sb_iterator_current(&it), input[i]);
 		ft_sb_iterator_next(&it);
-		if (!it.is_end)
-			i++;
+		i++;
 	}
 	ASSERT_EQ(ft_sb_iterator_current(&it), input[i]);
 	ft_sb_iterator_prev(&it);
@@ -127,6 +125,16 @@ TEST_P(SbTest, ft_sb_iterator_mut_insert)
 
 	setSb(input);
 	ft_sb_iterator_begin(&it, &sb);
+	if (sb.size <= 1)
+	{
+		ft_sb_iterator_mut_insert(&it, ft_str_from_cstring("789"));
+		ASSERT_EQ(ft_sb_iterator_current(&it), '7');
+		ft_sb_iterator_next(&it);
+		ASSERT_EQ(ft_sb_iterator_current(&it), '8');
+		ft_sb_iterator_next(&it);
+		ASSERT_EQ(ft_sb_iterator_current(&it), '9');
+		ft_sb_iterator_next(&it);
+	}
 	while (!it.is_end)
 	{
 		ASSERT_EQ(ft_sb_iterator_current(&it), *input);
@@ -135,13 +143,9 @@ TEST_P(SbTest, ft_sb_iterator_mut_insert)
 		ft_sb_iterator_next(&it);
 		ft_sb_iterator_next(&it);
 		ft_sb_iterator_next(&it);
-		if (!it.is_end)
-			input++;
+		input++;
 	}
-	if (sb.size > 1)
-		ASSERT_EQ(ft_sb_iterator_current(&it), *input);
-	else
-		ASSERT_EQ(ft_sb_iterator_current(&it), '\0');
+	ASSERT_EQ(ft_sb_iterator_current(&it), *input);
 }
 
 TEST_P(SbTest, ft_sb_iterator_mut_delete)
@@ -155,8 +159,7 @@ TEST_P(SbTest, ft_sb_iterator_mut_delete)
 	{
 		ASSERT_EQ(ft_sb_iterator_current(&it), *input);
 		ft_sb_iterator_mut_delete(&it, 1);
-		if (!it.is_end)
-			input++;
+		input++;
 	}
 	ASSERT_EQ(ft_sb_iterator_current(&it), '\0');
 }
@@ -168,23 +171,29 @@ TEST_P(SbTest, ft_sb_iterator_mut_replace)
 
 	setSb(input);
 	ft_sb_iterator_begin(&it, &sb);
-	while (!it.is_end)
+	if (sb.size <= 1)
 	{
-		ASSERT_EQ(ft_sb_iterator_current(&it), *input);
 		ft_sb_iterator_mut_replace(&it, ft_str_from_cstring("abc"), 2);
 		ft_sb_iterator_next(&it);
 		ft_sb_iterator_next(&it);
-		if (!it.is_end)
-			input++;
+		ASSERT_EQ(ft_sb_iterator_current(&it), 'c');
+		ft_sb_iterator_next(&it);
 	}
-	if (sb.size > 1)
-		ASSERT_EQ(ft_sb_iterator_current(&it), *input);
-	else
-		ASSERT_EQ(ft_sb_iterator_current(&it), '\0');
+	while (it.is_end != SB_RIGHT_END)
+	{
+		ft_sb_iterator_mut_replace(&it, ft_str_from_cstring("abc"), 2);
+		ft_sb_iterator_next(&it);
+		ft_sb_iterator_next(&it);
+		ASSERT_EQ(ft_sb_iterator_current(&it), 'c');
+		ft_sb_iterator_next(&it);
+		input++;
+	}
+	ASSERT_EQ(ft_sb_iterator_current(&it), '\0');
 }
 
 INSTANTIATE_TEST_SUITE_P(Sb, SbTest, testing::Values(
 	"",
+	"1",
 	"Hello World",
 	"1\02\0",
 	"qwertyuiopasdfghjklzxcvbnm",
