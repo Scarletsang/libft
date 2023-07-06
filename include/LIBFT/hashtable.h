@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 23:08:04 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/30 22:45:11 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/06 15:01:12 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define HASHTABLE_H
 
 # include <stddef.h>
+# include "LIBFT/slice.h"
 # include "LIBFT/vector.h"
 
 ///////////////////////////////////////////////
@@ -44,15 +45,15 @@ typedef void		(*t_ft_ht_entry_cleaner)(void *);
 
 int							ft_ht_init(t_ft_ht *ht, const size_t capacity);
 
-void						*ft_ht_get(const t_ft_ht *ht, const char *key);
+void						*ft_ht_get(const t_ft_ht *ht, t_ft_str key);
 
 /**
  * @brief When the cleaner function is specified, the entry is assumed to be
  * owned by the hashtable. The cleaner function will be called when the entry
  * is freed. Otherwise, user should pass NULL to the cleaner parameter.
 */
-const struct s_ft_ht_entry	*ft_ht_set(t_ft_ht *ht, const char *key, \
-const void *value, t_ft_ht_entry_cleaner cleaner);
+const struct s_ft_ht_entry	*ft_ht_set(t_ft_ht *ht, t_ft_str key, \
+t_ft_object value, t_ft_ht_entry_cleaner cleaner);
 
 int							ft_ht_resize(t_ft_ht *ht);
 
@@ -62,10 +63,10 @@ void						ft_ht_free(t_ft_ht *ht);
  * @brief hashtable-specific functions
 */
 
-const struct s_ft_ht_entry	*ft_ht_update(t_ft_ht *ht, const char *key, \
-const void *value, t_ft_ht_entry_cleaner cleaner);
+const struct s_ft_ht_entry	*ft_ht_update(t_ft_ht *ht, t_ft_str key, \
+t_ft_object value, t_ft_ht_entry_cleaner cleaner);
 
-int							ft_ht_delete(t_ft_ht *ht, const char *key);
+int							ft_ht_delete(t_ft_ht *ht, t_ft_str key);
 
 //////////////////////////////////////////////////
 ////////   hashtable entry interface    //////////
@@ -90,10 +91,10 @@ void						ft_ht_entry_init(struct s_ft_ht_entry *entry);
 void						ft_ht_entry_delete(struct s_ft_ht_entry *entry);
 
 int							ft_ht_entry_set_key(struct s_ft_ht_entry *entry, \
-const char *key);
+t_ft_str key);
 
 int							ft_ht_entry_set_value(struct s_ft_ht_entry *entry, \
-const void *value, t_ft_ht_entry_cleaner cleaner);
+t_ft_object value, t_ft_ht_entry_cleaner cleaner);
 
 ////////////////////////////////////////////
 ////////      debugp printer      //////////

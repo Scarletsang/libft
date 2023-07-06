@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 04:17:16 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/15 18:34:55 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/06 15:21:41 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	ht_import(t_ft_ht *ht, struct s_ft_ht_entry *entry)
 {
 	struct s_ft_ht_entry	*new_entry;
 
-	new_entry = ft_ht_get_empty_entry(ht, entry->key);
+	new_entry = ft_ht_get_empty_entry(ht, ft_str_from_cstring(entry->key));
 	if (!new_entry)
 		return (EXIT_FAILURE);
 	ht->copier(new_entry, entry);

@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 00:35:00 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/06/30 22:44:58 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/06 21:15:11 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
  * @param key The key.
  * @return void* The value of the key, or NULL if the key is not found.
 */
-void	*ft_ht_get(const t_ft_ht *ht, const char *key)
+void	*ft_ht_get(const t_ft_ht *ht, t_ft_str key)
 {
 	struct s_ft_ht_entry	*entry;
 
@@ -29,8 +29,8 @@ void	*ft_ht_get(const t_ft_ht *ht, const char *key)
 	return (entry->value);
 }
 
-const struct s_ft_ht_entry	*ft_ht_set(t_ft_ht *ht, const char *key, \
-const void *value, t_ft_ht_entry_cleaner cleaner)
+const struct s_ft_ht_entry	*ft_ht_set(t_ft_ht *ht, t_ft_str key, \
+t_ft_object value, t_ft_ht_entry_cleaner cleaner)
 {
 	struct s_ft_ht_entry	*entry;
 
@@ -53,7 +53,7 @@ const void *value, t_ft_ht_entry_cleaner cleaner)
 	return (entry);
 }
 
-int	ft_ht_delete(t_ft_ht *ht, const char *key)
+int	ft_ht_delete(t_ft_ht *ht, t_ft_str key)
 {
 	struct s_ft_ht_entry	*entry;
 
@@ -65,8 +65,8 @@ int	ft_ht_delete(t_ft_ht *ht, const char *key)
 	return (EXIT_SUCCESS);
 }
 
-const struct s_ft_ht_entry	*ft_ht_update(t_ft_ht *ht, const char *key, \
-const void *value, t_ft_ht_entry_cleaner cleaner)
+const struct s_ft_ht_entry	*ft_ht_update(t_ft_ht *ht, t_ft_str key, \
+t_ft_object value, t_ft_ht_entry_cleaner cleaner)
 {
 	struct s_ft_ht_entry	*entry;
 
