@@ -66,7 +66,8 @@ CORE_SRC:= \
 	core/vector/iterator/action.c \
 	core/vector/stringvector/stringvector.c \
 	core/vector/stringvector/action.c \
-	core/slice/slice.c
+	core/slice/str.c \
+	core/slice/str_nt.c
 LIST_SRC:= \
 	list/ft_lstnew.c \
 	list/ft_lstadd_front.c \

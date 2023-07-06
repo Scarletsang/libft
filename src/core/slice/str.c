@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 22:09:57 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/06 21:55:37 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/06 22:40:02 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,35 +27,31 @@ t_ft_str	ft_str_from_cstring(const char *cstring)
 {
 	if (!cstring)
 		return ((t_ft_str){NULL, 0});
-	return ((t_ft_str){(char *) cstring, ft_strlen(cstring) + 1});
+	return ((t_ft_str){(char *) cstring, ft_strlen(cstring)});
 }
 
-char	*ft_str_to_cstring(t_ft_str slice)
+char	*ft_str_to_cstring(t_ft_str str)
 {
 	char	*cstring;
-	size_t	size;
 
-	if (!slice.content || !slice.size)
+	if (!str.content || !str.size)
 		return (NULL);
-	size = slice.size;
-	if (((const char *) slice.content)[slice.size - 1] != '\0')
-		size++;
-	cstring = malloc(size);
+	cstring = malloc(str.size + 1);
 	if (!cstring)
 		return (NULL);
-	ft_memcpy(cstring, slice.content, size);
-	cstring[size - 1] = '\0';
+	ft_memcpy(cstring, str.content, str.size);
+	cstring[str.size] = '\0';
 	return (cstring);
 }
 
-char	*ft_str_as_ptr(t_ft_str *slice)
+char	*ft_str_as_ptr(t_ft_str *str)
 {
-	return (slice->content);
+	return (str->content);
 }
 
-ssize_t	ft_str_print(t_ft_str slice, int fd)
+ssize_t	ft_str_print(t_ft_str str, int fd)
 {
-	if (!slice.content)
+	if (!str.content)
 		return (0);
-	return (write(fd, slice.content, slice.size));
+	return (write(fd, str.content, str.size));
 }
