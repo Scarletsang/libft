@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:05:15 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/06 14:56:01 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/07 00:22:30 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_ft_str delimiter)
 	iostream->delimiter_size = delimiter.size;
 	while (true)
 	{
-		while (!ft_sb_iterator_is_end(&iostream->iterator))
+		while (iostream->iterator.is_end != SB_RIGHT_END)
 		{
 			lookahead_result = ft_iostream_lookahead_delimiter(iostream, fd, \
 				delimiter);
@@ -89,7 +89,7 @@ t_ft_str match)
 
 t_ft_str	ft_iostream_to_slice(struct s_ft_iostream *iostream)
 {
-	if (iostream->iterator.index <= 1)
+	if (iostream->iterator.index == 0)
 		return ((t_ft_str){.content = NULL, .size = 0});
 	return ((t_ft_str){\
 		.content = iostream->sb.buffer, \
