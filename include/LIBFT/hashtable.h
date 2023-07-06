@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 23:08:04 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/07/06 15:01:12 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/07 01:34:51 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int							ft_ht_delete(t_ft_ht *ht, t_ft_str key);
 struct s_ft_ht_entry
 {
 	char					*key;
-	void					*value;
+	t_ft_object 			value;
 	bool					deleted;
 	t_ft_ht_entry_cleaner	cleaner;
 };

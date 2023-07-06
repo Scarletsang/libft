@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 00:35:00 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/07/06 21:15:11 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/07 01:37:34 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	*ft_ht_get(const t_ft_ht *ht, t_ft_str key)
 	entry = ft_ht_get_entry(ht, key);
 	if (!entry)
 		return (NULL);
-	return (entry->value);
+	return (entry->value.content);
 }
 
 const struct s_ft_ht_entry	*ft_ht_set(t_ft_ht *ht, t_ft_str key, \

@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 23:50:45 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/07/06 21:37:41 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/07 01:37:11 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	ft_ht_entry_init(struct s_ft_ht_entry *entry)
 {
 	entry->key = NULL;
-	entry->value = NULL;
+	entry->value = (t_ft_object) {NULL, 0};
 	entry->cleaner = NULL;
 	entry->deleted = false;
 }
@@ -25,14 +25,14 @@ void	ft_ht_entry_delete(struct s_ft_ht_entry *entry)
 {
 	if (entry->key)
 		free(entry->key);
-	if (entry->cleaner && entry->value)
+	if (entry->cleaner && entry->value.content)
 	{
-		entry->cleaner(entry->value);
+		entry->cleaner(entry->value.content);
 		if (entry->cleaner != free)
-			free(entry->value);
+			free(entry->value.content);
 	}
 	entry->key = NULL;
-	entry->value = NULL;
+	entry->value = (t_ft_object) {NULL, 0};
 	entry->cleaner = NULL;
 	entry->deleted = true;
 }
@@ -53,19 +53,19 @@ int	ft_ht_entry_set_key(struct s_ft_ht_entry *entry, t_ft_str key)
 int	ft_ht_entry_set_value(struct s_ft_ht_entry *entry, t_ft_object value, \
 t_ft_ht_entry_cleaner cleaner)
 {
-	if (entry->cleaner && entry->value)
-		entry->cleaner(entry->value);
+	if (entry->cleaner && entry->value.content)
+		entry->cleaner(entry->value.content);
 	if (value.content && (value.size > 0) && cleaner)
 	{
-		entry->value = malloc(value.size);
-		if (!entry->value)
+		entry->value.content = malloc(value.size);
+		if (!entry->value.content)
 			return (EXIT_FAILURE);
-		ft_memmove(entry->value, value.content, value.size);
+		ft_memmove(entry->value.content, value.content, value.size);
 		entry->cleaner = cleaner;
 	}
 	else
 	{
-		entry->value = value.content;
+		entry->value = value;
 		entry->cleaner = NULL;
 	}
 	return (EXIT_SUCCESS);
