@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:32:25 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/06 22:49:00 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/07 01:43:55 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ TEST_F(HtTest, ft_ht_get_UsingEmptyKey)
 {
 	ft_ht_set(&ht, ft_str_nt_from_cstring(""), ft_str_nt_from_cstring("world"), free);
 	EXPECT_STREQ(\
-		(char *) ft_ht_get(&ht, ft_str_nt_from_cstring("")), "world");
+		(char *) ft_ht_get(&ht, ft_str_nt_from_cstring("")).content, "world");
 }
 
 TEST_P(HtTest, ft_ht_get)
@@ -46,7 +46,7 @@ TEST_P(HtTest, ft_ht_get)
 		if (entry)
 		{
 			EXPECT_STREQ(\
-				(char *) ft_ht_get(&ht, ft_str_nt_from_cstring(key)), value);
+				(char *) ft_ht_get(&ht, ft_str_nt_from_cstring(key)).content, value);
 			added++;
 		}
 		vec_it++;
@@ -76,7 +76,7 @@ TEST_P(HtTest, ft_ht_update)
 			FAIL() << "ft_update failed on key: " << key << " value: " << value;
 		}
 		EXPECT_STREQ(\
-			(char *) ft_ht_get(&ht, ft_str_nt_from_cstring(key)), value);
+			(char *) ft_ht_get(&ht, ft_str_nt_from_cstring(key)).content, value);
 		vec_it++;
 	}
 }
