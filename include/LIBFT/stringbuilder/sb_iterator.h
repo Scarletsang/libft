@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 16:19:47 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/04 17:31:48 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/06 14:08:31 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 ///////////////////////////////////////////////////////////
 ////////     String Builder iterator interface   //////////
 ///////////////////////////////////////////////////////////
+
+# define SB_LEFT_END TERNARY_UNKNOWN
+# define SB_RIGHT_END TERNARY_TRUE
 
 /**
  * @brief The String builder iterator iterates over the string contained
