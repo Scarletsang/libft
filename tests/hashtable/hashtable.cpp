@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:32:25 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/06 22:18:59 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/06 22:49:00 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 TEST_F(HtTest, ft_ht_set)
 {
-	ft_ht_set(&ht, ft_str_from_cstring("hello"), ft_str_from_cstring("world"), free);
+	ft_ht_set(&ht, ft_str_nt_from_cstring("hello"), ft_str_nt_from_cstring("world"), free);
 }
 
 TEST_F(HtTest, ft_ht_get_UsingEmptyKey)
 {
-	ft_ht_set(&ht, ft_str_from_cstring(""), ft_str_from_cstring("world"), free);
+	ft_ht_set(&ht, ft_str_nt_from_cstring(""), ft_str_nt_from_cstring("world"), free);
 	EXPECT_STREQ(\
-		(char *) ft_ht_get(&ht, ft_str_from_cstring("")), "world");
+		(char *) ft_ht_get(&ht, ft_str_nt_from_cstring("")), "world");
 }
 
 TEST_P(HtTest, ft_ht_get)
@@ -40,13 +40,13 @@ TEST_P(HtTest, ft_ht_get)
 		key = std::get<0>(*vec_it).c_str();
 		value = std::get<1>(*vec_it).c_str();
 		entry = ft_ht_set(&ht, \
-			ft_str_from_cstring(key), \
-			ft_str_from_cstring(value), \
+			ft_str_nt_from_cstring(key), \
+			ft_str_nt_from_cstring(value), \
 			free);
 		if (entry)
 		{
 			EXPECT_STREQ(\
-				(char *) ft_ht_get(&ht, ft_str_from_cstring(key)), value);
+				(char *) ft_ht_get(&ht, ft_str_nt_from_cstring(key)), value);
 			added++;
 		}
 		vec_it++;
@@ -68,15 +68,15 @@ TEST_P(HtTest, ft_ht_update)
 		key = std::get<0>(*vec_it).c_str();
 		value = std::get<1>(*vec_it).c_str();
 		entry = ft_ht_update(&ht, \
-			ft_str_from_cstring(key), \
-			ft_str_from_cstring(value), \
+			ft_str_nt_from_cstring(key), \
+			ft_str_nt_from_cstring(value), \
 			free);
 		if (!entry)
 		{
 			FAIL() << "ft_update failed on key: " << key << " value: " << value;
 		}
 		EXPECT_STREQ(\
-			(char *) ft_ht_get(&ht, ft_str_from_cstring(key)), value);
+			(char *) ft_ht_get(&ht, ft_str_nt_from_cstring(key)), value);
 		vec_it++;
 	}
 }
@@ -97,8 +97,8 @@ TEST_P(HtTest, ft_ht_delete)
 		key = std::get<0>(*vec_it).c_str();
 		value = std::get<1>(*vec_it).c_str();
 		ft_ht_update(&ht, \
-			ft_str_from_cstring(key), \
-			ft_str_from_cstring(value), \
+			ft_str_nt_from_cstring(key), \
+			ft_str_nt_from_cstring(value), \
 			free);
 		vec_it++;
 	}
@@ -109,7 +109,7 @@ TEST_P(HtTest, ft_ht_delete)
 	{
 		key = std::get<0>(*vec_rit).c_str();
 		value = std::get<1>(*vec_rit).c_str();
-		if (!ft_ht_delete(&ht, ft_str_from_cstring(key)))
+		if (!ft_ht_delete(&ht, ft_str_nt_from_cstring(key)))
 		{
 			deleted++;
 		}
