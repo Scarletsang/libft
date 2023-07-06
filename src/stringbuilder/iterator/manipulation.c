@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 17:44:51 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/06 14:34:36 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/06 14:56:01 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	ft_sb_iterator_mut_insert(t_ft_sb_iterator *iterator, t_ft_str str)
 {
-	if (str.len == 0)
+	if (str.size == 0)
 		return (EXIT_SUCCESS);
 	if (ft_sb_perform((t_ft_sb *) iterator->vector, \
 		ft_sb_action_insert(str, iterator->index)))

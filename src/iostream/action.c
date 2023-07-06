@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:05:15 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/02 00:56:47 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/06 14:56:01 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int fd, t_ft_str delimiter)
 	while (ft_sb_get(&iostream->sb, lookahead) == \
 		ft_str_as_ptr(&delimiter)[delimiter_index])
 	{
-		if ((delimiter_index + 1) == delimiter.len)
+		if ((delimiter_index + 1) == delimiter.size)
 			return (EXIT_SUCCESS);
 		if ((lookahead + 1) == iostream->sb.size)
 		{
@@ -56,7 +56,7 @@ t_ft_str delimiter)
 {
 	int	lookahead_result;
 
-	iostream->delimiter_size = delimiter.len;
+	iostream->delimiter_size = delimiter.size;
 	while (true)
 	{
 		while (!ft_sb_iterator_is_end(&iostream->iterator))
@@ -82,7 +82,7 @@ t_ft_str match)
 
 	return_value = ft_iostream_read_until_delimiter(iostream, fd, match);
 	iostream->delimiter_size = 0;
-	iostream->iterator.index += match.len;
+	iostream->iterator.index += match.size;
 	iostream->iterator.current = NULL;
 	return (return_value);
 }
@@ -90,8 +90,8 @@ t_ft_str match)
 t_ft_str	ft_iostream_to_slice(struct s_ft_iostream *iostream)
 {
 	if (iostream->iterator.index <= 1)
-		return ((t_ft_str){.content = NULL, .len = 0});
+		return ((t_ft_str){.content = NULL, .size = 0});
 	return ((t_ft_str){\
 		.content = iostream->sb.buffer, \
-		.len = iostream->iterator.index});
+		.size = iostream->iterator.index});
 }

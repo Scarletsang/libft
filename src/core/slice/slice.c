@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 22:09:57 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/04 21:06:32 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/06 21:55:37 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,36 @@
 #include "LIBFT/string.h"
 #include "LIBFT/slice.h"
 
-t_ft_str	ft_str_slice(char *cstring, size_t from, size_t to)
+t_ft_str	ft_str_slice(const char *cstring, size_t from, size_t to)
 {
 	if (to < from)
-		return ((t_ft_str){cstring + to, from - to});
+		return ((t_ft_str){(void *)(cstring + to), from - to});
 	else
-		return ((t_ft_str){cstring + from, to - from});
+		return ((t_ft_str){(void *)(cstring + from), to - from});
 }
 
 t_ft_str	ft_str_from_cstring(const char *cstring)
 {
 	if (!cstring)
 		return ((t_ft_str){NULL, 0});
-	return ((t_ft_str){(char *) cstring, ft_strlen(cstring)});
+	return ((t_ft_str){(char *) cstring, ft_strlen(cstring) + 1});
 }
 
 char	*ft_str_to_cstring(t_ft_str slice)
 {
 	char	*cstring;
+	size_t	size;
 
-	if (!slice.content || !slice.len)
+	if (!slice.content || !slice.size)
 		return (NULL);
-	cstring = malloc(slice.len + 1);
+	size = slice.size;
+	if (((const char *) slice.content)[slice.size - 1] != '\0')
+		size++;
+	cstring = malloc(size);
 	if (!cstring)
 		return (NULL);
-	ft_memcpy(cstring, slice.content, slice.len);
-	cstring[slice.len] = '\0';
+	ft_memcpy(cstring, slice.content, size);
+	cstring[size - 1] = '\0';
 	return (cstring);
 }
 
@@ -53,5 +57,5 @@ ssize_t	ft_str_print(t_ft_str slice, int fd)
 {
 	if (!slice.content)
 		return (0);
-	return (write(fd, slice.content, slice.len));
+	return (write(fd, slice.content, slice.size));
 }

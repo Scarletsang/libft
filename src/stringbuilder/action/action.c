@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 17:44:51 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/04 17:32:49 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/06 14:56:01 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ struct s_ft_sb_action	ft_sb_action_append(t_ft_str str)
 {
 	return ((struct s_ft_sb_action){
 		.entry_str = str.content,
-		.entry_str_len = str.len,
+		.entry_str_len = str.size,
 		.field_validator = 0
 	});
 }
@@ -28,7 +28,7 @@ const size_t edit_start)
 {
 	return ((struct s_ft_sb_action){
 		.entry_str = str.content,
-		.entry_str_len = str.len,
+		.entry_str_len = str.size,
 		.edit_start = edit_start,
 		.field_validator = 0 | SB_EDIT_START_BIT
 	});
@@ -50,7 +50,7 @@ const size_t edit_start, const size_t edit_len)
 {
 	return ((struct s_ft_sb_action){
 		.entry_str = str.content,
-		.entry_str_len = str.len,
+		.entry_str_len = str.size,
 		.edit_start = edit_start,
 		.edit_len = edit_len,
 		.field_validator = 0 | SB_EDIT_START_BIT | SB_EDIT_LEN_BIT
