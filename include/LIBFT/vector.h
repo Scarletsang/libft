@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 15:44:56 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/07/04 20:52:49 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/07 06:30:24 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,6 +165,10 @@ size_t index, size_t copy_amount);
 /////////////////////////////////////////////
 ////////      vector iterator      //////////
 /////////////////////////////////////////////
+
+# define VECTOR_ITERATOR_RIGHT_END TERNARY_TRUE
+# define VECTOR_ITERATOR_LEFT_END TERNARY_UNKNOWN
+# define VECTOR_ITERATOR_NOT_END TERNARY_FALSE
 
 /**
  * @brief A vector iterator is an iterator that iterates through the vector.

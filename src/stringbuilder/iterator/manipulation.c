@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 17:44:51 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/06 14:56:01 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/07 06:33:19 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	ft_sb_iterator_mut_insert(t_ft_sb_iterator *iterator, t_ft_str str)
 		return (EXIT_FAILURE);
 	iterator->current = NULL;
 	if (iterator->index + 1 >= iterator->vector->size)
-		iterator->is_end = SB_RIGHT_END;
-	else if (iterator->is_end != SB_LEFT_END)
+		iterator->is_end = VECTOR_ITERATOR_RIGHT_END;
+	else if (iterator->is_end != VECTOR_ITERATOR_LEFT_END)
 		iterator->is_end = TERNARY_FALSE;
 	return (EXIT_SUCCESS);
 }
@@ -37,8 +37,8 @@ int	ft_sb_iterator_mut_delete(t_ft_sb_iterator *iterator, const size_t edit_len)
 		return (EXIT_FAILURE);
 	iterator->current = NULL;
 	if (iterator->index + 1 >= iterator->vector->size)
-		iterator->is_end = SB_RIGHT_END;
-	else if (iterator->is_end != SB_LEFT_END)
+		iterator->is_end = VECTOR_ITERATOR_RIGHT_END;
+	else if (iterator->is_end != VECTOR_ITERATOR_LEFT_END)
 		iterator->is_end = TERNARY_FALSE;
 	return (EXIT_SUCCESS);
 }
@@ -51,8 +51,8 @@ const size_t edit_len)
 		return (EXIT_FAILURE);
 	iterator->current = NULL;
 	if (iterator->index + 1 >= iterator->vector->size)
-		iterator->is_end = SB_RIGHT_END;
-	else if (iterator->is_end != SB_LEFT_END)
+		iterator->is_end = VECTOR_ITERATOR_RIGHT_END;
+	else if (iterator->is_end != VECTOR_ITERATOR_LEFT_END)
 		iterator->is_end = TERNARY_FALSE;
 	return (EXIT_SUCCESS);
 }

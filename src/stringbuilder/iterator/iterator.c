@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 23:38:55 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/07/06 14:29:36 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/07 06:33:19 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ const t_ft_sb *sb)
 	iterator->index = 0;
 	iterator->current = NULL;
 	if (sb->size <= 1)
-		iterator->is_end = SB_RIGHT_END;
+		iterator->is_end = VECTOR_ITERATOR_RIGHT_END;
 	else
 		iterator->is_end = TERNARY_FALSE;
 }
@@ -30,7 +30,7 @@ const t_ft_sb *sb)
 	if (sb->size <= 1)
 	{
 		iterator->index = 0;
-		iterator->is_end = SB_LEFT_END;
+		iterator->is_end = VECTOR_ITERATOR_LEFT_END;
 	}
 	else
 	{

@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 23:38:55 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/07/07 04:30:39 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/07 06:31:30 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,41 +25,41 @@ bool	ft_vector_iterator_has_prev(const t_ft_vector_iterator *iterator)
 
 int	ft_vector_iterator_next(t_ft_vector_iterator *iterator)
 {
-	if (iterator->is_end == TERNARY_TRUE)
-		return (EXIT_FAILURE);
-	if (iterator->index + 1 < iterator->vector->size)
+	if (iterator->is_end == VECTOR_ITERATOR_RIGHT_END)
+		return (VECTOR_ITERATOR_RIGHT_END);
+	iterator->current = NULL;
+	if (iterator->index + 1 == iterator->vector->size)
 	{
 		iterator->index++;
-		iterator->current = NULL;
-		iterator->is_end = TERNARY_FALSE;
-		return (EXIT_SUCCESS);
+		iterator->is_end = VECTOR_ITERATOR_RIGHT_END;
+		return (VECTOR_ITERATOR_RIGHT_END);
 	}
 	if (iterator->index < iterator->vector->size)
 	{
 		iterator->index++;
-		iterator->current = NULL;
-		iterator->is_end = TERNARY_TRUE;
-		return (EXIT_SUCCESS);
+		iterator->is_end = VECTOR_ITERATOR_NOT_END;
+		return (VECTOR_ITERATOR_NOT_END);
 	}
-	return (EXIT_FAILURE);
+	iterator->is_end = VECTOR_ITERATOR_RIGHT_END;
+	return (VECTOR_ITERATOR_RIGHT_END);
 }
 
 int	ft_vector_iterator_prev(t_ft_vector_iterator *iterator)
 {
-	if (iterator->is_end == TERNARY_UNKNOWN)
-		return (EXIT_FAILURE);
+	if (iterator->is_end == VECTOR_ITERATOR_LEFT_END)
+		return (VECTOR_ITERATOR_LEFT_END);
+	iterator->current = NULL;
+	if (iterator->index == 0)
+	{
+		iterator->is_end = VECTOR_ITERATOR_LEFT_END;
+		return (VECTOR_ITERATOR_LEFT_END);
+	}
 	if (iterator->index > 0)
 	{
 		iterator->index--;
-		iterator->current = NULL;
-		iterator->is_end = TERNARY_FALSE;
-		return (EXIT_SUCCESS);
+		iterator->is_end = VECTOR_ITERATOR_NOT_END;
+		return (VECTOR_ITERATOR_NOT_END);
 	}
-	if (iterator->index == 0)
-	{
-		iterator->current = NULL;
-		iterator->is_end = TERNARY_UNKNOWN;
-		return (EXIT_SUCCESS);
-	}
-	return (EXIT_FAILURE);
+	iterator->is_end = VECTOR_ITERATOR_LEFT_END;
+	return (VECTOR_ITERATOR_LEFT_END);
 }

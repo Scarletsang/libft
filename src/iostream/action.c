@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:05:15 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/07 00:22:30 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/07 06:33:08 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_ft_str delimiter)
 	iostream->delimiter_size = delimiter.size;
 	while (true)
 	{
-		while (iostream->iterator.is_end != SB_RIGHT_END)
+		while (iostream->iterator.is_end != VECTOR_ITERATOR_RIGHT_END)
 		{
 			lookahead_result = ft_iostream_lookahead_delimiter(iostream, fd, \
 				delimiter);

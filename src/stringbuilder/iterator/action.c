@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 17:29:12 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/06 14:42:54 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/07 06:32:32 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,23 @@ bool	ft_sb_iterator_has_prev(const t_ft_sb_iterator *iterator)
 
 int	ft_sb_iterator_next(t_ft_sb_iterator *iterator)
 {
-	if (iterator->is_end == SB_RIGHT_END)
-		return (EXIT_FAILURE);
+	if (iterator->is_end == VECTOR_ITERATOR_RIGHT_END)
+		return (VECTOR_ITERATOR_RIGHT_END);
+	iterator->current = NULL;
 	if (iterator->index + 2 < iterator->vector->size)
 	{
 		iterator->index++;
-		iterator->current = NULL;
-		iterator->is_end = TERNARY_FALSE;
-		return (EXIT_SUCCESS);
+		iterator->is_end = VECTOR_ITERATOR_NOT_END;
+		return (VECTOR_ITERATOR_NOT_END);
 	}
 	if (iterator->index + 1 < iterator->vector->size)
 	{
 		iterator->index++;
-		iterator->current = NULL;
-		iterator->is_end = SB_RIGHT_END;
-		return (EXIT_SUCCESS);
+		iterator->is_end = VECTOR_ITERATOR_RIGHT_END;
+		return (VECTOR_ITERATOR_RIGHT_END);
 	}
-	return (EXIT_FAILURE);
+	iterator->is_end = VECTOR_ITERATOR_RIGHT_END;
+	return (VECTOR_ITERATOR_RIGHT_END);
 }
 
 int	ft_sb_iterator_prev(t_ft_sb_iterator *iterator)
