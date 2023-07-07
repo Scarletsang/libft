@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 23:38:55 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/07/04 20:51:57 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/07 04:30:39 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	ft_vector_iterator_next(t_ft_vector_iterator *iterator)
 	}
 	if (iterator->index < iterator->vector->size)
 	{
+		iterator->index++;
 		iterator->current = NULL;
 		iterator->is_end = TERNARY_TRUE;
 		return (EXIT_SUCCESS);

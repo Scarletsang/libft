@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 23:38:55 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/07/04 20:52:18 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/07 04:32:03 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ const t_ft_vector *vector)
  */
 void	*ft_vector_iterator_current(t_ft_vector_iterator *iterator)
 {
-	if (iterator->is_end)
+	if (iterator->is_end && (iterator->index == 0 || iterator->index == \
+		iterator->vector->size))
 		return (NULL);
 	if (iterator->current == NULL)
 		iterator->current = ft_vector_get(iterator->vector, iterator->index);
