@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 23:50:45 by anthonytsan       #+#    #+#             */
-/*   Updated: 2023/07/07 01:45:55 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/07 04:39:19 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ t_ft_ht_entry_cleaner cleaner)
 	if (value.content && (value.size > 0) && cleaner)
 	{
 		entry->value.content = malloc(value.size);
+		entry->value.size = value.size;
 		if (!entry->value.content)
 			return (EXIT_FAILURE);
 		ft_memmove(entry->value.content, value.content, value.size);
@@ -66,6 +67,7 @@ t_ft_ht_entry_cleaner cleaner)
 	else
 	{
 		entry->value = value;
+		entry->value.size = value.size;
 		entry->cleaner = NULL;
 	}
 	return (EXIT_SUCCESS);
