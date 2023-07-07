@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 10:56:58 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/06 14:48:04 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/07 06:33:08 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,7 +179,7 @@ TEST_P(SbTest, ft_sb_iterator_mut_replace)
 		ASSERT_EQ(ft_sb_iterator_current(&it), 'c');
 		ft_sb_iterator_next(&it);
 	}
-	while (it.is_end != SB_RIGHT_END)
+	while (it.is_end != VECTOR_ITERATOR_RIGHT_END)
 	{
 		ft_sb_iterator_mut_replace(&it, ft_str_from_cstring("abc"), 2);
 		ft_sb_iterator_next(&it);
