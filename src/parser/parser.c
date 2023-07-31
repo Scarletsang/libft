@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 00:55:11 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/31 13:14:12 by htsang           ###   ########.fr       */
+/*   Updated: 2023/07/31 22:00:23 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ bool	ft_parser_entity_is_ok(struct s_ft_parser_entity entity)
 }
 
 struct s_ft_parser_entity	ft_parser_optional(\
-struct s_ft_parser_entity input, t_ft_parser parser)
+t_ft_parser parser, struct s_ft_parser_entity input, void *option)
 {
 	struct s_ft_parser_entity	result;
 
-	result = parser(input);
+	result = parser(input, option);
 	if (result.payload)
 		return (result);
 	else
@@ -31,27 +31,27 @@ struct s_ft_parser_entity input, t_ft_parser parser)
 }
 
 struct s_ft_parser_entity	ft_parser_some(\
-struct s_ft_parser_entity input, t_ft_parser parser)
+t_ft_parser parser, struct s_ft_parser_entity input, void *option)
 {
 	struct s_ft_parser_entity	result;
 
-	result = parser(input);
+	result = parser(input, option);
 	while (ft_parser_entity_is_ok(result))
 	{
-		result = parser(result);
+		result = parser(result, option);
 	}
 	return (result);
 }
 
-struct s_ft_parser_entity	ft_parser_and(struct s_ft_parser_entity input, \
-t_ft_parser *parsers, size_t amount)
+struct s_ft_parser_entity	ft_parser_and(t_ft_parser *parsers, size_t amount, \
+struct s_ft_parser_entity input, void *option)
 {
 	size_t	i;
 
 	i = 0;
 	while (i < amount)
 	{
-		input = parsers[i](input);
+		input = parsers[i](input, option);
 		if (!ft_parser_entity_is_ok(input))
 			return (input);
 		i++;
@@ -59,15 +59,15 @@ t_ft_parser *parsers, size_t amount)
 	return (input);
 }
 
-struct s_ft_parser_entity	ft_parser_or(struct s_ft_parser_entity input, \
-t_ft_parser *parsers, size_t amount)
+struct s_ft_parser_entity	ft_parser_or(t_ft_parser *parsers, size_t amount, \
+struct s_ft_parser_entity input, void *option)
 {
 	size_t	i;
 
 	i = 0;
 	while (i < amount)
 	{
-		input = parsers[i](input);
+		input = parsers[i](input, option);
 		if (ft_parser_entity_is_ok(input))
 			return (input);
 		i++;

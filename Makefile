@@ -100,6 +100,8 @@ STRINGBUILDER_SRC:= \
 SMARTPOINTER_SRC:= \
 	smartpointer/smartpointer.c \
 	smartpointer/borrow.c
+PARSER_SRC:= \
+	parser/parser.c
 IOSTREAM_SRC:=\
 	$(STRINGBUILDER_SRC) \
 	iostream/iostream.c \
