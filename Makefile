@@ -104,6 +104,7 @@ SMARTPOINTER_SRC:= \
 PARSER_SRC:= \
 	parser/parser.c \
 	parser/entity.c \
+	parser/entities.c \
 	parser/decorator.c \
 	parser/combinator.c
 IOSTREAM_SRC:=\
