@@ -71,7 +71,7 @@ $(NAME): $(OBJ) $(LIBFT)
 # $(LIBRARY_NAME):
 # 	@${MAKE} $(if $(FSANITIZE),FSANITIZE=yes,) -C lib/LIBRARY_NAME
 $(LIBFT):
-	@${MAKE} $(if $(FSANITIZE),FSANITIZE=yes,) USE="stringbuilder hashtable iostream" -C .. re
+	@${MAKE} $(if $(FSANITIZE),FSANITIZE=yes,) USE="stringbuilder hashtable iostream parser" -C .. re
 
 #########################################
 ######     Object compilation     #######
