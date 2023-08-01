@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 21:59:49 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/06 22:53:18 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/01 13:17:49 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SLICE_H
 
 # include <stddef.h>
+# include <stdbool.h>
 # include <sys/types.h>
 
 /**
@@ -24,6 +25,14 @@ typedef struct s_ft_slice
 	void	*content;
 	size_t	size;
 }				t_ft_slice;
+
+t_ft_slice	ft_slice(void *content, size_t size);
+
+t_ft_slice	ft_slice_empty(void);
+
+bool		ft_slice_is_empty(t_ft_slice slice);
+
+bool		ft_slice_is_ok(t_ft_slice slice);
 
 /**
  * @brief Represents a slice of a string, therefore it is not garanteed to be
