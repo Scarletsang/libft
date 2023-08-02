@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 21:49:31 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/01 22:25:31 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/01 23:22:02 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,12 @@ extern "C"
 {
   #include "LIBFT/parser.h"
 }  // extern "C"
+
+class ParserTest : public ::testing::Test
+{
+  protected:
+	void SetUp() override{}
+	void TearDown() override{}
+};
 
 #endif
