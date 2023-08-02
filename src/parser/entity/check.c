@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/02 13:42:03 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/02 20:09:49 by htsang           ###   ########.fr       */
+/*   Created: 2023/08/02 18:18:56 by htsang            #+#    #+#             */
+/*   Updated: 2023/08/02 18:19:15 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/parser.h"
 
-t_ft_str	ft_parser_advance(t_ft_str input, size_t len)
+bool	ft_parser_entity_is_end(struct s_ft_parser_entity entity)
 {
-	if ((len > input.size) || (input.size == 1))
-		return (ft_slice_empty());
-	return ((t_ft_str){input.content + len, input.size - len});
+	return (ft_slice_is_empty(entity.input));
 }
 
-char	*ft_parser_peek(t_ft_str input, size_t index)
+bool	ft_parser_entity_is_ok(struct s_ft_parser_entity entity)
 {
-	if (index >= input.size)
-		return (NULL);
-	return ((char *) input.content + index);
+	return (entity.is_valid && !ft_parser_entity_is_end(entity));
 }

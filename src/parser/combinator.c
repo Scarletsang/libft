@@ -6,40 +6,44 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 12:47:54 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/01 12:48:39 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/02 22:25:49 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/parser.h"
 
-struct s_ft_parser_entity	ft_parser_and(t_ft_parser *parsers, size_t amount, \
-struct s_ft_parser_entity input, void *option)
+struct s_ft_parser_entity	ft_parser_and(t_ft_parser_curried *curried_parsers, \
+size_t amount, struct s_ft_parser_entity input)
 {
-	size_t	i;
+	struct s_ft_parser_entity	result;
+	size_t						i;
 
 	i = 0;
-	while (i < amount)
+	result = input;
+	while ((i < amount) && !ft_parser_entity_is_end(result))
 	{
-		input = parsers[i](input, option);
-		if (!ft_parser_entity_is_ok(input))
-			return (input);
+		result = curried_parsers[i].parser(result, curried_parsers[i].option);
+		if (!result.is_valid)
+			return (ft_parser_entity_validity_set(input, false));
 		i++;
 	}
-	return (input);
+	return (result);
 }
 
-struct s_ft_parser_entity	ft_parser_or(t_ft_parser *parsers, size_t amount, \
-struct s_ft_parser_entity input, void *option)
+struct s_ft_parser_entity	ft_parser_or(t_ft_parser_curried *curried_parsers, \
+size_t amount, struct s_ft_parser_entity input)
 {
-	size_t	i;
+	struct s_ft_parser_entity	result;
+	size_t						i;
 
 	i = 0;
-	while (i < amount)
+	result = input;
+	while ((i < amount) && !ft_parser_entity_is_end(result))
 	{
-		input = parsers[i](input, option);
-		if (ft_parser_entity_is_ok(input))
-			return (input);
+		result = curried_parsers[i].parser(result, curried_parsers[i].option);
+		if (result.is_valid)
+			return (result);
 		i++;
 	}
-	return (input);
+	return (ft_parser_entity_validity_set(input, false));
 }

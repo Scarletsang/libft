@@ -103,9 +103,10 @@ SMARTPOINTER_SRC:= \
 	smartpointer/borrow.c
 PARSER_SRC:= \
 	parser/parser.c \
-	parser/payload/common.c \
-	parser/payload/numbers.c \
-	parser/entity.c \
+	parser/tobject/common.c \
+	parser/tobject/numbers.c \
+	parser/entity/entity.c \
+	parser/entity/check.c \
 	parser/entities.c \
 	parser/utils.c \
 	parser/decorator.c \
