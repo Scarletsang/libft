@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 00:55:28 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/01 21:17:45 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/02 13:55:22 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,61 @@
 
 # define FT_PARSER_ENTITIES_SIZE	8
 
+////////////////////////////////////////////
+////////////   parser payload   ////////////
+////////////////////////////////////////////
+
+union u_ft_parser_payload
+{
+	void			*as_ptr;
+	char			*as_str;
+	char			as_char;
+	bool			as_bool;
+	int				as_int;
+	unsigned int	as_uint;
+	size_t			as_size;
+	float			as_float;
+	double			as_double;
+};
+
+union u_ft_parser_payload	ft_parser_payload_ptr(void *ptr);
+
+union u_ft_parser_payload	ft_parser_payload_str(char *str);
+
+union u_ft_parser_payload	ft_parser_payload_char(char c);
+
+union u_ft_parser_payload	ft_parser_payload_bool(bool b);
+
+union u_ft_parser_payload	ft_parser_payload_int(int i);
+
+union u_ft_parser_payload	ft_parser_payload_uint(unsigned int uint);
+
+union u_ft_parser_payload	ft_parser_payload_size(size_t size);
+
+union u_ft_parser_payload	ft_parser_payload_float(float f);
+
+union u_ft_parser_payload	ft_parser_payload_double(double d);
+
 ///////////////////////////////////////////
 ////////////   parser entity   ////////////
 ///////////////////////////////////////////
 
 struct s_ft_parser_entity
 {
-	void		*payload;
-	bool		is_owned;
-	t_ft_str	input;
+	union u_ft_parser_payload	payload;
+	bool						is_ok;
+	t_ft_str					input;
 };
 
 typedef struct s_ft_parser_entity	t_ft_parser_char_entity;
 
-struct s_ft_parser_entity	ft_parser_entity(void *payload, t_ft_str input, \
-bool is_owned);
+struct s_ft_parser_entity	ft_parser_entity(\
+union u_ft_parser_payload payload, t_ft_str input);
+
+struct s_ft_parser_entity	ft_parser_entity_empty(t_ft_str input, bool is_ok);
 
 struct s_ft_parser_entity	ft_parser_entity_compose(\
-struct s_ft_parser_entity entity, void *payload, bool is_owned);
+struct s_ft_parser_entity entity, union u_ft_parser_payload payload);
 
 bool						ft_parser_entity_is_ok(\
 struct s_ft_parser_entity entity);

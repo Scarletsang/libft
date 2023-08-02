@@ -103,8 +103,11 @@ SMARTPOINTER_SRC:= \
 	smartpointer/borrow.c
 PARSER_SRC:= \
 	parser/parser.c \
+	parser/payload/common.c \
+	parser/payload/numbers.c \
 	parser/entity.c \
 	parser/entities.c \
+	parser/utils.c \
 	parser/decorator.c \
 	parser/combinator.c
 IOSTREAM_SRC:=\
