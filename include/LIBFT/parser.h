@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 00:55:28 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/04 04:17:14 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/04 14:49:59 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ union u_ft_tobject
 	float			as_float;
 	double			as_double;
 };
+
+union u_ft_tobject				ft_tobject_empty(void);
 
 union u_ft_tobject				ft_tobject_ptr(void *ptr);
 
@@ -196,10 +198,46 @@ struct s_ft_parser_entity *entity, struct s_ft_parser_atom input);
 t_ft_parser_atom_char			ft_parser_char(\
 t_ft_parser_atom_char input, union u_ft_tobject set);
 
-t_ft_parser_atom_char			ft_parser_digit(\
-t_ft_parser_atom_char input, union u_ft_tobject option);
+struct s_ft_parser_atom			ft_parser_digit_int(\
+struct s_ft_parser_atom input, union u_ft_tobject is_negative);
+
+struct s_ft_parser_atom			ft_parser_int(\
+struct s_ft_parser_atom input, union u_ft_tobject option);
+
+struct s_ft_parser_atom			ft_parser_uint(\
+struct s_ft_parser_atom input, union u_ft_tobject option);
+
+struct s_ft_parser_atom			ft_parser_size(\
+struct s_ft_parser_atom input, union u_ft_tobject option);
+
+struct s_ft_parser_atom			ft_parser_float(\
+struct s_ft_parser_atom input, union u_ft_tobject option);
+
+struct s_ft_parser_atom			ft_parser_double(\
+struct s_ft_parser_atom input, union u_ft_tobject option);
+
+struct s_ft_parser_atom			ft_parser_digit_uint(\
+struct s_ft_parser_atom input, union u_ft_tobject option);
+
+struct s_ft_parser_atom			ft_parser_digit_size(\
+struct s_ft_parser_atom input, union u_ft_tobject option);
+
+struct s_ft_parser_atom			ft_parser_digit_float(\
+struct s_ft_parser_atom input, union u_ft_tobject is_negative);
+
+struct s_ft_parser_atom			ft_parser_digit_double(\
+struct s_ft_parser_atom input, union u_ft_tobject is_negative);
 
 struct s_ft_parser_atom			ft_parser_ignore(\
+struct s_ft_parser_atom input, union u_ft_tobject set);
+
+struct s_ft_parser_atom			ft_parser_ignore_not(\
+struct s_ft_parser_atom input, union u_ft_tobject set);
+
+struct s_ft_parser_atom			ft_parser_expect(\
+struct s_ft_parser_atom input, union u_ft_tobject set);
+
+struct s_ft_parser_atom			ft_parser_expect_not(\
 struct s_ft_parser_atom input, union u_ft_tobject set);
 
 ////////////////////////////////////////////////

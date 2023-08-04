@@ -106,13 +106,16 @@ SMARTPOINTER_SRC:= \
 PARSER_SRC:= \
 	parser/tobject/common.c \
 	parser/tobject/numbers.c \
+	parser/tobject/pointers.c \
 	parser/atom/atom.c \
 	parser/atom/check.c \
 	parser/curry/curry.c \
 	parser/curry/evaluate.c \
 	parser/entity.c \
 	parser/utils.c \
-	parser/parser.c \
+	parser/parser/parser.c \
+	parser/parser/digit.c \
+	parser/parser/number.c \
 	parser/decorator.c \
 	parser/combinator.c
 IOSTREAM_SRC:=\
