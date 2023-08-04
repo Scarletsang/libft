@@ -6,44 +6,44 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 12:47:54 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/02 22:25:49 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/04 03:45:26 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/parser.h"
 
-struct s_ft_parser_entity	ft_parser_and(t_ft_parser_curried *curried_parsers, \
-size_t amount, struct s_ft_parser_entity input)
+struct s_ft_parser_atom	ft_parser_and(struct s_ft_parser_entity *entities, \
+size_t amount, struct s_ft_parser_atom input)
 {
-	struct s_ft_parser_entity	result;
-	size_t						i;
+	struct s_ft_parser_atom	result;
+	size_t					i;
 
 	i = 0;
 	result = input;
-	while ((i < amount) && !ft_parser_entity_is_end(result))
+	while ((i < amount) && !ft_parser_atom_is_end(result))
 	{
-		result = curried_parsers[i].parser(result, curried_parsers[i].option);
+		result = ft_parser_entity_evaluate(entities + i, result);
 		if (!result.is_valid)
-			return (ft_parser_entity_validity_set(input, false));
+			return (ft_parser_atom_validity_set(input, false));
 		i++;
 	}
 	return (result);
 }
 
-struct s_ft_parser_entity	ft_parser_or(t_ft_parser_curried *curried_parsers, \
-size_t amount, struct s_ft_parser_entity input)
+struct s_ft_parser_atom	ft_parser_or(struct s_ft_parser_entity *entities, \
+size_t amount, struct s_ft_parser_atom input)
 {
-	struct s_ft_parser_entity	result;
-	size_t						i;
+	struct s_ft_parser_atom	result;
+	size_t					i;
 
 	i = 0;
 	result = input;
-	while ((i < amount) && !ft_parser_entity_is_end(result))
+	while ((i < amount) && !ft_parser_atom_is_end(result))
 	{
-		result = curried_parsers[i].parser(result, curried_parsers[i].option);
+		result = ft_parser_entity_evaluate(entities + i, result);
 		if (result.is_valid)
 			return (result);
 		i++;
 	}
-	return (ft_parser_entity_validity_set(input, false));
+	return (ft_parser_atom_validity_set(input, false));
 }

@@ -4,7 +4,9 @@
 
 NAME:=libft.a
 
+ifndef CC
 CC:=cc
+endif
 CFLAGS:= -Wall -Wextra -Werror
 ifdef FSANITIZE
 	CFLAGS+= -g3 -fsanitize=address
@@ -102,13 +104,15 @@ SMARTPOINTER_SRC:= \
 	smartpointer/smartpointer.c \
 	smartpointer/borrow.c
 PARSER_SRC:= \
-	parser/parser.c \
 	parser/tobject/common.c \
 	parser/tobject/numbers.c \
-	parser/entity/entity.c \
-	parser/entity/check.c \
-	parser/entities.c \
+	parser/atom/atom.c \
+	parser/atom/check.c \
+	parser/curry/curry.c \
+	parser/curry/evaluate.c \
+	parser/entity.c \
 	parser/utils.c \
+	parser/parser.c \
 	parser/decorator.c \
 	parser/combinator.c
 IOSTREAM_SRC:=\
