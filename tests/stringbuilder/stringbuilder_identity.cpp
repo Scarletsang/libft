@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 10:56:58 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/07 06:33:08 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/03 00:47:53 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,17 @@ TEST_P(SbTest, ft_sb_iterator_Backwards)
 	t_ft_sb_iterator		it;
 
 	setSb(input);
+	if (input_size > 0)
+		input_size--;
 	ft_sb_iterator_end(&it, &sb);
 	while (!it.is_end)
 	{
-		ASSERT_EQ(ft_sb_iterator_current(&it), input[input_size - 1]);
+		ASSERT_EQ(ft_sb_iterator_current(&it), input[input_size]);
 		ft_sb_iterator_prev(&it);
 		if (!it.is_end)
 			input_size--;
 	}
-	ASSERT_EQ(ft_sb_iterator_current(&it), input[input_size - 1]);
+	ASSERT_EQ(ft_sb_iterator_current(&it), input[input_size]);
 }
 
 TEST_P(SbTest, ft_sb_iterator_ForwardsThenBackwards)
