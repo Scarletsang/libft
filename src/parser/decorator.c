@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 12:48:21 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/04 04:13:38 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/09 00:10:20 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ struct s_ft_parser_entity entity, struct s_ft_parser_atom input)
 
 	result = ft_parser_entity_evaluate(&entity, input);
 	if (!result.is_valid)
-		return (ft_parser_atom_validity_set(input, true));
+		return (ft_parser_atom_validity_set(input, false));
 	while (!ft_parser_atom_is_end(result))
 	{
 		input = result;

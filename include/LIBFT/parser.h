@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 00:55:28 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/04 14:49:59 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/08 23:24:19 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,15 @@
 */
 union u_ft_tobject
 {
-	void			*as_ptr;
-	t_ft_vector		*as_vector;
-	char			*as_str;
-	char			as_char;
-	bool			as_bool;
-	int				as_int;
-	unsigned int	as_uint;
-	size_t			as_size;
-	float			as_float;
-	double			as_double;
+	void								*as_ptr;
+	t_ft_vector							*as_vector;
+	char								*as_str;
+	char								as_char;
+	bool								as_bool;
+	int									as_int;
+	unsigned int						as_uint;
+	size_t								as_size;
+	double								as_float;
 };
 
 union u_ft_tobject				ft_tobject_empty(void);
@@ -47,6 +46,8 @@ union u_ft_tobject				ft_tobject_str(char *str);
 
 union u_ft_tobject				ft_tobject_vector(t_ft_vector *vector);
 
+union u_ft_tobject				ft_tobject_float(float f);
+
 union u_ft_tobject				ft_tobject_char(char c);
 
 union u_ft_tobject				ft_tobject_bool(bool b);
@@ -56,10 +57,6 @@ union u_ft_tobject				ft_tobject_int(int i);
 union u_ft_tobject				ft_tobject_uint(unsigned int uint);
 
 union u_ft_tobject				ft_tobject_size(size_t size);
-
-union u_ft_tobject				ft_tobject_float(float f);
-
-union u_ft_tobject				ft_tobject_double(double d);
 
 /////////////////////////////////////////
 ////////////   parser atom   ////////////
@@ -195,6 +192,14 @@ struct s_ft_parser_entity *entity, struct s_ft_parser_atom input);
 ////////////   builtin parsers   ////////////
 /////////////////////////////////////////////
 
+struct s_ft_parser_float_payload
+{
+	double	maximum;
+	double	minumum;
+	double	number;
+	double	power;
+};
+
 t_ft_parser_atom_char			ft_parser_char(\
 t_ft_parser_atom_char input, union u_ft_tobject set);
 
@@ -225,7 +230,7 @@ struct s_ft_parser_atom input, union u_ft_tobject option);
 struct s_ft_parser_atom			ft_parser_digit_float(\
 struct s_ft_parser_atom input, union u_ft_tobject is_negative);
 
-struct s_ft_parser_atom			ft_parser_digit_double(\
+struct s_ft_parser_atom			ft_parser_digit_float_decimal(\
 struct s_ft_parser_atom input, union u_ft_tobject is_negative);
 
 struct s_ft_parser_atom			ft_parser_ignore(\

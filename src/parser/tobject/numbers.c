@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 01:41:25 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/04 01:48:20 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/08 23:25:03 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,4 @@ union u_ft_tobject	ft_tobject_size(size_t size)
 union u_ft_tobject	ft_tobject_float(float f)
 {
 	return ((union u_ft_tobject){.as_float = f});
-}
-
-union u_ft_tobject	ft_tobject_double(double d)
-{
-	return ((union u_ft_tobject){.as_double = d});
 }
