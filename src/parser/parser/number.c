@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 14:09:40 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/08 22:20:25 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/11 22:15:30 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ union u_ft_tobject option)
 	input.is_valid = true;
 	return (ft_parser_accumulate(\
 		ft_parser_entity(&ft_parser_digit_int, \
-			ft_tobject_bool(is_negative)), input));
+			ft_tobject_bool(is_negative)), input, ft_tobject_empty()));
 }
 
 struct s_ft_parser_atom	ft_parser_uint(struct s_ft_parser_atom input, \
@@ -34,7 +34,8 @@ union u_ft_tobject option)
 	input = ft_parser_atom(ft_tobject_int(0), input.string);
 	input.is_valid = true;
 	return (ft_parser_accumulate(\
-		ft_parser_entity(&ft_parser_digit_uint, ft_tobject_empty()), input));
+		ft_parser_entity(&ft_parser_digit_uint, ft_tobject_empty()), input, \
+		ft_tobject_empty()));
 }
 
 struct s_ft_parser_atom	ft_parser_size(struct s_ft_parser_atom input, \
@@ -44,5 +45,6 @@ union u_ft_tobject option)
 	input = ft_parser_atom(ft_tobject_int(0), input.string);
 	input.is_valid = true;
 	return (ft_parser_accumulate(\
-		ft_parser_entity(&ft_parser_digit_size, ft_tobject_empty()), input));
+		ft_parser_entity(&ft_parser_digit_size, ft_tobject_empty()), input, \
+		ft_tobject_empty()));
 }

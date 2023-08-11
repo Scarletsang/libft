@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 00:55:28 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/08 23:24:19 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/11 22:00:05 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,11 +103,12 @@ typedef struct s_ft_parser_atom	(*t_ft_parser)\
 	(struct s_ft_parser_atom input, union u_ft_tobject option);
 
 typedef struct s_ft_parser_atom	(*t_ft_parser_decorator)\
-	(struct s_ft_parser_entity entity, struct s_ft_parser_atom input);
+	(struct s_ft_parser_entity entity, struct s_ft_parser_atom input, \
+	union u_ft_tobject option);
 
 typedef struct s_ft_parser_atom	(*t_ft_parser_combinator)\
 	(struct s_ft_parser_entity *entities, size_t amount, \
-	struct s_ft_parser_atom input);
+	struct s_ft_parser_atom input, union u_ft_tobject option);
 
 /////////////////////////////////////////////
 ////////////   curried parsers   ////////////
@@ -123,6 +124,7 @@ typedef struct s_ft_parser_decorator_curried
 {
 	t_ft_parser_decorator		decorator;
 	struct s_ft_parser_entity	*entity;
+	union u_ft_tobject			option;
 }				t_ft_parser_decorator_curried;
 
 typedef struct s_ft_parser_combinator_curried
@@ -130,17 +132,19 @@ typedef struct s_ft_parser_combinator_curried
 	t_ft_parser_combinator		combinator;
 	struct s_ft_parser_entity	*entities;
 	size_t						amount;
+	union u_ft_tobject			option;
 }				t_ft_parser_combinator_curried;
 
 t_ft_parser_curried				ft_parser_curry(\
 t_ft_parser parser, union u_ft_tobject option);
 
 t_ft_parser_decorator_curried	ft_decorator_curry(\
-t_ft_parser_decorator decorator, struct s_ft_parser_entity *entity);
+t_ft_parser_decorator decorator, struct s_ft_parser_entity *entity, \
+union u_ft_tobject option);
 
 t_ft_parser_combinator_curried	ft_combinator_curry(\
 t_ft_parser_combinator combinator, struct s_ft_parser_entity *entities, \
-size_t amount);
+size_t amount, union u_ft_tobject option);
 
 struct s_ft_parser_atom			ft_parser_evaluate(\
 t_ft_parser_curried parser, struct s_ft_parser_atom input);
@@ -179,11 +183,12 @@ struct s_ft_parser_entity		ft_parser_entity(t_ft_parser parser, \
 union u_ft_tobject option);
 
 struct s_ft_parser_entity		ft_decorator_entity(\
-t_ft_parser_decorator decorator, struct s_ft_parser_entity *entity);
+t_ft_parser_decorator decorator, struct s_ft_parser_entity *entity, \
+union u_ft_tobject option);
 
 struct s_ft_parser_entity		ft_combinator_entity(\
 t_ft_parser_combinator combinator, struct s_ft_parser_entity *entities, \
-size_t amount);
+size_t amount, union u_ft_tobject option);
 
 struct s_ft_parser_atom			ft_parser_entity_evaluate(\
 struct s_ft_parser_entity *entity, struct s_ft_parser_atom input);
@@ -250,13 +255,16 @@ struct s_ft_parser_atom input, union u_ft_tobject set);
 ////////////////////////////////////////////////
 
 struct s_ft_parser_atom			ft_parser_optional(\
-struct s_ft_parser_entity entity, struct s_ft_parser_atom input);
+struct s_ft_parser_entity entity, struct s_ft_parser_atom input, \
+union u_ft_tobject option);
 
 struct s_ft_parser_atom			ft_parser_accumulate(\
-struct s_ft_parser_entity entity, struct s_ft_parser_atom input);
+struct s_ft_parser_entity entity, struct s_ft_parser_atom input, \
+union u_ft_tobject option);
 
 struct s_ft_parser_atom			ft_parser_some(\
-struct s_ft_parser_entity entity, struct s_ft_parser_atom input);
+struct s_ft_parser_entity entity, struct s_ft_parser_atom input, \
+union u_ft_tobject option);
 
 ////////////////////////////////////////////////
 ////////////   builtin combinators   ///////////
@@ -264,10 +272,10 @@ struct s_ft_parser_entity entity, struct s_ft_parser_atom input);
 
 struct s_ft_parser_atom			ft_parser_and(\
 struct s_ft_parser_entity *entities, size_t amount, \
-struct s_ft_parser_atom input);
+struct s_ft_parser_atom input, union u_ft_tobject option);
 
 struct s_ft_parser_atom			ft_parser_or(\
 struct s_ft_parser_entity *entities, size_t amount, \
-struct s_ft_parser_atom input);
+struct s_ft_parser_atom input, union u_ft_tobject option);
 
 #endif

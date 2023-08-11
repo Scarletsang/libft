@@ -6,13 +6,14 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 14:31:50 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/05 14:31:39 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/10 16:20:00 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/parser.h"
 #include "LIBFT/ctype.h"
 #include <limits.h>
+#include <stdint.h>
 
 struct s_ft_parser_atom	ft_parser_digit_int(struct s_ft_parser_atom input, \
 union u_ft_tobject is_negative)
