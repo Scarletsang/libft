@@ -21,7 +21,7 @@ INCLUDE_DIR= \
 # To add souce files, create a varaible for each folder, and then
 # contatenate them in the SRC variable like this:
 
-TEST_SRC:= $(shell cd tests && echo **/*.cpp)
+TEST_SRC:= $(shell cd tests && echo **/*.cpp) fsanitize.cpp
 
 SRC:= $(TEST_SRC)
 

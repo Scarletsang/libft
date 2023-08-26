@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 23:22:24 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/04 14:51:09 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/26 14:38:39 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,34 +22,34 @@ struct s_ft_parser_atom parse_expr(struct s_ft_parser_atom input, \
 union u_ft_tobject option)
 {
 	(void) option;
-  return (ft_parser_or((struct s_ft_parser_entity[2]){
+  return (ft_combinator_or((struct s_ft_parser_entity[2]){
       ft_parser_entity(parse_scalar_sentence, ft_tobject_empty()),
       ft_parser_entity(parse_term, ft_tobject_empty())
-    }, 2, input));
+    }, 2, input, ft_tobject_empty()));
 }
 
 struct s_ft_parser_atom parse_term(struct s_ft_parser_atom input, \
 union u_ft_tobject option)
 {
   (void) option;
-  return (ft_parser_or((struct s_ft_parser_entity[2]){
+  return (ft_combinator_or((struct s_ft_parser_entity[2]){
       ft_parser_entity(parse_vector_sentence, ft_tobject_empty()),
       ft_parser_entity(parse_factor, ft_tobject_empty())
-    }, 2, input));
+    }, 2, input, ft_tobject_empty()));
 }
 
 struct s_ft_parser_atom parse_factor(struct s_ft_parser_atom input, \
 union u_ft_tobject option)
 {
   (void) option;
-  return (ft_parser_or((struct s_ft_parser_entity[2]){
-      ft_combinator_entity(ft_parser_and, (struct s_ft_parser_entity[3]) {
+  return (ft_combinator_or((struct s_ft_parser_entity[2]){
+      ft_combinator_entity(ft_combinator_and, (struct s_ft_parser_entity[3]) {
         ft_parser_entity(ft_parser_ignore, ft_tobject_str((char *) "(")),
         ft_parser_entity(parse_expr, ft_tobject_empty()),
         ft_parser_entity(ft_parser_ignore, ft_tobject_str((char *) ")"))
-      }, 3),
+      }, 3, ft_tobject_empty()),
       ft_parser_entity(ft_parser_int, ft_tobject_empty())
-    }, 2, input));
+    }, 2, input, ft_tobject_empty()));
 }
 
 struct s_ft_parser_atom parse_scalar_sentence(struct s_ft_parser_atom input, \
