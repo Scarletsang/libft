@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 02:26:46 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/26 15:23:30 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/26 18:31:09 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ union u_ft_tobject string)
 	result = input;
 	while (string.as_str[i])
 	{
-		c = ft_parser_peek(input.string, 0);
+		c = ft_parser_peek(result.string, 0);
 		if (*c != string.as_str[i])
 			return (ft_parser_atom_validity_set(input, false));
-		result.string = ft_parser_advance(input.string, 1);
+		result.string = ft_parser_advance(result.string, 1);
 		i++;
 	}
 	return (result);
