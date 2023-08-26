@@ -114,6 +114,7 @@ PARSER_SRC:= \
 	parser/curry/curry.c \
 	parser/curry/evaluate.c \
 	parser/entity.c \
+	parser/struct.c \
 	parser/utils.c \
 	parser/decorator.c \
 	parser/combinator.c \

@@ -270,28 +270,53 @@ struct s_ft_parser_atom input, union u_ft_tobject set);
 ////////////   builtin decorators   ////////////
 ////////////////////////////////////////////////
 
-struct s_ft_parser_atom			ft_parser_optional(\
+struct s_ft_parser_atom			ft_decorator_optional(\
 struct s_ft_parser_entity entity, struct s_ft_parser_atom input, \
 union u_ft_tobject option);
 
-struct s_ft_parser_atom			ft_parser_accumulate(\
+struct s_ft_parser_atom			ft_decorator_accumulate(\
 struct s_ft_parser_entity entity, struct s_ft_parser_atom input, \
 union u_ft_tobject option);
 
-struct s_ft_parser_atom			ft_parser_some(\
+struct s_ft_parser_atom			ft_decorator_some(\
 struct s_ft_parser_entity entity, struct s_ft_parser_atom input, \
 union u_ft_tobject option);
+
+struct s_ft_parser_atom			ft_decorator_value_as_ptr(\
+struct s_ft_parser_entity entity, struct s_ft_parser_atom input, \
+union u_ft_tobject type);
 
 ////////////////////////////////////////////////
 ////////////   builtin combinators   ///////////
 ////////////////////////////////////////////////
 
-struct s_ft_parser_atom			ft_parser_and(\
+struct s_ft_parser_atom			ft_combinator_and(\
 struct s_ft_parser_entity *entities, size_t amount, \
 struct s_ft_parser_atom input, union u_ft_tobject option);
 
-struct s_ft_parser_atom			ft_parser_or(\
+struct s_ft_parser_atom			ft_combinator_or(\
 struct s_ft_parser_entity *entities, size_t amount, \
 struct s_ft_parser_atom input, union u_ft_tobject option);
+
+//////////////////////////////////////////////////
+////////////   parser struct filler   ////////////
+//////////////////////////////////////////////////
+
+struct s_ft_parser_struct
+{
+	t_ft_slice		fields;
+	size_t			current;
+};
+
+struct s_ft_parser_struct		ft_parser_struct_init(void **fields, \
+size_t amount);
+
+void							*ft_parser_struct_current(\
+struct s_ft_parser_struct *parser);
+
+struct s_ft_parser_atom			ft_decorator_struct_field(\
+struct s_ft_parser_entity entity, struct s_ft_parser_atom input, \
+union u_ft_tobject option);
+
 
 #endif
