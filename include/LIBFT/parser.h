@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 00:55:28 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/26 14:53:54 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/26 15:22:50 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -317,6 +317,5 @@ struct s_ft_parser_struct *parser);
 struct s_ft_parser_atom			ft_decorator_struct_field(\
 struct s_ft_parser_entity entity, struct s_ft_parser_atom input, \
 union u_ft_tobject option);
-
 
 #endif

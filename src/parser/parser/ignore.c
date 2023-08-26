@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 02:26:46 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/26 14:38:02 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/26 15:23:30 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ union u_ft_tobject set)
 struct s_ft_parser_atom	ft_parser_ignore_string(struct s_ft_parser_atom input, \
 union u_ft_tobject string)
 {
-	struct s_ft_parser_atom result;
+	struct s_ft_parser_atom	result;
 	char					*c;
 	size_t					i;
 
@@ -57,9 +57,9 @@ union u_ft_tobject string)
 	return (result);
 }
 
-struct s_ft_parser_atom	ft_parser_ignore_multiple(struct s_ft_parser_atom input, \
-union u_ft_tobject set)
+struct s_ft_parser_atom	ft_parser_ignore_multiple(\
+struct s_ft_parser_atom input, union u_ft_tobject set)
 {
-	return (ft_decorator_accumulate(ft_parser_entity(&ft_parser_ignore, set), input, \
-		ft_tobject_empty()));
+	return (ft_decorator_accumulate(\
+		ft_parser_entity(&ft_parser_ignore, set), input, ft_tobject_empty()));
 }
