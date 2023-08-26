@@ -6,14 +6,14 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 12:48:21 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/11 22:08:51 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/26 14:54:19 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/parser.h"
 #include "LIBFT/vector.h"
 
-struct s_ft_parser_atom	ft_parser_optional(struct s_ft_parser_entity entity, \
+struct s_ft_parser_atom	ft_decorator_optional(struct s_ft_parser_entity entity, \
 struct s_ft_parser_atom input, union u_ft_tobject option)
 {
 	struct s_ft_parser_atom	result;
@@ -26,7 +26,7 @@ struct s_ft_parser_atom input, union u_ft_tobject option)
 		return (input);
 }
 
-struct s_ft_parser_atom	ft_parser_accumulate(\
+struct s_ft_parser_atom	ft_decorator_accumulate(\
 struct s_ft_parser_entity entity, struct s_ft_parser_atom input, \
 union u_ft_tobject option)
 {
@@ -57,7 +57,7 @@ struct s_ft_parser_entity *entity, struct s_ft_parser_atom input)
 			input.string)));
 }
 
-struct s_ft_parser_atom	ft_parser_some(\
+struct s_ft_parser_atom	ft_decorator_some(\
 struct s_ft_parser_entity entity, struct s_ft_parser_atom input, \
 union u_ft_tobject option)
 {
@@ -84,4 +84,28 @@ union u_ft_tobject option)
 	}
 	input.string = result.string;
 	return (input);
+}
+
+struct s_ft_parser_atom	ft_decorator_value_as_ptr(\
+struct s_ft_parser_entity entity, \
+struct s_ft_parser_atom input, union u_ft_tobject type)
+{
+	struct s_ft_parser_atom	result;
+
+	result = ft_parser_entity_evaluate(&entity, input);
+	if (!result.is_valid)
+		return (ft_parser_atom_validity_set(input, false));
+	else if (type.as_int == FT_TOBJECT_BOOL)
+		*(bool *) input.payload.as_ptr = result.payload.as_bool;
+	else if (type.as_int == FT_TOBJECT_CHAR)
+		*(char *) input.payload.as_ptr = result.payload.as_char;
+	else if (type.as_int == FT_TOBJECT_INT)
+		*(int *) input.payload.as_ptr = result.payload.as_int;
+	else if (type.as_int == FT_TOBJECT_UINT)
+		*(unsigned int *) input.payload.as_ptr = result.payload.as_uint;
+	else if (type.as_int == FT_TOBJECT_SIZE)
+		*(size_t *) input.payload.as_ptr = result.payload.as_size;
+	else if (type.as_int == FT_TOBJECT_FLOAT)
+		*(double *) input.payload.as_ptr = result.payload.as_float;
+	return (ft_parser_atom(input.payload, result.string));
 }

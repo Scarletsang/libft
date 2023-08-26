@@ -6,12 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 14:31:42 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/09 01:03:28 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/26 10:34:55 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/parser.h"
 #include "LIBFT/ctype.h"
+#include <stdio.h>
 
 struct s_ft_parser_atom	ft_parser_digit_float_decimal(\
 struct s_ft_parser_atom input, union u_ft_tobject is_negative)
@@ -37,6 +38,7 @@ struct s_ft_parser_atom input, union u_ft_tobject is_negative)
 			return (ft_parser_atom_empty(input.string, false));
 		payload->number += ((*c - '0') * payload->power);
 	}
+	payload->power /= 10.f;
 	return (ft_parser_atom(input.payload, ft_parser_advance(input.string, 1)));
 }
 
@@ -52,13 +54,13 @@ struct s_ft_parser_atom input, union u_ft_tobject is_negative)
 		return (ft_parser_atom_empty(input.string, false));
 	else if (is_negative.as_bool)
 	{
-		if (payload->number < (payload->minumum + (*c - '0')) / 10.f)
+		if (payload->number < ((payload->minumum + (*c - '0')) / 10.f))
 			return (ft_parser_atom_empty(input.string, false));
 		payload->number = payload->number * 10.f - (*c - '0');
 	}
 	else
 	{
-		if (payload->number > (payload->maximum - (*c - '0')) / 10.f)
+		if (payload->number > ((payload->maximum - (*c - '0')) / 10.f))
 			return (ft_parser_atom_empty(input.string, false));
 		payload->number = payload->number * 10.f + (*c - '0');
 	}

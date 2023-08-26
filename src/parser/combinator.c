@@ -6,13 +6,13 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 12:47:54 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/11 22:09:28 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/26 14:38:39 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LIBFT/parser.h"
 
-struct s_ft_parser_atom	ft_parser_and(struct s_ft_parser_entity *entities, \
+struct s_ft_parser_atom	ft_combinator_and(struct s_ft_parser_entity *entities, \
 size_t amount, struct s_ft_parser_atom input, union u_ft_tobject option)
 {
 	struct s_ft_parser_atom	result;
@@ -31,7 +31,7 @@ size_t amount, struct s_ft_parser_atom input, union u_ft_tobject option)
 	return (ft_parser_atom_validity_set(result, true));
 }
 
-struct s_ft_parser_atom	ft_parser_or(struct s_ft_parser_entity *entities, \
+struct s_ft_parser_atom	ft_combinator_or(struct s_ft_parser_entity *entities, \
 size_t amount, struct s_ft_parser_atom input, union u_ft_tobject option)
 {
 	struct s_ft_parser_atom	result;

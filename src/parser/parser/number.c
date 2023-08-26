@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 14:09:40 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/11 22:15:30 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/26 14:38:02 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ union u_ft_tobject option)
 	is_negative = ft_parser_atom_is_ok(input);
 	input = ft_parser_atom_payload_set(input, ft_tobject_int(0));
 	input.is_valid = true;
-	return (ft_parser_accumulate(\
+	return (ft_decorator_accumulate(\
 		ft_parser_entity(&ft_parser_digit_int, \
 			ft_tobject_bool(is_negative)), input, ft_tobject_empty()));
 }
@@ -33,7 +33,7 @@ union u_ft_tobject option)
 	(void) option;
 	input = ft_parser_atom(ft_tobject_int(0), input.string);
 	input.is_valid = true;
-	return (ft_parser_accumulate(\
+	return (ft_decorator_accumulate(\
 		ft_parser_entity(&ft_parser_digit_uint, ft_tobject_empty()), input, \
 		ft_tobject_empty()));
 }
@@ -44,7 +44,7 @@ union u_ft_tobject option)
 	(void) option;
 	input = ft_parser_atom(ft_tobject_int(0), input.string);
 	input.is_valid = true;
-	return (ft_parser_accumulate(\
+	return (ft_decorator_accumulate(\
 		ft_parser_entity(&ft_parser_digit_size, ft_tobject_empty()), input, \
 		ft_tobject_empty()));
 }

@@ -115,13 +115,14 @@ PARSER_SRC:= \
 	parser/curry/evaluate.c \
 	parser/entity.c \
 	parser/utils.c \
+	parser/decorator.c \
+	parser/combinator.c \
 	parser/parser/parser.c \
+	parser/parser/ignore.c \
 	parser/parser/digit.c \
 	parser/parser/number.c \
 	parser/parser/float/digit.c \
-	parser/parser/float/float.c \
-	parser/decorator.c \
-	parser/combinator.c
+	parser/parser/float/float.c
 IOSTREAM_SRC:=\
 	$(STRINGBUILDER_SRC) \
 	iostream/iostream.c \

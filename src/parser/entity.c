@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 02:25:29 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/11 22:06:20 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/26 14:37:32 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ struct s_ft_parser_entity *entity, struct s_ft_parser_atom input)
 	if (entity->type == FT_PARSER)
 		return (ft_parser_evaluate(entity->construct.as_parser, input));
 	else if (entity->type == FT_PARSER_DECORATOR)
-		return (ft_parser_decorator_evaluate(\
+		return (ft_decorator_evaluate(\
 			entity->construct.as_decorator, input));
 	else if (entity->type == FT_PARSER_COMBINATOR)
-		return (ft_parser_combinator_evaluate(\
+		return (ft_combinator_evaluate(\
 			entity->construct.as_combinator, input));
 	else
 		return (ft_parser_atom_empty(input.string, false));

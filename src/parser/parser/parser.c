@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 00:55:11 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/04 14:06:46 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/26 02:27:02 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,30 +22,6 @@ union u_ft_tobject set)
 	if (!c || (set.as_str && !ft_strchr(set.as_str, *c)))
 		return (ft_parser_atom_empty(input.string, false));
 	input.payload.as_char = *c;
-	return (ft_parser_atom(input.payload, \
-		ft_parser_advance(input.string, 1)));
-}
-
-struct s_ft_parser_atom	ft_parser_ignore(struct s_ft_parser_atom input, \
-union u_ft_tobject set)
-{
-	char	*c;
-
-	c = ft_parser_peek(input.string, 0);
-	if (!c || (set.as_str && !ft_strchr(set.as_str, *c)))
-		return (ft_parser_atom_validity_set(input, false));
-	return (ft_parser_atom(input.payload, \
-		ft_parser_advance(input.string, 1)));
-}
-
-struct s_ft_parser_atom	ft_parser_ignore_not(struct s_ft_parser_atom input, \
-union u_ft_tobject set)
-{
-	char	*c;
-
-	c = ft_parser_peek(input.string, 0);
-	if (!c || (set.as_str && ft_strchr(set.as_str, *c)))
-		return (ft_parser_atom_validity_set(input, false));
 	return (ft_parser_atom(input.payload, \
 		ft_parser_advance(input.string, 1)));
 }

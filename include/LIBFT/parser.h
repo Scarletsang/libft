@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 00:55:28 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/11 22:00:05 by htsang           ###   ########.fr       */
+/*   Updated: 2023/08/26 14:53:54 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,19 @@
 //////////////////////////////////////////
 ////////////   typed object   ////////////
 //////////////////////////////////////////
+
+enum e_ft_tobject_type
+{
+	FT_TOBJECT_PTR,
+	FT_TOBJECT_STR,
+	FT_TOBJECT_VECTOR,
+	FT_TOBJECT_CHAR,
+	FT_TOBJECT_BOOL,
+	FT_TOBJECT_INT,
+	FT_TOBJECT_UINT,
+	FT_TOBJECT_SIZE,
+	FT_TOBJECT_FLOAT
+};
 
 /**
  * @brief Typed object
@@ -149,10 +162,10 @@ size_t amount, union u_ft_tobject option);
 struct s_ft_parser_atom			ft_parser_evaluate(\
 t_ft_parser_curried parser, struct s_ft_parser_atom input);
 
-struct s_ft_parser_atom			ft_parser_decorator_evaluate(\
+struct s_ft_parser_atom			ft_decorator_evaluate(\
 t_ft_parser_decorator_curried decorator, struct s_ft_parser_atom input);
 
-struct s_ft_parser_atom			ft_parser_combinator_evaluate(\
+struct s_ft_parser_atom			ft_combinator_evaluate(\
 t_ft_parser_combinator_curried combinator, struct s_ft_parser_atom input);
 
 ///////////////////////////////////////////
@@ -223,9 +236,6 @@ struct s_ft_parser_atom input, union u_ft_tobject option);
 struct s_ft_parser_atom			ft_parser_float(\
 struct s_ft_parser_atom input, union u_ft_tobject option);
 
-struct s_ft_parser_atom			ft_parser_double(\
-struct s_ft_parser_atom input, union u_ft_tobject option);
-
 struct s_ft_parser_atom			ft_parser_digit_uint(\
 struct s_ft_parser_atom input, union u_ft_tobject option);
 
@@ -242,6 +252,12 @@ struct s_ft_parser_atom			ft_parser_ignore(\
 struct s_ft_parser_atom input, union u_ft_tobject set);
 
 struct s_ft_parser_atom			ft_parser_ignore_not(\
+struct s_ft_parser_atom input, union u_ft_tobject set);
+
+struct s_ft_parser_atom			ft_parser_ignore_string(\
+struct s_ft_parser_atom input, union u_ft_tobject string);
+
+struct s_ft_parser_atom			ft_parser_ignore_multiple(\
 struct s_ft_parser_atom input, union u_ft_tobject set);
 
 struct s_ft_parser_atom			ft_parser_expect(\
