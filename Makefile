@@ -31,6 +31,8 @@ CORE_SRC:= \
 	core/ctype/ft_isascii.c \
 	core/ctype/ft_isspace.c \
 	core/ctype/ft_isprint.c \
+	core/ctype/ft_isupper.c \
+	core/ctype/ft_islower.c \
 	core/ctype/ft_toupper.c \
 	core/ctype/ft_tolower.c \
 	core/string/ft_bzero.c \
