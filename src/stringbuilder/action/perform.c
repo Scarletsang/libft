@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 18:09:57 by htsang            #+#    #+#             */
-/*   Updated: 2023/07/03 18:15:54 by htsang           ###   ########.fr       */
+/*   Updated: 2023/09/01 17:30:23 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,16 @@ static void	sb_injection_word(t_ft_sb *sb, struct s_ft_sb_action *action)
 
 static int	sb_perform_delete(t_ft_sb *sb, struct s_ft_sb_action *action)
 {
-	size_t	remaining_size;
-
 	if (action->edit_start >= sb->size)
 		return (EXIT_FAILURE);
 	if (action->edit_len == 0)
 		return (EXIT_SUCCESS);
-	remaining_size = sb->size - action->edit_start;
-	if (action->edit_len >= remaining_size)
+	if (action->edit_len >= (sb->size - action->edit_start))
 	{
 		ft_vector_set(sb, action->edit_start, "\0");
 		sb->size = action->edit_start + 1;
 		return (EXIT_SUCCESS);
 	}
-	remaining_size -= action->edit_len;
 	ft_vector_buffer_shift(sb, action->edit_start, \
 		action->edit_start + action->edit_len);
 	sb->size -= action->edit_len;
