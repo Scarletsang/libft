@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 00:55:11 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/26 02:27:02 by htsang           ###   ########.fr       */
+/*   Updated: 2023/09/08 00:34:27 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ union u_ft_tobject set)
 	if (!c || (set.as_str && !ft_strchr(set.as_str, *c)))
 		return (ft_parser_atom_empty(input.string, false));
 	input.payload.as_char = *c;
-	return (ft_parser_atom(input.payload, \
+	return (ft_parser_atom_chain(input, input.payload, \
 		ft_parser_advance(input.string, 1)));
 }
 

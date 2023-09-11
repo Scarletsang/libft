@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 03:24:58 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/26 14:54:48 by htsang           ###   ########.fr       */
+/*   Updated: 2023/09/08 09:18:44 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ union u_ft_tobject option)
 	parser = input.payload.as_ptr;
 	if (parser->current >= parser->fields.size)
 		return (ft_parser_atom_validity_set(input, false));
-	result = ft_parser_entity_evaluate(&entity, ft_parser_atom(\
-		ft_tobject_ptr(ft_parser_struct_current(parser)), input.string));
+	result = ft_parser_entity_evaluate(&entity, ft_parser_atom_payload_set(\
+		input, ft_tobject_ptr(ft_parser_struct_current(parser))));
 	if (!result.is_valid)
 		return (ft_parser_atom_validity_set(input, false));
 	parser->current++;
-	return (ft_parser_atom(input.payload, result.string));
+	return (ft_parser_atom_chain(input, input.payload, result.string));
 }

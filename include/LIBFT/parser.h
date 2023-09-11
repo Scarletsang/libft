@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 00:55:28 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/26 15:22:50 by htsang           ###   ########.fr       */
+/*   Updated: 2023/09/08 00:47:08 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "LIBFT/list.h"
 # include "LIBFT/slice.h"
 # include "LIBFT/vector.h"
+# include "LIBFT/parser/error_trace.h"
 # include <stdbool.h>
 
 //////////////////////////////////////////
@@ -77,9 +78,10 @@ union u_ft_tobject				ft_tobject_size(size_t size);
 
 struct s_ft_parser_atom
 {
-	union u_ft_tobject	payload;
-	bool				is_valid;
-	t_ft_str			string;
+	union u_ft_tobject			payload;
+	bool						is_valid;
+	t_ft_str					string;
+	struct s_ft_error_traces	*error_traces;
 };
 
 typedef struct s_ft_parser_atom	t_ft_parser_atom_char;
@@ -87,8 +89,30 @@ typedef struct s_ft_parser_atom	t_ft_parser_atom_char;
 struct s_ft_parser_atom			ft_parser_atom(\
 union u_ft_tobject payload, t_ft_str input);
 
+struct s_ft_parser_atom			ft_parser_atom_with_trace(\
+union u_ft_tobject payload, t_ft_str input, struct s_ft_error_traces *traces);
+
+int								ft_parser_atom_add_error_trace(\
+struct s_ft_parser_atom entity, int expected_code, int error_code);
+
 struct s_ft_parser_atom			ft_parser_atom_empty(t_ft_str input, \
 bool is_valid);
+
+bool							ft_parser_atom_is_ok(\
+struct s_ft_parser_atom entity);
+
+bool							ft_parser_atom_is_end(\
+struct s_ft_parser_atom entity);
+
+//////////////////////////////////////////////////
+////////////   parser atom chaining   ////////////
+//////////////////////////////////////////////////
+
+struct s_ft_parser_atom			ft_parser_atom_chain(\
+struct s_ft_parser_atom entity, union u_ft_tobject payload, t_ft_str string);
+
+struct s_ft_parser_atom			ft_parser_atom_unchain(\
+struct s_ft_parser_atom entity);
 
 struct s_ft_parser_atom			ft_parser_atom_payload_set(\
 struct s_ft_parser_atom entity, union u_ft_tobject payload);
@@ -96,11 +120,12 @@ struct s_ft_parser_atom entity, union u_ft_tobject payload);
 struct s_ft_parser_atom			ft_parser_atom_validity_set(\
 struct s_ft_parser_atom entity, bool is_valid);
 
-bool							ft_parser_atom_is_ok(\
-struct s_ft_parser_atom entity);
+struct s_ft_parser_atom			ft_parser_atom_string_set(\
+struct s_ft_parser_atom entity, t_ft_str string);
 
-bool							ft_parser_atom_is_end(\
-struct s_ft_parser_atom entity);
+//////////////////////////////////////////////
+////////////   parser utilities   ////////////
+//////////////////////////////////////////////
 
 t_ft_str						ft_parser_advance(t_ft_str input, size_t len);
 

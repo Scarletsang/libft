@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 02:25:29 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/26 14:37:32 by htsang           ###   ########.fr       */
+/*   Updated: 2023/09/08 07:19:01 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,5 @@ struct s_ft_parser_entity *entity, struct s_ft_parser_atom input)
 		return (ft_combinator_evaluate(\
 			entity->construct.as_combinator, input));
 	else
-		return (ft_parser_atom_empty(input.string, false));
+		return (ft_parser_atom_unchain(input));
 }

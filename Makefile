@@ -110,7 +110,11 @@ PARSER_SRC:= \
 	parser/tobject/numbers.c \
 	parser/tobject/pointers.c \
 	parser/atom/atom.c \
+	parser/atom/chain.c \
 	parser/atom/check.c \
+	parser/error_traces/trace.c \
+	parser/error_traces/traces.c \
+	parser/error_traces/printer.c \
 	parser/curry/curry.c \
 	parser/curry/evaluate.c \
 	parser/entity.c \
@@ -118,6 +122,7 @@ PARSER_SRC:= \
 	parser/utils.c \
 	parser/decorator.c \
 	parser/combinator.c \
+	parser/combinator/or.c \
 	parser/parser/parser.c \
 	parser/parser/ignore.c \
 	parser/parser/digit.c \

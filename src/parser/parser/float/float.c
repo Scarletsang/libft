@@ -6,7 +6,7 @@
 /*   By: htsang <htsang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 22:20:17 by htsang            #+#    #+#             */
-/*   Updated: 2023/08/26 14:38:02 by htsang           ###   ########.fr       */
+/*   Updated: 2023/09/11 10:09:03 by htsang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ union u_ft_tobject option)
 		.maximum = DBL_MAX,
 		.minumum = -DBL_MAX,
 		.number = 0.0,
-		.power = 0.1
-	};
-	output = ft_parser_atom(ft_tobject_ptr(&payload), output.string);
+		.power = 0.1};
+	output = ft_parser_atom_chain(output, \
+		ft_tobject_ptr(&payload), output.string);
 	output = ft_decorator_accumulate(ft_parser_entity(\
 		&ft_parser_digit_float, is_negative), output, ft_tobject_empty());
 	if (!output.is_valid)
@@ -40,5 +40,6 @@ union u_ft_tobject option)
 		output = ft_decorator_accumulate(\
 			ft_parser_entity(&ft_parser_digit_float_decimal, is_negative), \
 			output, ft_tobject_empty());
-	return (ft_parser_atom(ft_tobject_float(payload.number), output.string));
+	return (ft_parser_atom_chain(output, \
+		ft_tobject_float(payload.number), output.string));
 }
